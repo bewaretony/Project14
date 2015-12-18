@@ -1,24 +1,12 @@
 
 /**
  * Write a description of class Armor here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author John Shieh, Anthony Luo
  */
 public class Armor extends Equippable
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class Armor
-     */
-    public Armor()
-    {
-        // initialise instance variables
-        x = 0;
-    }
-
+    private String name;
+    private String description;
     /**
      * An example of a method - replace this comment with your own
      * 
