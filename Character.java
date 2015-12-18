@@ -2,7 +2,7 @@
 /**
  * Write a description of class Character here.
  * 
- * @author (your name) 
+ * @author Anthony Luo, John Shieh 
  * @version (a version number or a date)
  */
 public class Character
