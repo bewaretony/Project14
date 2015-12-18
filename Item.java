@@ -5,9 +5,8 @@
  */
 public class Item
 {
-    // instance variables - replace the example below with your own
-    public String name;
-    public String description;
+    String name = "";
+    String description = "";
 
     /**
      * Constructor for objects of class Item
