@@ -2,7 +2,7 @@
 /**
  * Write a description of class Room here.
  * 
- * @author (your name) 
+ * @author Anthony Luo and John Shieh
  * @version (a version number or a date)
  */
 public class Room
