@@ -1,9 +1,7 @@
 
 /**
  * Write a description of class Usable here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author John Shieh, Anthony Luo
  */
 public class Usable extends Item
 {
@@ -15,8 +13,7 @@ public class Usable extends Item
      */
     public Usable()
     {
-        // initialise instance variables
-        x = 0;
+        super(name, description);
     }
 
     /**
