@@ -29,15 +29,16 @@ public class Main
         
     }
     public static void setup() {
-        Room spawn = new Room();
-        Item[] spawnitems = new Item[0];
-        
-        Room clearingspawn = new Room();
-        Room castleentrance = new Room();
-        spawn.setNorth(clearingspawn);
-        clearingspawn.setSouth(spawn);
-        castleentrance.setSouth(clearingspawn);
-        clearingspawn.setNorth(castleentrance);
+        Room spawn = new Room(spawnItems, spawnCharacter, "Spawn point", "Where the player spawns");
+        Item[] spawnItems = new Item[1];
+        spawnItems[1] = new Item("leaflet", "tells the player what to do");
+        Character[] spawnCharacter = new Character[0];
+        Room clearingSpawn = new Room();
+        Room castleEntrance = new Room();
+        spawn.setNorth(clearingSpawn);
+        clearingSpawn.setSouth(spawn);
+        castleEntrance.setSouth(clearingSpawn);
+        clearingSpawn.setNorth(castleEntrance);
         
     }
 }
