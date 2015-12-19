@@ -2,7 +2,7 @@
 /**
  * Write a description of class Main here.
  * 
- * @author (your name) 
+ * @author Anthony Luo and John Shieh
  * @version 6 Marshmallow
  */
 public class Main
