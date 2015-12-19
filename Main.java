@@ -28,4 +28,16 @@ public class Main
     public static int score() {
         
     }
+    public static void setup() {
+        Room spawn = new Room();
+        Item[] spawnitems = new Item[0];
+        
+        Room clearingspawn = new Room();
+        Room castleentrance = new Room();
+        spawn.setNorth(clearingspawn);
+        clearingspawn.setSouth(spawn);
+        castleentrance.setSouth(clearingspawn);
+        clearingspawn.setNorth(castleentrance);
+        
+    }
 }
