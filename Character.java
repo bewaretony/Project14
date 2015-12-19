@@ -1,33 +1,33 @@
 
 /**
  * Write a description of class Character here.
- * 
  * @author Anthony Luo, John Shieh 
- * @version (a version number or a date)
  */
 public class Character
 {
     // instance variables - replace the example below with your own
-    private int x;
+    private String name = "";
+    private String description = "";
+    private Item[] inventory;
 
     /**
      * Constructor for objects of class Character
      */
-    public Character()
-    {
-        // initialise instance variables
-        x = 0;
+    public Character(String name, String description, Item[] inventory){
+        this.name =  name;
+        this.description = description;
+        this.inventory = inventory;
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    public String getDescription(){
+        return this.description;
+    }
+    
+    public String getName(){
+        return this.name;
+    }
+    
+    public String talk(String dialogue){
+        return dialogue;
     }
 }

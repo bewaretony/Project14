@@ -7,5 +7,15 @@
  */
 public class Player
 {
+    public Player(String name, Item[] startingInventory){
+        
+    }
     
+    public String getName(){
+        return this.name;
+    }
+    
+    public String getDescription(){
+        return this.description;
+    }
 }
