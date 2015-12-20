@@ -29,11 +29,15 @@ public class Main
         
     }
     public static void setup() {
-        Room spawn = new Room(spawnItems, spawnCharacter, "Spawn point", "Where the player spawns");
         Item[] spawnItems = new Item[1];
-        spawnItems[1] = new Item("leaflet", "tells the player what to do");
         Character[] spawnCharacter = new Character[0];
-        Room clearingSpawn = new Room();
+        spawnItems[0] = new Item("book", "");
+        Room spawn = new Room(spawnItems, spawnCharacter, "Spawn point", "You spawn in forest. Ahead of you there is a clearing, and in the distance you can see a ruined castle. You see a tattered book lying along the road");
+        Item[] clearingItems = new Item[0];
+        Character[] cspawnItems = new Character[0];
+        Room clearingSpawn = new Room(clearingItems, cspawnItems, "Clearing", "You are in a clearing in the middle of a gorge. You see cave to your right");
+        Item[2] ecastleItems = new Item[2];
+        ecastleItems[0]= new Item("book"
         Room castleEntrance = new Room();
         spawn.setNorth(clearingSpawn);
         clearingSpawn.setSouth(spawn);
