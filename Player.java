@@ -11,8 +11,8 @@ public class Player extends Character
     private String name;
     private String description;
     
-    public Player(String name, Item[] startingInventory, String description){
-        
+    public Player(String name, String description, Item[] startingInventory){
+        super(name, description, startingInventory);
     }
     
     public String getName(){
