@@ -1,4 +1,5 @@
-
+import java.util.Scanner;
+import java.io.*;
 /**
  * Write a description of class Main here.
  * 
@@ -7,25 +8,26 @@
  */
 public class Main
 {
-    // instance variables - replace the example below with your own
-    
+    static int score = 0;
     public static void main(String[] args) {
-        
+        setup();
+        Scanner kbReader = new Scanner(System.in);
+        String input = kbReader.nextLine().toLowerCase();
+        while(input != "exit"){
+            readCommand(input);
+            input = kbReader.nextLine().toLowerCase();
+        }
     }
     public static void addScore(int s) {
-        
-        
+        score += s;
     }
     public static void readCommand(String command) {
-        
+        String[] cmd = command.split(" ");
     }
     public static Room currentRoom() {
         
     }
     public static Player location() {
-        
-    }
-    public static int score() {
         
     }
     public static void setup() {
@@ -39,7 +41,7 @@ public class Main
         Character[] cspawnItems = new Character[0];
         Room clearingSpawn = new Room(clearingItems, cspawnItems, "Clearing", "You are in a clearing in the middle of a gorge. You see cave to your right");
        //cave room 
-        Item[2] caveItems = new Item[2];
+        Item[] caveItems = new Item[2];
         caveItems[0]= new Item("key", "This is the key to the castle");
         caveItems[1]= new Item("stones", "some random stones");
         Character[] caveCharacters = new Character[0];
