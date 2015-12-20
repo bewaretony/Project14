@@ -1,4 +1,4 @@
-
+    
 /**
  * Write a description of class Usable here.
  * @author John Shieh, Anthony Luo
@@ -19,5 +19,12 @@ public class Usable extends Item
     
     public String getName(){
         return name;
+    }
+    public void use() {
+        
+    }
+    
+    public void use(Character target) {
+        
     }
 }
