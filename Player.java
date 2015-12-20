@@ -1,4 +1,3 @@
-
 /**
  * Write a description of class Player here.
  * 
@@ -7,7 +6,10 @@
  */
 public class Player
 {
-        public Player(String name, Item[] startingInventory){
+    private Equippable[] equipped;
+    private Item[] inventory;
+    
+    public Player(String name, Item[] startingInventory){
         
     }
     
@@ -17,5 +19,12 @@ public class Player
     
     public String getDescription(){
         return this.description;
+    }
+    
+    public void attack(Character target){
+        
+    }
+    
+    public void equip(Equippable equipment){
     }
 }
