@@ -4,12 +4,14 @@
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Player
+public class Player extends Character
 {
     private Equippable[] equipped;
     private Item[] inventory;
+    private String name;
+    private String description;
     
-    public Player(String name, Item[] startingInventory){
+    public Player(String name, Item[] startingInventory, String description){
         
     }
     
