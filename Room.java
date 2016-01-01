@@ -1,7 +1,6 @@
 
 /**
  * Write a description of class Room here.
- * 
  * @author Anthony Luo and John Shieh
  * @version (a version number or a date)
  */
@@ -11,10 +10,12 @@ public class Room
     private String n;
     private Item[] stuff;
     private Character[] people;
-    private Room North;
-    private Room South;
-    private Room West;
-    private Room East;
+    private Room north;
+    private Room south;
+    private Room west;
+    private Room east;
+    private Room up;
+    private Room down;
     
     public Room(Item[] s, Character[] p, String n, String d) {
         this.d = d;
@@ -24,41 +25,53 @@ public class Room
         
     }
     
-    public Room(){
-        
-    }
     public String getDescription() {
         return d;
     }
-    
+    public String getName() {
+        return n;
+    }
     public Room setNorth(Room x) {
-        this.North = x;
-        return North;
+        this.north = x;
+        return north;
     }
     public Room setWest(Room x) {
-        this.West = x;
-        return West;
+        this.west = x;
+        return west;
     }
     public Room setEast(Room x) {
-        this.East = x;
-        return East;
+        this.east = x;
+        return east;
     }
     public Room setSouth(Room x) {
-        this.South = x;
-        return South;
+        this.south = x;
+        return south;
     }
+    public Room setUp(Room x){
+        this.up = x;
+        return up;
+    }
+    public Room setDown(Room x){
+        this.down = x;
+        return down;
+    }    
     public Room goNorth() {
-        return North;
+        return north;
     }
     public Room goSouth() {
-        return South;
+        return south;
     }
     public Room goWest() {
-        return West;
+        return west;
     }
     public Room goEast() {
-        return East;
+        return east;
     }
-    
+    public Room goUp(){
+        return up;
+    }
+    public Room goDown(){
+        return down;
+    }
     
     }

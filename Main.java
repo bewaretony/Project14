@@ -8,8 +8,8 @@ import java.io.*;
 public class Main
 {
     static int score = 0;
+    static Room currentRoom;
     public static void main(String[] args) {
-        static Room currentRoom;
         setup();
         Scanner kbReader = new Scanner(System.in);
         String input = kbReader.nextLine().toLowerCase();
@@ -20,9 +20,11 @@ public class Main
         }
         System.out.println("Bye!");
     }
+
     public static void addScore(int s) {
         score += s;
     }
+
     public static void readCommand(String command) {
         String[] cmd = command.split(" ");
         cmd[0] = cmd[0].toLowerCase();
@@ -46,61 +48,76 @@ public class Main
             System.out.println("add something here for examine.......");
             return;
         }        
-        System.out.println("Blizzard servers have crashed!(I don't know what that means)");
+        if (cmd[0].compareTo("north") == 0){
+            currentRoom = currentRoom.goNorth();
+            System.out.println(currentRoom.getDescription());
+            return;
+        }    
+        if (cmd[0].compareTo("south") == 0){
+            currentRoom = currentRoom.goSouth();
+            System.out.println(currentRoom.getDescription());            
+            return;
+        }     
+        if (cmd[0].compareTo("east") == 0){
+            currentRoom = currentRoom.goEast();
+            System.out.println(currentRoom.getDescription());            
+            return;
+        }        
+        if (cmd[0].compareTo("west") == 0){
+            currentRoom = currentRoom.goWest();
+            System.out.println(currentRoom.getDescription());            
+            return;
+        }                 
+        System.out.println("Blizzard servers have crashed!(I don't know what the command means.)");
         return;
     }
-    /*
-    public static Room currentRoom() {
-        return new Room();
-    }
-    */
+
     public static void setup() {
-       //spawn
-       System.out.println("You are in a void, press any key to enter the game");
+        //spawn
         Item[] spawnItems = new Item[1];
         Character[] spawnCharacter = new Character[0];
         spawnItems[0] = new Item("book", "Welcome! My name is the Innkeeper and I am here to guide you.");
-        Room spawn = new Room(spawnItems, spawnCharacter, "Spawn point", "You spawn in forest. Ahead of you there is a clearing, and in the distance you can see a ruined castle. You see a tattered book lying along the road");
+        Room spawn = new Room(spawnItems, spawnCharacter, "Spawn point", "You spawn in a forest. Ahead of you there is a clearing, and in the distance you can see a ruined castle. You see a tattered book lying along the road.");
         //clearing next to spawn
         Item[] clearingItems = new Item[0];
         Character[] cspawnItems = new Character[0];
-        Room clearingSpawn = new Room(clearingItems, cspawnItems, "Clearing", "You are in a clearing in the middle of a gorge. You see cave to your right");
-       //cave room 
+        Room clearingSpawn = new Room(clearingItems, cspawnItems, "Clearing", "You are in a clearing in the middle of a gorge. You see a cave to your right.");
+        //cave room 
         Item[] caveItems = new Item[2];
-        caveItems[0]= new Item("key", "This is the key to the castle");
-        caveItems[1]= new Item("stones", "some random stones");
+        caveItems[0]= new Item("key", "This is the key to the castle.");
+        caveItems[1]= new Item("stones", "Some random stones.");
         Character[] caveCharacters = new Character[0];
-        Room cave = new Room(caveItems, caveCharacters, "Cave in the Gorge", "You enter a dark cave. You see a pile of stones on the left and a shiny object on the right");
+        Room cave = new Room(caveItems, caveCharacters, "Cave in the Gorge", "You enter a dark cave. You see a pile of stones on the left and a shiny object on the right.");
         //castle entrance
         Item[] castleEntranceItems = new Item[0];
         Character[] castleCharacters = new Character[1];
-        Room castleEntrance = new Room(castleEntranceItems, castleCharacters, "Castle entrance", "You see the entrance to a giant, ruined castle. The door is locked");
+        Room castleEntrance = new Room(castleEntranceItems, castleCharacters, "Castle entrance", "You see the entrance to a giant, ruined castle. The door is locked.");
         //castle first room
         Item[] cfrI = new Item[1]; // do doors count as a character? --- ahhh doors that need keys are characters  -- ma
-        cfrI[0] = new Item("bones", "you take a big bone and put it in your sack");
+        cfrI[0] = new Item("bones", "You take a big bone and put it in your sack");
         Character[] cfrC = new Character[0];  //temp
-        Room castleRoomFront = new Room(cfrI, cfrC, "Castle Hall", "You walk into a large hall. Ahead of you is a large room with 3 doors. You see a pile of bones on your left and a painting on your right");
+        Room castleRoomFront = new Room(cfrI, cfrC, "Castle Hall", "You walk into a large hall. Ahead of you is a large room with 3 doors. You see a pile of bones on your left and a painting on your right.");
         //castle seconds room
         Item[] csrI = new Item[1];
-        csrI[0]= new Item("stones", "you see a pile of stones to your right");
+        csrI[0]= new Item("stones", "Tou see a pile of stones to your right.");
         Character[] csrC = new Character[3];
         Item[] left = new Item[0];
         Item[] front = new Item[0];
         Item[] right = new Item[0];
-        csrC[0] = new Character("left door", "you see a locked door on your left", left);
-        csrC[1] = new Character("right door", "you see a locked door on your right", right);
-        csrC[2] = new Character("door", "you see a locked door infront of you", front);
-        Room castleRoomSecond = new Room(csrI, csrC, "you walk into a large room with three doors on each side. you see a pile of stones on your right");
+        csrC[0] = new Character("left door", "You see a locked door on your left.", left);
+        csrC[1] = new Character("right door", "You see a locked door on your right.", right);
+        csrC[2] = new Character("door", "You see a locked door in front of you.", front);
+        Room castleRoomSecond = new Room(csrI, csrC, "Castle Second Room", "You walk into a large room with three doors on each side. You see a pile of stones on your right.");
+
         
-        
-        
+        System.out.println("You are in a void, press any key to enter the game.");        
+        currentRoom = spawn;
         spawn.setNorth(clearingSpawn);
         clearingSpawn.setSouth(spawn);
         castleEntrance.setSouth(clearingSpawn);
         clearingSpawn.setNorth(castleEntrance);
         clearingSpawn.setEast(cave);
         cave.setSouth(clearingSpawn);
-        
-        
+
     }
 }
