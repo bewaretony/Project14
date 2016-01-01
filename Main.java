@@ -49,25 +49,53 @@ public class Main
             return;
         }        
         if (cmd[0].compareTo("north") == 0){
-            currentRoom = currentRoom.goNorth();
-            System.out.println(currentRoom.getDescription());
+            Room currentRoom1 = currentRoom.goNorth();
+            if (currentRoom != currentRoom1){
+                System.out.println(currentRoom1.getDescription());
+                currentRoom = currentRoom1;
+            }
             return;
         }    
         if (cmd[0].compareTo("south") == 0){
-            currentRoom = currentRoom.goSouth();
-            System.out.println(currentRoom.getDescription());            
+            Room currentRoom1 = currentRoom.goSouth();
+            if (currentRoom != currentRoom1){
+                System.out.println(currentRoom1.getDescription());
+                currentRoom = currentRoom1;
+            }         
             return;
         }     
         if (cmd[0].compareTo("east") == 0){
-            currentRoom = currentRoom.goEast();
-            System.out.println(currentRoom.getDescription());            
+            Room currentRoom1 = currentRoom.goEast();
+            if (currentRoom != currentRoom1){
+                System.out.println(currentRoom1.getDescription());
+                currentRoom = currentRoom1;
+            }          
             return;
         }        
         if (cmd[0].compareTo("west") == 0){
-            currentRoom = currentRoom.goWest();
-            System.out.println(currentRoom.getDescription());            
+            Room currentRoom1 = currentRoom.goWest();
+            if (currentRoom != currentRoom1){
+                System.out.println(currentRoom1.getDescription());
+                currentRoom = currentRoom1;
+            }         
             return;
-        }                 
+        }      
+        if (cmd[0].compareTo("up") == 0){
+            Room currentRoom1 = currentRoom.goUp();
+            if (currentRoom != currentRoom1){
+                System.out.println(currentRoom1.getDescription());
+                currentRoom = currentRoom1;
+            }        
+            return;
+        }
+        if (cmd[0].compareTo("down") == 0){
+            Room currentRoom1 = currentRoom.goDown();
+            if (currentRoom != currentRoom1){
+                System.out.println(currentRoom1.getDescription());
+                currentRoom = currentRoom1;
+            }           
+            return;
+        }    
         System.out.println("Blizzard servers have crashed!(I don't know what the command means.)");
         return;
     }
@@ -110,7 +138,7 @@ public class Main
         Room castleRoomSecond = new Room(csrI, csrC, "Castle Second Room", "You walk into a large room with three doors on each side. You see a pile of stones on your right.");
 
         
-        System.out.println("You are in a void, press any key to enter the game.");        
+        System.out.println("Welcome to Hearthbone. \nYou spawn in a forest. Ahead of you there is a clearing, and in the distance you can see a ruined castle. You see a tattered book lying along the road.");        
         currentRoom = spawn;
         spawn.setNorth(clearingSpawn);
         clearingSpawn.setSouth(spawn);

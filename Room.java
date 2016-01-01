@@ -56,21 +56,45 @@ public class Room
         return down;
     }    
     public Room goNorth() {
+        if(north == null){
+            System.out.println("You cannot go this way.");
+            return this;
+        }        
         return north;
     }
     public Room goSouth() {
+        if(south == null){
+            System.out.println("You cannot go this way.");
+            return this;
+        }            
         return south;
     }
     public Room goWest() {
+        if(west == null){
+            System.out.println("You cannot go this way.");
+            return this;
+        }            
         return west;
     }
     public Room goEast() {
+        if(east == null){
+            System.out.println("You cannot go this way.");
+            return this;
+        }            
         return east;
     }
     public Room goUp(){
+        if(up == null){
+            System.out.println("You cannot go this way.");
+            return this;
+        }           
         return up;
     }
     public Room goDown(){
+        if(down == null){
+            System.out.println("You cannot go this way.");
+            return this;
+        }           
         return down;
     }
     
