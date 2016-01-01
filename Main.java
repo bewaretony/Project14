@@ -2,7 +2,6 @@ import java.util.Scanner;
 import java.io.*;
 /**
  * Write a description of class Main here.
- * 
  * @author Anthony Luo and John Shieh
  * @version 6 Marshmallow
  */
@@ -13,28 +12,50 @@ public class Main
         setup();
         Scanner kbReader = new Scanner(System.in);
         String input = kbReader.nextLine().toLowerCase();
-        while(input != "exit"){
+        while(input.compareTo("exit") != 0){
+            System.out.print(">");
             readCommand(input);
             input = kbReader.nextLine().toLowerCase();
         }
+        System.out.println("Bye!");
     }
     public static void addScore(int s) {
         score += s;
     }
     public static void readCommand(String command) {
         String[] cmd = command.split(" ");
+        cmd[0] = cmd[0].toLowerCase();
+        if (cmd[0].compareTo("attack") == 0){
+            System.out.println("add something here for attack.......");
+            return;
+        }
+        if (cmd[0].compareTo("say") == 0){
+            System.out.println("add something fere for say.......");
+            return;
+        }
+        if (cmd[0].compareTo("examine") == 0){
+            System.out.println("add something here for examine.......");
+            return;
+        }
+        if (cmd[0].compareTo("take") == 0){
+            System.out.println("add something here for examine.......");
+            return;
+        }
+        if (cmd[0].compareTo("use") == 0){
+            System.out.println("add something here for examine.......");
+            return;
+        }        
+        System.out.println("command not recognized!");
+        return;
     }
     public static Room currentRoom() {
-        
-    }
-    public static Player location() {
-        
+        return new Room();
     }
     public static void setup() {
        //spawn
         Item[] spawnItems = new Item[1];
         Character[] spawnCharacter = new Character[0];
-        spawnItems[0] = new Item("book", "Welcome! My name is the Innkeeper and I am here to guide ");
+        spawnItems[0] = new Item("book", "Welcome! My name is the Innkeeper and I am here to guide you.");
         Room spawn = new Room(spawnItems, spawnCharacter, "Spawn point", "You spawn in forest. Ahead of you there is a clearing, and in the distance you can see a ruined castle. You see a tattered book lying along the road");
         //clearing next to spawn
         Item[] clearingItems = new Item[0];
@@ -48,6 +69,9 @@ public class Main
         Room cave = new Room(caveItems, caveCharacters, "Cave in the Gorge", "You enter a dark cave. You see a pile of stones on the left and a shiny object on the right");
         //castle entrance
         
+        // temporary
+        System.out.println("You spawn in forest. Ahead of you there is a clearing, and in the distance you can see a ruined castle. You see a tattered book lying along the road.");
+        System.out.print(">");
         Room castleEntrance = new Room();
         spawn.setNorth(clearingSpawn);
         clearingSpawn.setSouth(spawn);

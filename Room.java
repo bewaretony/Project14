@@ -24,6 +24,9 @@ public class Room
         
     }
     
+    public Room(){
+        
+    }
     public String getDescription() {
         return d;
     }
