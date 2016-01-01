@@ -54,6 +54,7 @@ public class Main
     }
     public static void setup() {
        //spawn
+       System.out.println("You are in a void, press any key to enter the game");
         Item[] spawnItems = new Item[1];
         Character[] spawnCharacter = new Character[0];
         spawnItems[0] = new Item("book", "Welcome! My name is the Innkeeper and I am here to guide you.");
@@ -78,10 +79,16 @@ public class Main
         Character[] cfrC = new Character[0];  //temp
         Room castleRoomFront = new Room(cfrI, cfrC, "Castle Hall", "You walk into a large hall. Ahead of you is a large room with 3 doors. You see a pile of bones on your left and a painting on your right");
         //castle seconds room
-        Item[] csrI = new Item[2];
-        csrI[0]= fkasdfkdsfkl;safk
-        
-        
+        Item[] csrI = new Item[1];
+        csrI[0]= new Item("stones", "you see a pile of stones to your right");
+        Character[] csrC = new Character[3];
+        Item[] left = new Item[0];
+        Item[] front = new Item[0];
+        Item[] right = new Item[0];
+        csrC[0] = new Character("left door", "you see a locked door on your left", left);
+        csrC[1] = new Character("right door", "you see a locked door on your right", right);
+        csrC[2] = new Character("door", "you see a locked door infront of you", front);
+        Room castleRoomSecond = new Room(csrI, csrC, "you walk into a large room with three doors on each side. you see a pile of stones on your right");
         
         
         
