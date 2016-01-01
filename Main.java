@@ -9,6 +9,7 @@ public class Main
 {
     static int score = 0;
     public static void main(String[] args) {
+        static Room currentRoom;
         setup();
         Scanner kbReader = new Scanner(System.in);
         String input = kbReader.nextLine().toLowerCase();
@@ -18,7 +19,6 @@ public class Main
             input = kbReader.nextLine().toLowerCase();
         }
         System.out.println("Bye!");
-        //hi
     }
     public static void addScore(int s) {
         score += s;
@@ -46,12 +46,14 @@ public class Main
             System.out.println("add something here for examine.......");
             return;
         }        
-        System.out.println("command not recognized!");
+        System.out.println("Blizzard servers have crashed!(I don't know what that means)");
         return;
     }
+    /*
     public static Room currentRoom() {
         return new Room();
     }
+    */
     public static void setup() {
        //spawn
        System.out.println("You are in a void, press any key to enter the game");
@@ -89,7 +91,6 @@ public class Main
         csrC[1] = new Character("right door", "you see a locked door on your right", right);
         csrC[2] = new Character("door", "you see a locked door infront of you", front);
         Room castleRoomSecond = new Room(csrI, csrC, "you walk into a large room with three doors on each side. you see a pile of stones on your right");
-        
         
         
         
