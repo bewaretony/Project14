@@ -18,6 +18,7 @@ public class Main
             input = kbReader.nextLine().toLowerCase();
         }
         System.out.println("Bye!");
+        //hi
     }
     public static void addScore(int s) {
         score += s;
