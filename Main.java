@@ -72,8 +72,11 @@ public class Main
         Character[] castleCharacters = new Character[1];
         Room castleEntrance = new Room(castleEntranceItems, castleCharacters, "Castle entrance", "You see the entrance to a giant, ruined castle. The door is locked");
         //castle first room
-        Item[] cfrI = new Item[0]; // do doors count as a character?
-        Character[]
+        Item[] cfrI = new Item[1]; // do doors count as a character?
+        crfI[0] = new Item("bones", "you take a big bone and put it in your sack");
+        Character[] crfC = new Character[0];  //temp
+        Room castleRoomFront = new Room(crfI, crfC, "Castle Hall", "You walk into a large hall. Ahead of you is a large room with 3 doors. You see a pile of bones on your left and a painting on your right");
+        
         
         // temporary
         System.out.println("You spawn in forest. Ahead of you there is a clearing, and in the distance you can see a ruined castle. You see a tattered book lying along the road.");
