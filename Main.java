@@ -68,10 +68,17 @@ public class Main
         Character[] caveCharacters = new Character[0];
         Room cave = new Room(caveItems, caveCharacters, "Cave in the Gorge", "You enter a dark cave. You see a pile of stones on the left and a shiny object on the right");
         //castle entrance
+        Item[] castleEntranceItems = new Item[0];
+        Character[] castleCharacters = new Character[1];
+        Room castleEntrance = new Room(castleEntranceItems, castleCharacters, "Castle entrance", "You see the entrance to a giant, ruined castle. The door is locked");
+        //castle first room
+        Item[] cfrI = new Item[0]; // do doors count as a character?
+        Character[]
         
         // temporary
         System.out.println("You spawn in forest. Ahead of you there is a clearing, and in the distance you can see a ruined castle. You see a tattered book lying along the road.");
-        System.out.print(">");
+        System.out.print(">");     // i dont remeber why this is here
+        
         Room castleEntrance = new Room();
         spawn.setNorth(clearingSpawn);
         clearingSpawn.setSouth(spawn);
