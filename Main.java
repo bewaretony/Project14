@@ -79,7 +79,7 @@ public class Main
         Room castleRoomFront = new Room(cfrI, cfrC, "Castle Hall", "You walk into a large hall. Ahead of you is a large room with 3 doors. You see a pile of bones on your left and a painting on your right");
         //castle seconds room
         Item[] csrI = new Item[2];
-        csrI[
+        csrI[0]= fkasdfkdsfkl;safk
         
         
         
