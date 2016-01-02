@@ -1,12 +1,16 @@
-------------------------------------------------------------------------
-This is the project README file. Here, you should describe your project.
-Tell the reader (someone who does not know anything about this project)
-all he/she needs to know. The comments should usually include at least:
-------------------------------------------------------------------------
+To check if the item can be equipped use the getUse() Method.
 
-PROJECT TITLE:
-PURPOSE OF PROJECT:
-VERSION or DATE:
-HOW TO START THIS PROJECT:
-AUTHORS:
-USER INSTRUCTIONS:
+IF # is 
+
+1-100 = Key
+
+0 = Nothing
+
+101-200 = Equippable
+
+201-300 = Armor
+
+1001-1100 = Usable
+
+
+

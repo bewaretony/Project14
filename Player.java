@@ -4,7 +4,7 @@
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Player extends Character
+public class Player 
 {
     private Equippable[] equipped;
     private Item[] inventory;

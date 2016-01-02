@@ -16,4 +16,12 @@ public class Armor extends Equippable
     public String getName(){
         return name;
     }
+    
+     public int getUse() {
+        return use;
+    }
+    
+    public String getLocation() {
+        return location;
+    }
 }

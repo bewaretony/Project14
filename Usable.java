@@ -20,6 +20,15 @@ public class Usable extends Item
     public String getName(){
         return name;
     }
+    
+    public int getUse() {
+        return use;
+    }
+    
+    public String getLocation() {
+        return location;
+    }
+    
     public void use() {
         
     }

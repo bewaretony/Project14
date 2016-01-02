@@ -7,24 +7,24 @@ public class Item
 {
     String name = "";
    String description = "";
-     int keynumber = 0;
+     int use = 0;
      String location = "";
      
 
     /**
      * Constructor for objects of class Item
      */
-    public Item(String name, String description, int keynumber, String location)
+    public Item(String name, String description, int use, String location)
     {
         this.name = name;
         this.description = description;
-        this.keynumber = keynumber;
+        this.use = use;
         this.location = location;
         //IF AN OBJECT IS NOT A KEY THE KEYNUMBER IS 0
     }
    
-    public int getKeynumber() {
-        return this.keynumber;
+    public int getUse() {
+        return this.use;
     }
     
     public String getLocation() {
