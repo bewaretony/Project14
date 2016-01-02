@@ -131,6 +131,7 @@ public class Main
         //castle entrance
         Item[] castleEntranceItems = new Item[0];
         Character[] castleCharacters = new Character[1];
+        castleCharacters[0] = new Character("castle door", "needs cave key", true);
         Room castleEntrance = new Room(castleEntranceItems, castleCharacters, "Castle entrance", "You see the entrance to a giant, ruined castle. The door is locked.");
 
         //castle first room
@@ -143,12 +144,9 @@ public class Main
         Item[] csrI = new Item[1];
         csrI[0]= new Item("stones", "Tou see a pile of stones to your right.");
         Character[] csrC = new Character[3];
-        Item[] left = new Item[0];
-        Item[] front = new Item[0];
-        Item[] right = new Item[0];
-        csrC[0] = new Character("left door", "You see a locked door on your left.", left,100000);
-        csrC[1] = new Character("right door", "You see a locked door on your right.", right, 100000);
-        csrC[2] = new Character("door", "You see a locked door in front of you.", front, 100000);
+        csrC[0] = new Character("left door", "You see a locked door on your left",true );
+        csrC[1] = new Character("right door", "You see a locked door on your right.", true);
+        csrC[2] = new Character("door", "You see a locked door in front of you.", true);
         Room castleRoomSecond = new Room(csrI, csrC, "Castle Second Room", "You walk into a large room with three doors on each side. You see a pile of stones on your right.");
         
         //LEFT WING STUFF IS HERE
@@ -156,11 +154,9 @@ public class Main
         //left wing first room
         Item[] lwfr = new Item[0];
         Character[] leftwingfirstroomC = new Character[2];
-        Item[] trapdoor = new Item[0];
-        Item[] painting = new Item[1];
         painting[0] = new Item("Explorers Hat", "You find an explorers hat. Wearing this gives you more swag *TO BE CHANGED LATER*");
-        leftwingfirstroomC[0] = new Character("trap door", "you open the trap door and you see stairs descending down into total darkness", trapdoor, 100000);  //wierd error here
-        leftwingfirstroomC[1] = new Character("painting", "opening the painting reveals a hat", painting, 100000);
+        leftwingfirstroomC[0] = new Character("trap door", "you open the trap door and you see stairs descending down into total darkness", true);  //wierd error here
+        leftwingfirstroomC[1] = new Character("painting", "opening the painting reveals a hat", true);
         Room leftwingfirstroom = new Room(lwfr, leftwingfirstroomC, "left wing first room", "You enter a dark room. You can see the faint outlines of a hallway leading beyond");
         
         //leftwing hallwayOne
