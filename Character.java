@@ -26,6 +26,7 @@ public class Character
         this.name = name;
         this.description = description;
         this.locked = locked;
+        this.keynumber = keynumber;
     }
 
     public String getDescription(){
