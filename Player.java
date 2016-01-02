@@ -10,9 +10,10 @@ public class Player extends Character
     private Item[] inventory;
     private String name;
     private String description;
-    
-    public Player(String name, String description, Item[] startingInventory){
+    private int health;
+    public Player(String name, String description, Item[] startingInventory, int health){
         super(name, description, startingInventory);
+        this.health = health;
     }
     
     public String getName(){

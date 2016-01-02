@@ -10,7 +10,6 @@ public class Main
     static int score = 0;
     static Room currentRoom;
     public static void main(String[] args) {
-        
             setup();
             Scanner kbReader = new Scanner(System.in);
             System.out.print(">");
@@ -29,7 +28,6 @@ public class Main
             System.out.print('\u000C');
         }
     
-
         public static void addScore(int s) {
         score += s;
     }

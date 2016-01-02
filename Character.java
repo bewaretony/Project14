@@ -8,14 +8,15 @@ public class Character
     private String name = "";
     private String description = "";
     private Item[] inventory;
-
+    private int health;
     /**
      * Constructor for objects of class Character
      */
-    public Character(String name, String description, Item[] inventory){
-        this.name =  name;
+    public Character(String name, String description, Item[] inventory, int health){
+        this.name = name;
         this.description = description;
         this.inventory = inventory;
+        this.health = health;
     }
 
     public String getDescription(){
