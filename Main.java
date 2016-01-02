@@ -36,7 +36,7 @@ public class Main
         String[] cmd = command.split(" ");
         cmd[0] = cmd[0].toLowerCase();
         if (cmd[0].compareTo("attack") == 0){
-            System.out.println("add something here for attack.......");
+            Character character= currentRoom.verifyCharacter(cmd[1]);
             return;
         }
         if (cmd[0].compareTo("say") == 0){
@@ -58,6 +58,7 @@ public class Main
         if (cmd[0].compareTo("north") == 0){
             Room currentRoom1 = currentRoom.goNorth();
             if (currentRoom != currentRoom1){
+                System.out.println(currentRoom1.getName());
                 System.out.println(currentRoom1.getDescription());
                 currentRoom = currentRoom1;
             }
@@ -66,6 +67,7 @@ public class Main
         if (cmd[0].compareTo("south") == 0){
             Room currentRoom1 = currentRoom.goSouth();
             if (currentRoom != currentRoom1){
+                System.out.println(currentRoom1.getName());
                 System.out.println(currentRoom1.getDescription());
                 currentRoom = currentRoom1;
             }         
@@ -74,6 +76,7 @@ public class Main
         if (cmd[0].compareTo("east") == 0){
             Room currentRoom1 = currentRoom.goEast();
             if (currentRoom != currentRoom1){
+                System.out.println(currentRoom1.getName());
                 System.out.println(currentRoom1.getDescription());
                 currentRoom = currentRoom1;
             }          
@@ -82,6 +85,7 @@ public class Main
         if (cmd[0].compareTo("west") == 0){
             Room currentRoom1 = currentRoom.goWest();
             if (currentRoom != currentRoom1){
+                System.out.println(currentRoom1.getName());
                 System.out.println(currentRoom1.getDescription());
                 currentRoom = currentRoom1;
             }         
@@ -90,6 +94,7 @@ public class Main
         if (cmd[0].compareTo("up") == 0){
             Room currentRoom1 = currentRoom.goUp();
             if (currentRoom != currentRoom1){
+                System.out.println(currentRoom1.getName());
                 System.out.println(currentRoom1.getDescription());
                 currentRoom = currentRoom1;
             }        
@@ -98,6 +103,7 @@ public class Main
         if (cmd[0].compareTo("down") == 0){
             Room currentRoom1 = currentRoom.goDown();
             if (currentRoom != currentRoom1){
+                System.out.println(currentRoom1.getName());
                 System.out.println(currentRoom1.getDescription());
                 currentRoom = currentRoom1;
             }           
@@ -114,7 +120,7 @@ public class Main
         Item[] spawnItems = new Item[1];
         Character[] spawnCharacter = new Character[0];
         spawnItems[0] = new Item("book", "Welcome! My name is the Innkeeper and I am here to guide you.", 0);
-        Room spawn = new Room(spawnItems, spawnCharacter, "Spawn point", "You spawn in a forest. Ahead of you there is a clearing, and in the distance you can see a ruined castle. You see a tattered book lying along the road.");
+        Room spawn = new Room(spawnItems, spawnCharacter, "Spawn Point", "You spawn in a forest. Ahead of you there is a clearing, and in the distance you can see a ruined castle. You see a tattered book lying along the road.");
 
         //clearing next to spawn
         Item[] clearingItems = new Item[0];
@@ -131,8 +137,8 @@ public class Main
         //castle entrance
         Item[] castleEntranceItems = new Item[0];
         Character[] castleCharacters = new Character[1];
-        castleCharacters[0] = new Character("castle door", "needs cave key", true, 1);
-        Room castleEntrance = new Room(castleEntranceItems, castleCharacters, "Castle entrance", "You see the entrance to a giant, ruined castle. The door is locked.");
+        castleCharacters[0] = new Character("castle-door", "needs cave key", true, 1);
+        Room castleEntrance = new Room(castleEntranceItems, castleCharacters, "Castle entrance", "You see the entrance to a giant, ruined castle. The castle-door is locked.");
 
         //castle first room
         Item[] cfrI = new Item[1]; // do doors count as a character? --- ahhh doors that need keys are characters  -- ma
