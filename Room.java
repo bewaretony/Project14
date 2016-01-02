@@ -108,4 +108,13 @@ public class Room
         //System.out.println("character NOT found");
         return null;
     }
+    public Item verifyItem(String itemName) {
+        for (int i = 0;i < stuff.length;i++){
+            String name = stuff[i].getName().toLowerCase();
+            if (name.compareTo(itemName.toLowerCase()) == 0) {
+                return stuff[i];
+            }
+        }
+        return null;
+    }
     }

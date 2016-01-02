@@ -49,6 +49,9 @@ public class Main
                     System.out.println("The " + character + " has been slain.");
                 }
             }
+            else{
+                System.out.println("The " + character + " was not found.");
+            }
             return;
         }
         if (cmd[0].compareTo("say") == 0){
