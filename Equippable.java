@@ -8,9 +8,9 @@ public class Equippable extends Item
     /**
      * Constructor for objects of class Equippable
      */
-    public Equippable(String name, String description)
+    public Equippable(String name, String description, int use)
     {
-        super(name, description);
+        super(name, description, use);
     }
     
     public String getDescription(){

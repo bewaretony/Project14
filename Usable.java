@@ -8,9 +8,9 @@ public class Usable extends Item
     /**
      * Constructor for objects of class Usable
      */
-    public Usable(String name, String description)
+    public Usable(String name, String description, int use)
     {
-        super(name, description);
+        super(name, description, use);
     }
 
     public String getDescription(){

@@ -5,8 +5,8 @@
  */
 public class Armor extends Equippable
 {
-    public Armor(String name, String description){
-        super(name, description);
+    public Armor(String name, String description, int use){
+        super(name, description, use);
     }
     
     public String getDescription(){
