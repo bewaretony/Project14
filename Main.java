@@ -10,25 +10,25 @@ public class Main
     static int score = 0;
     static Room currentRoom;
     public static void main(String[] args) {
-            setup();
-            Scanner kbReader = new Scanner(System.in);
-            System.out.print(">");
-            String input = kbReader.nextLine().toLowerCase();
-            while(input.compareTo("exit") != 0){
-                readCommand(input);
-                System.out.print(">");            
-                input = kbReader.nextLine().toLowerCase();
-            }
-            System.out.println("Bye!");
-            //method that waits 1-2 seconds before clearing screen
-           for(int i =1; i < 1000000; i++) {
-               int lol = 432145;
-               lol = (lol/i)*(int)Math.pow(lol,i);
-            }
-            System.out.print('\u000C');
+        setup();
+        Scanner kbReader = new Scanner(System.in);
+        System.out.print(">");
+        String input = kbReader.nextLine().toLowerCase();
+        while(input.compareTo("exit") != 0){
+            readCommand(input);
+            System.out.print(">");            
+            input = kbReader.nextLine().toLowerCase();
         }
-    
-        public static void addScore(int s) {
+        System.out.println("Bye!");
+        //method that waits 1-2 seconds before clearing screen
+        for(int i =1; i < 1000000; i++) {
+            int lol = 432145;
+            lol = (lol/i)*(int)Math.pow(lol,i);
+        }
+        System.out.print('\u000C');
+    }
+
+    public static void addScore(int s) {
         score += s;
     }
 
@@ -36,7 +36,15 @@ public class Main
         String[] cmd = command.split(" ");
         cmd[0] = cmd[0].toLowerCase();
         if (cmd[0].compareTo("attack") == 0){
-            Character character= currentRoom.verifyCharacter(cmd[1]);
+            Character character = currentRoom.verifyCharacter(cmd[1]);
+            if (character != null){
+                if(character.getHealth() > 0){
+                     character.dHealth();
+                }
+                else{
+                    System.out.println("The " + character + " has been slain.");
+                }
+            }
             return;
         }
         if (cmd[0].compareTo("say") == 0){
@@ -154,9 +162,9 @@ public class Main
         csrC[1] = new Character("right door", "You see a locked door on your right.", true, 100);
         csrC[2] = new Character("door", "You see a locked door in front of you.", true, 200);
         Room castleRoomSecond = new Room(csrI, csrC, "Castle Second Room", "You walk into a large room with three doors on each side. You see a pile of stones on your right.");
-        
+
         //LEFT WING STUFF IS HERE
-        
+
         //left wing first room
         Item[] lwfr = new Item[1];
         Character[] leftwingfirstroomC = new Character[2];
@@ -164,47 +172,47 @@ public class Main
         leftwingfirstroomC[0] = new Character("trap door", "you open the trap door and you see stairs descending down into total darkness", true, 4);  //wierd error here
         leftwingfirstroomC[1] = new Character("painting", "opening the painting reveals a hat", true, 0);
         Room leftwingfirstroom = new Room(lwfr, leftwingfirstroomC, "left wing first room", "You enter a dark room. You can see the faint outlines of a hallway leading beyond");
-        
+
         //leftwing hallwayOne
         Item[] LWH1I = new Item[0];
         Character[] LWH1C = new Character[0];
         Room LWH1 = new Room( LWH1I, LWH1C, "leftwing hall 1", "you enter the hallway");
-        
+
         //leftiwng hallwayTwo
         Item[] LWH2I = new Item[0];
         Character[] LWH2C = new Character[0];
         Room LWH2 = new Room( LWH2I, LWH2C, "leftwing hall 2", "as you travel further down the hallway you can see a faint light at the end");
-        
+
         //leftwing hallwayThree
         Item[] LWH3I = new Item[0];
         Character[] LWH3C = new Character[0];
         Room LWH3 = new Room( LWH3I, LWH3C, "leftwing hall 3", "the light grows stronger and ahead you can see a room lit by torches");
-        
+
         //leftwing torch room
         Item[] LWTRI = new Item[2];
         LWTRI[0] = new Item("torch left", "with a great effort, you take a torch off the wall", 3);
         LWTRI[1] = new Item("torch right", "with a great effort, you take a torch off the wall", 3);
         Character[] LWTRC = new Character[0];
         Room LWTR = new Room(LWTRI, LWTRC, "torch room leading to arena", "You enter a large room with torches on each side. You can see a hallway to your right and a dark chamber infront of you");
-        
+
         //leftwing arena water station
         //TODO LATER 
-        
+
         //left hall after torch
         Item[] LHATI = new Item[0];
         Character[]LHATC = new Character[0];
         Room LHAT = new Room(LHATI, LHATC, "left hall torch room", "You enter a large hallway, which reveals a hallway on your left and right.");
-        
+
         //right fork after LHAT
         Item[] RFLHATI = new Item[0];
         Character[]RFLHATC = new Character[0];
         Room RFLHAT = new Room(RFLHATI, RFLHATC, "right fork after hall" , "Taking the right fork, you enter the balcony of a large arena. A voice below shouts  \"EVERYBODY GET IN HERE\"");
-        
+
         //left fork after LHAT
         Item[] LFLHATI = new Item[0];
         Character[]LFLHATC = new Character[0];
         Room LFLHAT = new Room(LFLHATI, LFLHATC, "left fork after hall", "You take the left fork, however it reveals a dead end.");
-        
+
         //arena entrance hall (Room) front
         Item[] AEHFI = new Item[0];
         Character[]AEHFC = new Character[1];
@@ -212,9 +220,7 @@ public class Main
         largebox[0] = new Item("map to the golden monkey", "you take out a scroll which reveals a map. It says that it is a Map to the Golden Monkey", 0);
         AEHFC[0] = new Character("box", "You look into the box which reveals a large amount of scrolls.", largebox, 100000);
         Room AEHF = new Room(AEHFI , AEHFC, "hall/room after the entrance.", "You travel down a several flight of stairs. At the bottom you find a large box");
-        
-        
-        
+
         
         //front room after arena entrance hall
         //ADD LOOK METHOD
@@ -225,9 +231,7 @@ public class Main
         cabinet[0] = new Item("dagger", "you grab the half broken dagger and put it into your sack. You note that there is a label that says \"Only designed to be used twice\"", 0);
         FRAEC[0] = new Character("cabinet", "you open the cabinet which reveals a dagger and a sack of coins", cabinet, 100000);                  
         Room FRAE = new Room(FRAEI, FRAEC, "front room", "You walk into a room and you see a cabinet and a table.");
-        
-        
-        
+
         
         
         System.out.println("Welcome to Hearthbone. \nYou spawn in a forest. Ahead of you there is a clearing, and in the distance you can see a ruined castle. You see a tattered book lying along the road.");        
@@ -238,7 +242,6 @@ public class Main
         clearingSpawn.setNorth(castleEntrance);
         clearingSpawn.setEast(cave);
         cave.setSouth(clearingSpawn);
-        
 
     }
 }

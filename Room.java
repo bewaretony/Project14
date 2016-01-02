@@ -101,11 +101,11 @@ public class Room
         for (int i=0; i < people.length; i++) {
             String name = people[i].getName().toLowerCase();
             if (name.compareTo(characterName.toLowerCase()) == 0) {
-                System.out.println("character found");
+                //System.out.println("character found");
                 return people[i];
             }
         }
-        System.out.println("character NOT found");
+        //System.out.println("character NOT found");
         return null;
     }
     }
