@@ -21,6 +21,7 @@ public class Main
                 input = kbReader.nextLine().toLowerCase();
             }
             System.out.println("Bye!");
+            //method that waits 1-2 seconds before clearing screen
            for(int i =1; i < 1000000; i++) {
                int lol = 432145;
                lol = (lol/i)*(int)Math.pow(lol,i);
@@ -153,6 +154,29 @@ public class Main
         Room castleRoomSecond = new Room(csrI, csrC, "Castle Second Room", "You walk into a large room with three doors on each side. You see a pile of stones on your right.");
 
         //left wing first room
+        Item[] lwfr = new Item[0];
+        Chracter[] leftwingfirstroomC = new Character[2];
+        Item[] trapdoor = new Item[0];
+        Item[] painting = new Item[1];
+        painting[1] = new Item("Explorers Hat", "You find an explorers hat. Wearing this gives you more swag *TO BE CHANGED LATER*");
+        leftwingfirstroomC[0] = ("trap door", "you open the trap door and you see stairs descending down into total darkness", trapdoor);  //wierd error here
+        leftwingfirstroomC[1] = ("painting", "opening the painting reveals a hat", painting);
+        Room leftwingfirstroom = new Room(lwfr, leftwinfirstroomC, "You enter a dark room. You can see the faint outlines of a hallway leading beyond");
+        
+        //leftwing hallwayOne
+        Item[] LWH1I = new Item[0];
+        Character[] LWH1C = new Character[0];
+        Room LWH1 = new Room( LWH1I, LWH1C, "leftwing hall 1", "you enter the hallway");
+        
+        //leftiwng hallwayTwo
+        Item[] LWH2I = new Item[0];
+        Character[] LWH2C = new Character[0];
+        Room LWH1 = new Room( LWH2I, LWH2C, "leftwing hall 2", "as you travel further down the hallway you can see a faint light at the end");
+        
+        //leftwing hallwayThree
+        Item[] LWH3I = new Item[0];
+        Character[] LWH3C = new Character[0];
+        Room LWH1 = new Room( LWH3I, LWH3C, "leftwing hall 3", "the light grows stronger and ahead you can see a room lit by torches");
         
         
         
