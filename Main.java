@@ -160,7 +160,7 @@ public class Main
         Character[] leftwingfirstroomC = new Character[2];
         Item[] trapdoor = new Item[0];
         Item[] painting = new Item[1];
-        painting[1] = new Item("Explorers Hat", "You find an explorers hat. Wearing this gives you more swag *TO BE CHANGED LATER*");
+        painting[0] = new Item("Explorers Hat", "You find an explorers hat. Wearing this gives you more swag *TO BE CHANGED LATER*");
         leftwingfirstroomC[0] = new Character("trap door", "you open the trap door and you see stairs descending down into total darkness", trapdoor);  //wierd error here
         leftwingfirstroomC[1] = new Character("painting", "opening the painting reveals a hat", painting);
         Room leftwingfirstroom = new Room(lwfr, leftwingfirstroomC, "left wing first room", "You enter a dark room. You can see the faint outlines of a hallway leading beyond");
@@ -209,7 +209,7 @@ public class Main
         Item[] AEHFI = new Item[0];
         Character[]AEHFC = new Character[1];
         Item[] largebox = new Item[1];
-        largebox[1] = new Item("map to the golden monkey", "you take out a scroll which reveals a map. It says that it is a Map to the Golden Monkey");
+        largebox[0] = new Item("map to the golden monkey", "you take out a scroll which reveals a map. It says that it is a Map to the Golden Monkey");
         AEHFC[0] = new Character("box", "You look into the box which reveals a large amount of scrolls.", largebox);
         Room AEHF = new Room(AEHFI , AEHFC, "hall/room after the entrance.", "You travel down a several flight of stairs. At the bottom you find a large box");
         
