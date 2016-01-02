@@ -121,7 +121,7 @@ public class Main
         //clearing next to spawn
         Item[] clearingItems = new Item[0];
         Character[] cspawnItems = new Character[0];
-        Room clearingSpawn = new Room(clearingItems, cspawnItems, "Clearing", "You walk into a clearing in the middle of a gorge. You see a cave to your right. In the distance a voice yells \"EVERYONE GET IN HERE\"");
+        Room clearingSpawn = new Room(clearingItems, cspawnItems, "Clearing", "You walk into a clearing in the middle of a gorge. You see a cave to your right. You hear a faint rumble and a voice seems to be saying: \"EVERYONE GET IN HERE\"");
 
         //cave room 
         Item[] caveItems = new Item[2];
@@ -152,7 +152,9 @@ public class Main
         csrC[1] = new Character("right door", "You see a locked door on your right.", right);
         csrC[2] = new Character("door", "You see a locked door in front of you.", front);
         Room castleRoomSecond = new Room(csrI, csrC, "Castle Second Room", "You walk into a large room with three doors on each side. You see a pile of stones on your right.");
-
+        
+        //LEFT WING STUFF IS HERE
+        
         //left wing first room
         Item[] lwfr = new Item[0];
         Chracter[] leftwingfirstroomC = new Character[2];
@@ -171,12 +173,12 @@ public class Main
         //leftiwng hallwayTwo
         Item[] LWH2I = new Item[0];
         Character[] LWH2C = new Character[0];
-        Room LWH1 = new Room( LWH2I, LWH2C, "leftwing hall 2", "as you travel further down the hallway you can see a faint light at the end");
+        Room LWH2 = new Room( LWH2I, LWH2C, "leftwing hall 2", "as you travel further down the hallway you can see a faint light at the end");
         
         //leftwing hallwayThree
         Item[] LWH3I = new Item[0];
         Character[] LWH3C = new Character[0];
-        Room LWH1 = new Room( LWH3I, LWH3C, "leftwing hall 3", "the light grows stronger and ahead you can see a room lit by torches");
+        Room LWH3 = new Room( LWH3I, LWH3C, "leftwing hall 3", "the light grows stronger and ahead you can see a room lit by torches");
         
         //leftwing torch room
         Item[] LWTRI = new Item[2];
@@ -187,6 +189,30 @@ public class Main
         
         //leftwing arena water station
         //TODO LATER 
+        
+        //left hall after torch
+        Item[] LHATI = new Item[0]
+        Character[]LHATC = new Character[0];
+        Room LHAT = new Room(LHATI, LHATC, "left hall torch room", "You enter a large hallway, which reveals a hallway on your left and right.");
+        
+        //right fork after LHAT
+        Item[] RFLHATI = new Item[0]
+        Character[]RFLHATC = new Character[0];
+        Room RFLHAT = new Room(RFLHATI, RFLHATC, "right fork after hall" , "Taking the right fork, you enter the balcony of a large arena. A voice below shouts  \"EVERYBODY GET IN HERE\"");
+        
+        //left fork after LHAT
+        Item[] LFLHATI = new Item[0]
+        Character[]LFLHATC = new Character[0];
+        Room LFLHAT = new Room(LFLHATI, LFLHATC, "left fork after hall", "You take the left fork, however it reveals a dead end.");
+        
+        //front room after arena entrance
+        Item[] FRAEI = new Item[2];
+        FRAEI[1] = new Item("bag of coins", "you take the bag of golden coins");
+        FRAEI[2] = new Item("club", "you grab the club and put it TO BE COMPLETED*****");
+        Character[]FRAEC = new Character[0];
+        Room FRAE = new Room(FRAEI, FRAEC, "front room", "");
+        
+        
         
         
         
