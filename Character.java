@@ -12,6 +12,7 @@ public class Character
     private boolean locked;
     private int keynumber;
     private String location;
+    private boolean door;
 
     /**
      * Constructor for objects of class Character
@@ -22,6 +23,7 @@ public class Character
         this.inventory = inventory;
         this.health = health;
         this.location = location;
+        this.door = false;
     }
 
     public Character(String name,String description, boolean locked, int keynumber, String location) {
@@ -30,6 +32,7 @@ public class Character
         this.locked = locked;
         this.keynumber = keynumber;
         this.location = location;
+        this.door = true;
     }
 
     public String getDescription(){
@@ -62,6 +65,10 @@ public class Character
     
     public void dHealth() {
         this.health = this.health-1;
+    }
+    
+    public boolean door() {
+        return this.door;
     }
 
 }
