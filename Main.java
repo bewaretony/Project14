@@ -205,13 +205,24 @@ public class Main
         Character[]LFLHATC = new Character[0];
         Room LFLHAT = new Room(LFLHATI, LFLHATC, "left fork after hall", "You take the left fork, however it reveals a dead end.");
         
-        //front room after arena entrance
+        //arena entrance hall (Room) front
+        Item[] AEHFI = new Item[0];
+        Character[]AEHFC = new Character[1];
+        Item[] largebox = new Item[1];
+        largebox[1] = new Item("map to the golden monkey", "you take out a scroll which reveals a map. It says that it is a Map to the Golden Monkey");
+        AEHFC[0] = new Character("box", "You look into the box which reveals a large amount of scrolls.", largebox);
+        Room AEHF = new Room(AEHFI , AEHFC, "hall/room after the entrance.", "You travel down a several flight of stairs. At the bottom you find a large box");
+        
+        
+        
+        
+        //front room after arena entrance hall
         Item[] FRAEI = new Item[0];
         Character[] FRAEC = new Character[1];
-        Item[] FRAECI = new Item[2];
-        FRAECI[1] = new Item("bag of coins", "you take the bag of golden coins");
-        FRAECI[0] = new Item("dagger", "you grab the half broken dagger and put it into your sack. You note that there is a label that says \"Only designed to be used twice\"");
-        FRAEC[0] = new Character("cabinet", "you open the cabinet which reveals a dagger and a sack of coins", FRAECI);                  
+        Item[] cabinet = new Item[2];
+        cabinet[1] = new Item("bag of coins", "you take the bag of golden coins");
+        cabinet[0] = new Item("dagger", "you grab the half broken dagger and put it into your sack. You note that there is a label that says \"Only designed to be used twice\"");
+        FRAEC[0] = new Character("cabinet", "you open the cabinet which reveals a dagger and a sack of coins", cabinet);                  
         Room FRAE = new Room(FRAEI, FRAEC, "front room", "You walk into a room and you see a cabinet and a table.");
         
         
