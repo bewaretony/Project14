@@ -38,7 +38,8 @@ public class Main
         if (cmd[0].compareTo("attack") == 0){
             Character character = currentRoom.verifyCharacter(cmd[1]);
             if (character != null){
-                if(character.door() == true){
+                //if(character.door() = true;)
+                if(character.attackable() == false){
                     System.out.println("You cannot attack " + cmd[1] + ".");
                     return;
                 }
@@ -67,7 +68,7 @@ public class Main
             return;
         }
         if (cmd[0].compareTo("use") == 0){
-            System.out.println("add something here for examine.......");
+            Item item1 = currentRoom.verifyCharacter
             return;
         }        
         if (cmd[0].compareTo("north") == 0){
