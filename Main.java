@@ -157,13 +157,13 @@ public class Main
         
         //left wing first room
         Item[] lwfr = new Item[0];
-        Chracter[] leftwingfirstroomC = new Character[2];
+        Character[] leftwingfirstroomC = new Character[2];
         Item[] trapdoor = new Item[0];
         Item[] painting = new Item[1];
         painting[1] = new Item("Explorers Hat", "You find an explorers hat. Wearing this gives you more swag *TO BE CHANGED LATER*");
-        leftwingfirstroomC[0] = ("trap door", "you open the trap door and you see stairs descending down into total darkness", trapdoor);  //wierd error here
-        leftwingfirstroomC[1] = ("painting", "opening the painting reveals a hat", painting);
-        Room leftwingfirstroom = new Room(lwfr, leftwinfirstroomC, "You enter a dark room. You can see the faint outlines of a hallway leading beyond");
+        leftwingfirstroomC[0] = new Character("trap door", "you open the trap door and you see stairs descending down into total darkness", trapdoor);  //wierd error here
+        leftwingfirstroomC[1] = new Character("painting", "opening the painting reveals a hat", painting);
+        Room leftwingfirstroom = new Room(lwfr, leftwingfirstroomC, "left wing first room", "You enter a dark room. You can see the faint outlines of a hallway leading beyond");
         
         //leftwing hallwayOne
         Item[] LWH1I = new Item[0];
@@ -191,26 +191,28 @@ public class Main
         //TODO LATER 
         
         //left hall after torch
-        Item[] LHATI = new Item[0]
+        Item[] LHATI = new Item[0];
         Character[]LHATC = new Character[0];
         Room LHAT = new Room(LHATI, LHATC, "left hall torch room", "You enter a large hallway, which reveals a hallway on your left and right.");
         
         //right fork after LHAT
-        Item[] RFLHATI = new Item[0]
+        Item[] RFLHATI = new Item[0];
         Character[]RFLHATC = new Character[0];
         Room RFLHAT = new Room(RFLHATI, RFLHATC, "right fork after hall" , "Taking the right fork, you enter the balcony of a large arena. A voice below shouts  \"EVERYBODY GET IN HERE\"");
         
         //left fork after LHAT
-        Item[] LFLHATI = new Item[0]
+        Item[] LFLHATI = new Item[0];
         Character[]LFLHATC = new Character[0];
         Room LFLHAT = new Room(LFLHATI, LFLHATC, "left fork after hall", "You take the left fork, however it reveals a dead end.");
         
         //front room after arena entrance
-        Item[] FRAEI = new Item[2];
-        FRAEI[1] = new Item("bag of coins", "you take the bag of golden coins");
-        FRAEI[2] = new Item("club", "you grab the club and put it TO BE COMPLETED*****");
-        Character[]FRAEC = new Character[0];
-        Room FRAE = new Room(FRAEI, FRAEC, "front room", "");
+        Item[] FRAEI = new Item[0];
+        Character[] FRAEC = new Character[1];
+        Item[] FRAECI = new Item[2];
+        FRAECI[1] = new Item("bag of coins", "you take the bag of golden coins");
+        FRAECI[0] = new Item("dagger", "you grab the half broken dagger and put it into your sack. You note that there is a label that says \"Only designed to be used twice\"");
+        FRAEC[0] = new Character("cabinet", "you open the cabinet which reveals a dagger and a sack of coins", FRAECI);                  
+        Room FRAE = new Room(FRAEI, FRAEC, "front room", "You walk into a room and you see a cabinet and a table.");
         
         
         
