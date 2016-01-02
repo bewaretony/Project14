@@ -12,10 +12,11 @@ public class Main
     public static void main(String[] args) {
         setup();
         Scanner kbReader = new Scanner(System.in);
+        System.out.print(">");
         String input = kbReader.nextLine().toLowerCase();
         while(input.compareTo("exit") != 0){
-            System.out.print(">");
             readCommand(input);
+            System.out.print(">");            
             input = kbReader.nextLine().toLowerCase();
         }
         System.out.println("Bye!");
