@@ -38,6 +38,10 @@ public class Main
         if (cmd[0].compareTo("attack") == 0){
             Character character = currentRoom.verifyCharacter(cmd[1]);
             if (character != null){
+                if(character.door() == true){
+                    System.out.println("You cannot attack " + cmd[1] + ".");
+                    return;
+                }
                 if(character.getHealth() > 0){
                      character.dHealth();
                 }
