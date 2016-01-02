@@ -146,9 +146,9 @@ public class Main
         Item[] left = new Item[0];
         Item[] front = new Item[0];
         Item[] right = new Item[0];
-        csrC[0] = new Character("left door", "You see a locked door on your left.", left);
-        csrC[1] = new Character("right door", "You see a locked door on your right.", right);
-        csrC[2] = new Character("door", "You see a locked door in front of you.", front);
+        csrC[0] = new Character("left door", "You see a locked door on your left.", left,100000);
+        csrC[1] = new Character("right door", "You see a locked door on your right.", right, 100000);
+        csrC[2] = new Character("door", "You see a locked door in front of you.", front, 100000);
         Room castleRoomSecond = new Room(csrI, csrC, "Castle Second Room", "You walk into a large room with three doors on each side. You see a pile of stones on your right.");
         
         //LEFT WING STUFF IS HERE
@@ -159,8 +159,8 @@ public class Main
         Item[] trapdoor = new Item[0];
         Item[] painting = new Item[1];
         painting[0] = new Item("Explorers Hat", "You find an explorers hat. Wearing this gives you more swag *TO BE CHANGED LATER*");
-        leftwingfirstroomC[0] = new Character("trap door", "you open the trap door and you see stairs descending down into total darkness", trapdoor);  //wierd error here
-        leftwingfirstroomC[1] = new Character("painting", "opening the painting reveals a hat", painting);
+        leftwingfirstroomC[0] = new Character("trap door", "you open the trap door and you see stairs descending down into total darkness", trapdoor, 100000);  //wierd error here
+        leftwingfirstroomC[1] = new Character("painting", "opening the painting reveals a hat", painting, 100000);
         Room leftwingfirstroom = new Room(lwfr, leftwingfirstroomC, "left wing first room", "You enter a dark room. You can see the faint outlines of a hallway leading beyond");
         
         //leftwing hallwayOne
@@ -208,7 +208,7 @@ public class Main
         Character[]AEHFC = new Character[1];
         Item[] largebox = new Item[1];
         largebox[0] = new Item("map to the golden monkey", "you take out a scroll which reveals a map. It says that it is a Map to the Golden Monkey");
-        AEHFC[0] = new Character("box", "You look into the box which reveals a large amount of scrolls.", largebox);
+        AEHFC[0] = new Character("box", "You look into the box which reveals a large amount of scrolls.", largebox, 100000);
         Room AEHF = new Room(AEHFI , AEHFC, "hall/room after the entrance.", "You travel down a several flight of stairs. At the bottom you find a large box");
         
         
@@ -220,7 +220,7 @@ public class Main
         Item[] cabinet = new Item[2];
         cabinet[1] = new Item("bag of coins", "you take the bag of golden coins");
         cabinet[0] = new Item("dagger", "you grab the half broken dagger and put it into your sack. You note that there is a label that says \"Only designed to be used twice\"");
-        FRAEC[0] = new Character("cabinet", "you open the cabinet which reveals a dagger and a sack of coins", cabinet);                  
+        FRAEC[0] = new Character("cabinet", "you open the cabinet which reveals a dagger and a sack of coins", cabinet, 100000);                  
         Room FRAE = new Room(FRAEI, FRAEC, "front room", "You walk into a room and you see a cabinet and a table.");
         
         
@@ -235,6 +235,7 @@ public class Main
         clearingSpawn.setNorth(castleEntrance);
         clearingSpawn.setEast(cave);
         cave.setSouth(clearingSpawn);
+        
 
     }
 }
