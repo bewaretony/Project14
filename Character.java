@@ -13,19 +13,35 @@ public class Character
     private int keynumber;
     private String location;
     private boolean door;
+    private boolean attackable;
 
     /**
-     * Constructor for objects of class Character
+     * Constructor for objects that attack and can be attacked
      */
-    public Character(String name, String description, Item[] inventory, int health, String location){
+    public Character(String name, String description, String location, Item[] inventory, int health, int attack){
         this.name = name;
         this.description = description;
         this.inventory = inventory;
         this.health = health;
         this.location = location;
         this.door = false;
+        this.attackable = true;
     }
-
+    /**
+     * Constructor for objects that cannot be attacked (furniture)
+     */
+    
+    public Character(String name, String description, Item[] inventory) {
+        this.name = name;
+        this.description = description;
+        this.inventory = inventory;
+        this.door = false;
+        this.attackable = false;
+    }
+    
+    /**
+     * Constructor for Doors
+     */
     public Character(String name,String description, boolean locked, int keynumber, String location) {
         this.name = name;
         this.description = description;
@@ -33,6 +49,7 @@ public class Character
         this.keynumber = keynumber;
         this.location = location;
         this.door = true;
+       this.attackable = false;
     }
 
     public String getDescription(){
@@ -70,5 +87,10 @@ public class Character
     public boolean door() {
         return this.door;
     }
-
+    
+    public boolean attackable() {
+        return this.attackable;
+       
+    }
 }
+

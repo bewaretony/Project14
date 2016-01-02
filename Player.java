@@ -15,6 +15,7 @@ public class Player
         this.name = name;
         this.description = description;
         this.health = health;
+        this.inventory = startingInventory;
         
         
     }
