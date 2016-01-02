@@ -178,6 +178,16 @@ public class Main
         Character[] LWH3C = new Character[0];
         Room LWH1 = new Room( LWH3I, LWH3C, "leftwing hall 3", "the light grows stronger and ahead you can see a room lit by torches");
         
+        //leftwing torch room
+        Item[] LWTRI = new Item[2];
+        LWTRI[0] = new Item("torch left", "with a great effort, you take a torch off the wall");
+        LWTRI[1] = new Item("torch right", "with a great effort, you take a torch off the wall");
+        Character[] LWTRC = new Character[0];
+        Room LWTR = new Room(LWTRI, LWTRC, "torch room leading to arena", "You enter a large room with torches on each side. You can see a hallway to your right and a dark chamber infront of you");
+        
+        //leftwing arena water station
+        //TODO LATER 
+        
         
         
         System.out.println("Welcome to Hearthbone. \nYou spawn in a forest. Ahead of you there is a clearing, and in the distance you can see a ruined castle. You see a tattered book lying along the road.");        
