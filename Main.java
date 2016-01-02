@@ -119,8 +119,8 @@ public class Main
         //spawn
         Item[] spawnItems = new Item[1];
         Character[] spawnCharacter = new Character[0];
-        spawnItems[0] = new Item("book", "Welcome! My name is the Innkeeper and I am here to guide you.", 0);
-        Room spawn = new Room(spawnItems, spawnCharacter, "Spawn Point", "You spawn in a forest. Ahead of you there is a clearing, and in the distance you can see a ruined castle. You see a tattered book lying along the road.");
+        spawnItems[0] = new Item("book", "There is a tattered book on the ground", 0);
+        Room spawn = new Room(spawnItems, spawnCharacter, "Spawn Point", "You spawn in a forest. Ahead of you there is a clearing, and in the distance you can see a ruined castle. ");
 
         //clearing next to spawn
         Item[] clearingItems = new Item[0];

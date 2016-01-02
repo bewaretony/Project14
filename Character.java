@@ -11,22 +11,25 @@ public class Character
     private int health;
     private boolean locked;
     private int keynumber;
+    private String location;
 
     /**
      * Constructor for objects of class Character
      */
-    public Character(String name, String description, Item[] inventory, int health){
+    public Character(String name, String description, Item[] inventory, int health, String location){
         this.name = name;
         this.description = description;
         this.inventory = inventory;
         this.health = health;
+        this.location = location;
     }
 
-    public Character(String name,String description, boolean locked, int keynumber) {
+    public Character(String name,String description, boolean locked, int keynumber, String location) {
         this.name = name;
         this.description = description;
         this.locked = locked;
         this.keynumber = keynumber;
+        this.location = location;
     }
 
     public String getDescription(){
@@ -35,6 +38,10 @@ public class Character
 
     public String getName(){
         return this.name;
+    }
+    
+    public String getLocation() {
+        return this.location;
     }
 
     public String talk(String dialogue){
@@ -53,5 +60,8 @@ public class Character
         return locked;
     }
     
-    
+    public void dHealth() {
+        this.health = this.health-1;
+    }
+
 }
