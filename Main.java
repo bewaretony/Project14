@@ -247,24 +247,29 @@ public class Main
         //leftwing hallwayOne
         Item[] LWH1I = new Item[0];
         Character[] LWH1C = new Character[0];
-        Room LWH1 = new Room( LWH1I, LWH1C, "leftwing hall 1", "you enter the hallway");
+        Room LWH1 = new Room( LWH1I, LWH1C, "leftwing hall 1", "you are in a dark hallway");
 
         //leftiwng hallwayTwo
         Item[] LWH2I = new Item[0];
         Character[] LWH2C = new Character[0];
-        Room LWH2 = new Room( LWH2I, LWH2C, "leftwing hall 2", "as you travel further down the hallway you can see a faint light at the end");
-
+        Room LWH2 = new Room( LWH2I, LWH2C, "leftwing hall 2", "you are in a dark hallway");
+        
+        //deathpit
+        Item[] LWH2DI = new Item[0];
+        Character[] LWH2DC = new Character[0];
+        Room LWH2D = new Room( LWH2DI, LWH2DC, "castle ruins", "you fall off a cliff and die"); //kill command needed
+        
         //leftwing hallwayThree
         Item[] LWH3I = new Item[0];
         Character[] LWH3C = new Character[0];
-        Room LWH3 = new Room( LWH3I, LWH3C, "leftwing hall 3", "the light grows stronger and ahead you can see a room lit by torches");
+        Room LWH3 = new Room( LWH3I, LWH3C, "leftwing hall 3", "you are in a dimly lit hallway");
 
         //leftwing torch room
         Item[] LWTRI = new Item[2];
         LWTRI[0] = new Item("torch left", "This seems to be a lava torch that is loosely attached to the wall", 300, "There is a torch on your left");
-        LWTRI[1] = new Item("torch right", "This seems to be a Flaming Torch that is loosely attached to the wall", 301, "There is a torch on your right");  //grim patron needs weapon 301 to be killed
+        LWTRI[1] = new Item("torch right", "This seems to be a 'Forgotten Torch' that is loosely attached to the wall", 301, "There is a torch on your right");  //grim patron needs weapon 301 to be killed
         Character[] LWTRC = new Character[0];
-        Room LWTR = new Room(LWTRI, LWTRC, "Room", "You enter a large room. You can see a hallway to your right and a dark chamber infront of you");
+        Room LWTR = new Room(LWTRI, LWTRC, "Room", "You enter a large room.");
 
         //leftwing arena water station
         //TODO LATER 
@@ -272,17 +277,17 @@ public class Main
         //left hall after torch
         Item[] LHATI = new Item[0];
         Character[]LHATC = new Character[0];
-        Room LHAT = new Room(LHATI, LHATC, "left hall torch room", "You enter a large hallway, which reveals a hallway on your left and right.");
+        Room LHAT = new Room(LHATI, LHATC, "Large Hallway", "You enter a large hallway.");
 
         //right fork after LHAT
         Item[] RFLHATI = new Item[0];
         Character[]RFLHATC = new Character[0];
-        Room RFLHAT = new Room(RFLHATI, RFLHATC, "right fork after hall" , "You enter the balcony of a large arena. A voice below shouts  \"EVERYBODY GET IN HERE\"");
+        Room RFLHAT = new Room(RFLHATI, RFLHATC, "Balcony" , "You are in the balcony of a large arena. A voice below shouts  \"EVERYBODY GET IN HERE\"");
 
         //left fork after LHAT
         Item[] LFLHATI = new Item[0];
         Character[]LFLHATC = new Character[0];
-        Room LFLHAT = new Room(LFLHATI, LFLHATC, "left fork after hall", "You enter the hallway, however it reveals a dead end.");
+        Room LFLHAT = new Room(LFLHATI, LFLHATC, "Hallway", "You enter the hallway, however it reveals a dead end.");
 
         //arena entrance hall (Room) front
         Item[] AEHFI = new Item[0];
@@ -290,7 +295,7 @@ public class Main
         Item[] largebox = new Item[1];
         largebox[0] = new Item("map to the golden monkey", "you take out a scroll. It says that it is a Map to the Golden Monkey", 0, "There are scrolls in the box");
         AEHFC[0] = new Character("box", "You look into the box which reveals a large amount of scrolls.", largebox);
-        Room AEHF = new Room(AEHFI , AEHFC, "hall/room after the entrance.", "You travel down a several flight of stairs. There is a large box on the floor");
+        Room AEHF = new Room(AEHFI , AEHFC, "hall/room after the entrance.", "You are in a hall. There is a large box on the floor");
 
         //front room after arena entrance hall
         //ADD LOOK METHOD
@@ -302,6 +307,15 @@ public class Main
         cabinet[0] = new Item("dagger", "The dagger has a label that says \"Only designed to be used twice\"", 300, "There is a dagger in the cabinet");
         FRAEC[0] = new Character("cabinet", "you open the cabinet which reveals a dagger and a sack of coins", cabinet);                  
         Room FRAE = new Room(FRAEI, FRAEC, "front room", "You walk into a room and you see a cabinet and a table.");
+        
+        //balcony to arena room 1
+        
+        //Item[] BAR1I = new Item[0];
+        //Character[]BAR1I = new Character[0];
+        //Room LFLHAT = new Room(LFLHATI, LFLHATC, "Hallway", "You enter the hallway, however it reveals a dead end.");
+        
+        
+        
 
         System.out.println("You spawn in a forest. Ahead of you there is a clearing, and in the distance you can see a ruined castle. You see a tattered book lying along the road.");        
         currentRoom = spawn;
@@ -309,7 +323,7 @@ public class Main
         clearingSpawn.setSouth(spawn);
         castleEntrance.setSouth(clearingSpawn);
         clearingSpawn.setNorth(castleEntrance);
-        clearingSpawn.setEast(cave);
+        clearingSpawn.setEast(FRAE);
         cave.setSouth(clearingSpawn);
 
     }
