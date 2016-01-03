@@ -142,6 +142,14 @@ public class Room
     }
     
     public void useItem(Item item, Character character){
+        if(character.door() == true){
+            if(character.getLocked() == true){
+                if(item.getUse() == character.getKeyNumber()){
+                    character.unlock();
+                    System.out.println("The door has been unlocked and opened.");
+                }
+            }
+        }
         System.out.println("Used " + item.getName() + " on " + character.getName());
     }
 }
