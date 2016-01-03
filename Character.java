@@ -92,5 +92,9 @@ public class Character
         return this.attackable;
        
     }
+    
+    public void unlock() {
+        this.locked = false;
+    }
 }
 
