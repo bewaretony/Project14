@@ -204,7 +204,7 @@ public class Main
         Character[] leftwingfirstroomC = new Character[1];
         lwfr[0] = new Item("Explorers Hat", "This seems to be a hat that gives you more HEALTH?!", 0,"There is a dusty hat lying on the floor");
         lwfr[1] = new Item("Painting of Kolento", "Examining the painting reveals nothing unusual.", 0, "There is a painting in the room");
-        leftwingfirstroomC[0] = new Character("Loose floorboard", "The loose floorboard reveals a trap door that appears to be locked", true, 4);  //wierd error here
+        leftwingfirstroomC[0] = new Character("Loose floorboard", "The loose floorboard is disguised as a trap door that appears to be locked", true, 4);  //wierd error here
         Room leftwingfirstroom = new Room(lwfr, leftwingfirstroomC, "left wing first room", "You enter a dark room. You can see the faint outlines of a hallway leading beyond. \nThere is a loose floorboard");
 
         //leftwing hallwayOne
@@ -224,10 +224,10 @@ public class Main
 
         //leftwing torch room
         Item[] LWTRI = new Item[2];
-        LWTRI[0] = new Item("torch left", "with a great effort, you take a torch off the wall", 3);
-        LWTRI[1] = new Item("torch right", "with a great effort, you take a torch off the wall", 3);
+        LWTRI[0] = new Item("torch left", "This seems to be a lava torch that is loosely attached to the wall", 3, "There is a torch on your left");
+        LWTRI[1] = new Item("torch right", "This seems to be a Flaming Torch that is loosely attached to the wall", 3, "There is a torch on your right");
         Character[] LWTRC = new Character[0];
-        Room LWTR = new Room(LWTRI, LWTRC, "torch room leading to arena", "You enter a large room with torches on each side. You can see a hallway to your right and a dark chamber infront of you");
+        Room LWTR = new Room(LWTRI, LWTRC, "torch room leading to arena", "You enter a large room. You can see a hallway to your right and a dark chamber infront of you");
 
         //leftwing arena water station
         //TODO LATER 
