@@ -224,10 +224,10 @@ public class Main
 
         //leftwing torch room
         Item[] LWTRI = new Item[2];
-        LWTRI[0] = new Item("torch left", "This seems to be a lava torch that is loosely attached to the wall", 3, "There is a torch on your left");
-        LWTRI[1] = new Item("torch right", "This seems to be a Flaming Torch that is loosely attached to the wall", 3, "There is a torch on your right");
+        LWTRI[0] = new Item("torch left", "This seems to be a lava torch that is loosely attached to the wall", 300, "There is a torch on your left");
+        LWTRI[1] = new Item("torch right", "This seems to be a Flaming Torch that is loosely attached to the wall", 301, "There is a torch on your right");  //grim patron needs weapon 301 to be killed
         Character[] LWTRC = new Character[0];
-        Room LWTR = new Room(LWTRI, LWTRC, "torch room leading to arena", "You enter a large room. You can see a hallway to your right and a dark chamber infront of you");
+        Room LWTR = new Room(LWTRI, LWTRC, "Room", "You enter a large room. You can see a hallway to your right and a dark chamber infront of you");
 
         //leftwing arena water station
         //TODO LATER 
@@ -240,29 +240,30 @@ public class Main
         //right fork after LHAT
         Item[] RFLHATI = new Item[0];
         Character[]RFLHATC = new Character[0];
-        Room RFLHAT = new Room(RFLHATI, RFLHATC, "right fork after hall" , "Taking the right fork, you enter the balcony of a large arena. A voice below shouts  \"EVERYBODY GET IN HERE\"");
+        Room RFLHAT = new Room(RFLHATI, RFLHATC, "right fork after hall" , "You enter the balcony of a large arena. A voice below shouts  \"EVERYBODY GET IN HERE\"");
 
         //left fork after LHAT
         Item[] LFLHATI = new Item[0];
         Character[]LFLHATC = new Character[0];
-        Room LFLHAT = new Room(LFLHATI, LFLHATC, "left fork after hall", "You take the left fork, however it reveals a dead end.");
+        Room LFLHAT = new Room(LFLHATI, LFLHATC, "left fork after hall", "You enter the hallway, however it reveals a dead end.");
 
         //arena entrance hall (Room) front
         Item[] AEHFI = new Item[0];
         Character[]AEHFC = new Character[1];
         Item[] largebox = new Item[1];
-        largebox[0] = new Item("map to the golden monkey", "you take out a scroll which reveals a map. It says that it is a Map to the Golden Monkey", 0);
-        AEHFC[0] = new Character("box", "You look into the box which reveals a large amount of scrolls.", largebox, 100000);
-        Room AEHF = new Room(AEHFI , AEHFC, "hall/room after the entrance.", "You travel down a several flight of stairs. At the bottom you find a large box");
+        largebox[0] = new Item("map to the golden monkey", "you take out a scroll. It says that it is a Map to the Golden Monkey", 0, "There are scrolls in the box");
+        AEHFC[0] = new Character("box", "You look into the box which reveals a large amount of scrolls.", largebox);
+        Room AEHF = new Room(AEHFI , AEHFC, "hall/room after the entrance.", "You travel down a several flight of stairs. \nThere is a large box on the floor");
 
         //front room after arena entrance hall
         //ADD LOOK METHOD
-        Item[] FRAEI = new Item[0];
+        Item[] FRAEI = new Item[1];
+        FRAEI[0] = new Item("table", "there is nothing special about this table", 0, "");
         Character[] FRAEC = new Character[1];
         Item[] cabinet = new Item[2];
-        cabinet[1] = new Item("bag of coins", "this is a bag of 50 coins", 0);
-        cabinet[0] = new Item("dagger", "you grab the half broken dagger and put it into your sack. You note that there is a label that says \"Only designed to be used twice\"", 0);
-        FRAEC[0] = new Character("cabinet", "you open the cabinet which reveals a dagger and a sack of coins", cabinet, 100000);                  
+        cabinet[1] = new Item("bag of coins", "this is a bag of 50 coins", 0, "\nThere is a bag of coins in the cabinet");
+        cabinet[0] = new Item("dagger", "The dagger has a label that says \"Only designed to be used twice\"", 300, "\nThere is a dagger in the cabinet");
+        FRAEC[0] = new Character("cabinet", "you open the cabinet which reveals a dagger and a sack of coins", cabinet);                  
         Room FRAE = new Room(FRAEI, FRAEC, "front room", "You walk into a room and you see a cabinet and a table.");
 
         System.out.println("You spawn in a forest. Ahead of you there is a clearing, and in the distance you can see a ruined castle. You see a tattered book lying along the road.");        

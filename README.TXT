@@ -12,5 +12,8 @@ IF # is
 
 1001-1100 = Usable
 
+301-400 = Specific Weapon
+
+300 = Generic Weapon
 
 
