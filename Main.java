@@ -111,7 +111,8 @@ public class Main
                 System.out.println(currentRoom1.getName());
                 System.out.println(currentRoom1.getDescription());
                 currentRoom = currentRoom1;
-            }         
+            }
+           
             return;
         }     
         if (cmd[0].compareTo("east") == 0){
@@ -120,7 +121,14 @@ public class Main
                 System.out.println(currentRoom1.getName());
                 System.out.println(currentRoom1.getDescription());
                 currentRoom = currentRoom1;
-            }          
+                Item[] stuff = currentRoom1.getStuff();
+                for(int i = 0; i < stuff.length; i ++) {
+                    if (stuff[i]!= null) {
+                        System.out.println(stuff[i].getLocation());
+                    }
+                }
+                currentRoom = currentRoom1;
+            }       
             return;
         }        
         if (cmd[0].compareTo("west") == 0){
@@ -128,6 +136,13 @@ public class Main
             if (currentRoom != currentRoom1){
                 System.out.println(currentRoom1.getName());
                 System.out.println(currentRoom1.getDescription());
+                currentRoom = currentRoom1;
+                Item[] stuff = currentRoom1.getStuff();
+                for(int i = 0; i < stuff.length; i ++) {
+                    if (stuff[i]!= null) {
+                        System.out.println(stuff[i].getLocation());
+                    }
+                }
                 currentRoom = currentRoom1;
             }         
             return;
@@ -138,6 +153,13 @@ public class Main
                 System.out.println(currentRoom1.getName());
                 System.out.println(currentRoom1.getDescription());
                 currentRoom = currentRoom1;
+                Item[] stuff = currentRoom1.getStuff();
+                for(int i = 0; i < stuff.length; i ++) {
+                    if (stuff[i]!= null) {
+                        System.out.println(stuff[i].getLocation());
+                    }
+                }
+                currentRoom = currentRoom1;
             }        
             return;
         }
@@ -146,6 +168,13 @@ public class Main
             if (currentRoom != currentRoom1){
                 System.out.println(currentRoom1.getName());
                 System.out.println(currentRoom1.getDescription());
+                currentRoom = currentRoom1;
+                Item[] stuff = currentRoom1.getStuff();
+                for(int i = 0; i < stuff.length; i ++) {
+                    if (stuff[i]!= null) {
+                        System.out.println(stuff[i].getLocation());
+                    }
+                }
                 currentRoom = currentRoom1;
             }           
             return;
@@ -170,8 +199,8 @@ public class Main
 
         //cave room 
         Item[] caveItems = new Item[2];
-        caveItems[0]= new Item("key", "This seems to be the key to the castle", 1, "\nThere is a key on the floor");
-        caveItems[1]= new Item("stones", "Some random stones.", 0, "\nThere are a pile of stones on the floor" );
+        caveItems[0]= new Item("key", "This seems to be the key to the castle", 1, "There is a key on the floor");
+        caveItems[1]= new Item("stones", "Some random stones.", 0, "There are a pile of stones on the floor" );
         Character[] caveCharacters = new Character[0];
         Room cave = new Room(caveItems, caveCharacters, "Cave in the Gorge", "You enter a dark cave.");
 
@@ -183,7 +212,7 @@ public class Main
 
         //castle first room
         Item[] cfrI = new Item[1]; // do doors count as a character? --- ahhh doors that need keys are characters  -- ma
-        cfrI[0] = new Item("bottle of beer", "The brand of the beer is Ancient Brewmaster", 0, "\nThere is a bottle of beer on the floor");
+        cfrI[0] = new Item("bottle of beer", "The brand of the beer is Ancient Brewmaster", 0, "There is a bottle of beer on the floor");
         Character[] cfrC = new Character[1];  //temp
         cfrC[0] = new Character("painting door", "This seems to be a door that is disguised as a painting", false, 418098);
         Room castleRoomFront = new Room(cfrI, cfrC, "Castle Hall", "You walk into a large hall. There is a painting of Reynad. Ahead of you is a large room with 3 doors.");
@@ -205,7 +234,7 @@ public class Main
         lwfr[0] = new Item("Explorers Hat", "This seems to be a hat that gives you more HEALTH?!", 0,"There is a dusty hat lying on the floor");
         lwfr[1] = new Item("Painting of Kolento", "Examining the painting reveals nothing unusual.", 0, "There is a painting in the room");
         leftwingfirstroomC[0] = new Character("Loose floorboard", "The loose floorboard is disguised as a trap door that appears to be locked", true, 4);  //wierd error here
-        Room leftwingfirstroom = new Room(lwfr, leftwingfirstroomC, "left wing first room", "You enter a dark room. You can see the faint outlines of a hallway leading beyond. \nThere is a loose floorboard");
+        Room leftwingfirstroom = new Room(lwfr, leftwingfirstroomC, "left wing first room", "You enter a dark room. You can see the faint outlines of a hallway leading beyond. There is a loose floorboard");
 
         //leftwing hallwayOne
         Item[] LWH1I = new Item[0];
@@ -253,7 +282,7 @@ public class Main
         Item[] largebox = new Item[1];
         largebox[0] = new Item("map to the golden monkey", "you take out a scroll. It says that it is a Map to the Golden Monkey", 0, "There are scrolls in the box");
         AEHFC[0] = new Character("box", "You look into the box which reveals a large amount of scrolls.", largebox);
-        Room AEHF = new Room(AEHFI , AEHFC, "hall/room after the entrance.", "You travel down a several flight of stairs. \nThere is a large box on the floor");
+        Room AEHF = new Room(AEHFI , AEHFC, "hall/room after the entrance.", "You travel down a several flight of stairs. There is a large box on the floor");
 
         //front room after arena entrance hall
         //ADD LOOK METHOD
@@ -261,8 +290,8 @@ public class Main
         FRAEI[0] = new Item("table", "there is nothing special about this table", 0, "");
         Character[] FRAEC = new Character[1];
         Item[] cabinet = new Item[2];
-        cabinet[1] = new Item("bag of coins", "this is a bag of 50 coins", 0, "\nThere is a bag of coins in the cabinet");
-        cabinet[0] = new Item("dagger", "The dagger has a label that says \"Only designed to be used twice\"", 300, "\nThere is a dagger in the cabinet");
+        cabinet[1] = new Item("bag of coins", "this is a bag of 50 coins", 0, "There is a bag of coins in the cabinet");
+        cabinet[0] = new Item("dagger", "The dagger has a label that says \"Only designed to be used twice\"", 300, "There is a dagger in the cabinet");
         FRAEC[0] = new Character("cabinet", "you open the cabinet which reveals a dagger and a sack of coins", cabinet);                  
         Room FRAE = new Room(FRAEI, FRAEC, "front room", "You walk into a room and you see a cabinet and a table.");
 
