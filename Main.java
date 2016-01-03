@@ -77,6 +77,9 @@ public class Main
             Character character1 = currentRoom.verifyCharacter(cmd[1]);
             Item itemInventory = player.verifyInventory(cmd[1]);
             Character character3 = currentRoom.verifyCharacter(cmd[3]);
+            if(itemInventory != null && character3 != null){
+                currentRoom.useItem(itemInventory, charaacter3);
+            }
             if(itemInventory != null){
                 if(cmd.length == 2){
                     System.out.println("On what?");
@@ -95,6 +98,7 @@ public class Main
             if (currentRoom != currentRoom1){
                 System.out.println(currentRoom1.getName());
                 System.out.println(currentRoom1.getDescription());
+                if(
                 Item[] stuff = currentRoom1.getStuff();
                 for(int i = 0; i < stuff.length; i ++) {
                     if (stuff[i]!= null) {
@@ -110,9 +114,14 @@ public class Main
             if (currentRoom != currentRoom1){
                 System.out.println(currentRoom1.getName());
                 System.out.println(currentRoom1.getDescription());
+                Item[] stuff = currentRoom1.getStuff();
+                for(int i = 0; i < stuff.length; i ++) {
+                    if (stuff[i]!= null) {
+                        System.out.println(stuff[i].getLocation());
+                    }
+                }                
                 currentRoom = currentRoom1;
             }
-           
             return;
         }     
         if (cmd[0].compareTo("east") == 0){
@@ -120,7 +129,6 @@ public class Main
             if (currentRoom != currentRoom1){
                 System.out.println(currentRoom1.getName());
                 System.out.println(currentRoom1.getDescription());
-                currentRoom = currentRoom1;
                 Item[] stuff = currentRoom1.getStuff();
                 for(int i = 0; i < stuff.length; i ++) {
                     if (stuff[i]!= null) {

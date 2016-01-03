@@ -4,7 +4,6 @@
  */
 public class Character
 {
-    // instance variables - replace the example below with your own
     private String name = "";
     private String description = "";
     private Item[] inventory;
@@ -14,6 +13,7 @@ public class Character
     private String location;
     private boolean door;
     private boolean attackable;
+    private int direction;
 
     /**
      * Constructor for objects that attack and can be attacked
@@ -42,14 +42,14 @@ public class Character
     /**
      * Constructor for Doors
      */
-    public Character(String name,String description, boolean locked, int keynumber) {
+    public Character(String name,String description, boolean locked, int keynumber, int direction) {
         this.name = name;
         this.description = description;
         this.locked = locked;
         this.keynumber = keynumber;
-        this.location = location;
         this.door = true;
        this.attackable = false;
+       this.direction = direction;
     }
 
     public String getDescription(){
