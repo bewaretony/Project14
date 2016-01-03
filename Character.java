@@ -42,7 +42,7 @@ public class Character
     /**
      * Constructor for Doors
      */
-    public Character(String name,String description, boolean locked, int keynumber, String location) {
+    public Character(String name,String description, boolean locked, int keynumber) {
         this.name = name;
         this.description = description;
         this.locked = locked;

@@ -160,8 +160,8 @@ public class Main
         //spawn
         Item[] spawnItems = new Item[1];
         Character[] spawnCharacter = new Character[0];
-        spawnItems[0] = new Item("book", "There is a tattered book on the ground", 0);
-        Room spawn = new Room(spawnItems, spawnCharacter, "Spawn Point", "You spawn in a forest. Ahead of you there is a clearing, and in the distance you can see a ruined castle. ");
+        spawnItems[0] = new Item("book", "WELCOME TO HERO OF THE HEARTH. \nHero of the Hearth is a game by Blizzzard (The extra z is intended) that will be released Soon^TM \nIn Hero of the Hearth, players explore the land of King Gaben as they fight minions and monsters, while finding golden treasures. \nHero of the Hearth was created by John Shieh and Anthony Luo",0,"There is a tattered book on the floor");
+        Room spawn = new Room(spawnItems, spawnCharacter, "Spawn Point", "You spawn in a forest. Ahead of you there is a clearing, and in the distance you can see a ruined castle.");
 
         //clearing next to spawn
         Item[] clearingItems = new Item[0];
@@ -170,31 +170,32 @@ public class Main
 
         //cave room 
         Item[] caveItems = new Item[2];
-        caveItems[0]= new Item("key", "This is the key to the castle.", 1);
-        caveItems[1]= new Item("stones", "Some random stones.", 0);
+        caveItems[0]= new Item("key", "This seems to be the key to the castle", 1, "\nThere is a key on the floor");
+        caveItems[1]= new Item("stones", "Some random stones.", 0, "\nThere are a pile of stones on the floor" );
         Character[] caveCharacters = new Character[0];
-        Room cave = new Room(caveItems, caveCharacters, "Cave in the Gorge", "You enter a dark cave. You see a pile of stones on the left and a shiny object on the right.");
+        Room cave = new Room(caveItems, caveCharacters, "Cave in the Gorge", "You enter a dark cave.");
 
         //castle entrance
         Item[] castleEntranceItems = new Item[0];
         Character[] castleCharacters = new Character[1];
-        castleCharacters[0] = new Character("castle-door", "needs cave key", true, 1);
-        Room castleEntrance = new Room(castleEntranceItems, castleCharacters, "Castle entrance", "You see the entrance to a giant, ruined castle. The castle-door is locked.");
+        castleCharacters[0] = new Character("castle-door", "The door is made of cast iron and is impurtable. There is a key hole in the center.", true, 1);
+        Room castleEntrance = new Room(castleEntranceItems, castleCharacters, "Castle entrance", "You see the entrance to a giant, ruined castle.");
 
         //castle first room
         Item[] cfrI = new Item[1]; // do doors count as a character? --- ahhh doors that need keys are characters  -- ma
-        cfrI[0] = new Item("bottle of beer", "This is a bottle of beer", 0);
-        Character[] cfrC = new Character[0];  //temp
-        Room castleRoomFront = new Room(cfrI, cfrC, "Castle Hall", "You walk into a large hall. Ahead of you is a large room with 3 doors. You see a pile of bones on your left and a painting on your right.");
+        cfrI[0] = new Item("bottle of beer", "The brand of the beer is Ancient Brewmaster", 0, "\nThere is a bottle of beer on the floor");
+        Character[] cfrC = new Character[1];  //temp
+        cfrC[0] = new Character("painting door", "This seems to be a door that is disguised as a painting", false, 418098);
+        Room castleRoomFront = new Room(cfrI, cfrC, "Castle Hall", "You walk into a large hall. There is a painting of Reynad. Ahead of you is a large room with 3 doors.");
 
         //castle seconds room
         Item[] csrI = new Item[1];
-        csrI[0]= new Item("stones", "some assorted stones", 0);
+        csrI[0]= new Item("Totem", "This is Stoneclaw Totem", 0, "There is a totem on the ground");
         Character[] csrC = new Character[3];
-        csrC[0] = new Character("left door", "You see a locked door on your left",true, 2);
-        csrC[1] = new Character("right door", "You see a locked door on your right.", true, 100);
-        csrC[2] = new Character("door", "You see a locked door in front of you.", true, 200);
-        Room castleRoomSecond = new Room(csrI, csrC, "Castle Second Room", "You walk into a large room with three doors on each side. You see a pile of stones on your right.");
+        csrC[0] = new Character("left door", "The door is green and purple and says CURRSE OF THE NAXX. It does not seem to be locked",false, 5268);
+        csrC[1] = new Character("right door", "The door is orange and black and says BLACROCK MOUNTAIN. The door has a keyhole that is in the shape of a pyramid", true, 30);
+        csrC[2] = new Character("door", "The door is blue and brown and says LEAGUE OF EXPLORERS. The door has a keyhole that is in the shape of a hat", true, 60);
+        Room castleRoomSecond = new Room(csrI, csrC, "Castle Second Room", "You walk into a large room with three doors on each side. There are 3 doors, one on your left, right and infront of you.");
 
         //LEFT WING STUFF IS HERE
 
