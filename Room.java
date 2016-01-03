@@ -149,7 +149,24 @@ public class Room
                     System.out.println("The door has been unlocked and opened.");
                 }
             }
+            else{
+                System.out.println("The door has been opened.");
+            }
         }
         System.out.println("Used " + item.getName() + " on " + character.getName());
+    }
+    
+    private boolean blockedByDoor(int direc){
+        for(int i = 0;i < people.length; i++){
+            String name = people[i].getName().toLowerCase();
+            if(name.contains("door")){
+                if ((people[i].direction ==direc) && (people[i].getLocked())){
+                    String[] dir = {"north", "east", "south", "west", "up", "down"};
+                    System.out.println("The "+dir[direc]+" direction is blocked by the locked " + name);
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }
