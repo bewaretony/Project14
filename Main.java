@@ -44,7 +44,7 @@ public class Main
                     return;
                 }
                 if(character.getHealth() > 0){
-                     character.dHealth();
+                    character.dHealth();
                 }
                 else{
                     System.out.println("The " + character + " has been slain.");
@@ -68,14 +68,21 @@ public class Main
             return;
         }
         if (cmd[0].compareTo("use") == 0){
-            Item item1 = currentRoom.verifyCharacter
-            return;
-        }        
+            boolean found = false;
+            Item[] stuff = currentRoom1.getStuff();
+ 
+        }
         if (cmd[0].compareTo("north") == 0){
             Room currentRoom1 = currentRoom.goNorth();
             if (currentRoom != currentRoom1){
                 System.out.println(currentRoom1.getName());
                 System.out.println(currentRoom1.getDescription());
+                Item[] stuff = currentRoom1.getStuff();
+                for(int i = 0; i < stuff.length() ; i ++) {
+                    if (stuff[i]!= null) {
+                        System.out.println(stuff.getLocation());
+                    }
+                }
                 currentRoom = currentRoom1;
             }
             return;
@@ -229,7 +236,6 @@ public class Main
         AEHFC[0] = new Character("box", "You look into the box which reveals a large amount of scrolls.", largebox, 100000);
         Room AEHF = new Room(AEHFI , AEHFC, "hall/room after the entrance.", "You travel down a several flight of stairs. At the bottom you find a large box");
 
-        
         //front room after arena entrance hall
         //ADD LOOK METHOD
         Item[] FRAEI = new Item[0];
@@ -240,7 +246,6 @@ public class Main
         FRAEC[0] = new Character("cabinet", "you open the cabinet which reveals a dagger and a sack of coins", cabinet, 100000);                  
         Room FRAE = new Room(FRAEI, FRAEC, "front room", "You walk into a room and you see a cabinet and a table.");
 
-        
         
         System.out.println("Welcome to Hearthbone. \nYou spawn in a forest. Ahead of you there is a clearing, and in the distance you can see a ruined castle. You see a tattered book lying along the road.");        
         currentRoom = spawn;

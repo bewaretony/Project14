@@ -24,7 +24,12 @@ public class Room
         this.people = p;
         
     }
-    
+    public Item[] getStuff() {
+        return this.stuff;
+    }
+    public Character[] getCharacters() {
+        return this.people;
+    }
     public String getDescription() {
         return d;
     }
@@ -100,7 +105,7 @@ public class Room
     public Character verifyCharacter(String characterName) {
         for (int i=0; i < people.length; i++) {
             String name = people[i].getName().toLowerCase();
-            if (name.compareTo(characterName.toLowerCase()) == 0) {
+                if (name.compareTo(characterName.toLowerCase()) == 0) {
                 //System.out.println("character found");
                 return people[i];
             }

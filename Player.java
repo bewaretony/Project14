@@ -1,5 +1,5 @@
 /**
- * Write a description of class Player here.
+ * Write a description of class Player here.    
  * 
  * @author (your name) 
  * @version (a version number or a date)
@@ -33,5 +33,14 @@ public class Player
     }
     
     public void equip(Equippable equipment){
+    }
+    public Item verifyInventory(String itemName){
+        for(int i = 0;i < this.inventory.length; i++){
+            String name = inventory[i].getName().toLowerCase();
+            if(name.compareTo(itemName.toLowerCase()) == 0){
+                return inventory[i];
+            }
+        }
+        return null;
     }
 }
