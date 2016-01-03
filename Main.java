@@ -9,6 +9,7 @@ public class Main
 {
     static int score = 0;
     static Room currentRoom;
+    static Player player;
     public static void main(String[] args) {
         setup();
         Scanner kbReader = new Scanner(System.in);
@@ -36,8 +37,13 @@ public class Main
         String[] cmd = command.split(" ");
         cmd[0] = cmd[0].toLowerCase();
         if (cmd[0].compareTo("attack") == 0){
+            if (cmd.length == 1){
+                System.out.println("Attack what?");
+                return;
+            }
             Character character = currentRoom.verifyCharacter(cmd[1]);
-            if (character != null){
+            Item itemInventory = player.verifyInventory(cmd[3]);
+            if (character != null && itemInventory != null){
                 //if(character.door() = true;)
                 if(character.attackable() == false){
                     System.out.println("You cannot attack " + cmd[1] + ".");
@@ -51,7 +57,7 @@ public class Main
                 }
             }
             else{
-                System.out.println("The " + character + " was not found.");
+                System.out.println("The " + character + " or " + itemInventory + " was not found.");
             }
             return;
         }
@@ -64,13 +70,25 @@ public class Main
             return;
         }
         if (cmd[0].compareTo("take") == 0){
-            System.out.println("add something here for examine.......");
+            Item itemRoom = currentRoom.verifyItem(cmd[1]);
             return;
         }
         if (cmd[0].compareTo("use") == 0){
-            boolean found = false;
-            Item[] stuff = currentRoom1.getStuff();
- 
+            Character character1 = currentRoom.verifyCharacter(cmd[1]);
+            Item itemInventory = player.verifyInventory(cmd[1]);
+            Character character3 = currentRoom.verifyCharacter(cmd[3]);
+            if(itemInventory != null){
+                if(cmd.length == 2){
+                    System.out.println("On what?");
+                    System.out.print(">");
+                    Scanner kbReader = new Scanner(System.in);
+                    String input = kbReader.nextLine().toLowerCase();
+                    Character character = currentRoom.verifyCharacter(input);
+                    if(character != null){
+                        currentRoom.useItem(itemInventory, character);
+                    }
+                }
+            }
         }
         if (cmd[0].compareTo("north") == 0){
             Room currentRoom1 = currentRoom.goNorth();
@@ -78,9 +96,9 @@ public class Main
                 System.out.println(currentRoom1.getName());
                 System.out.println(currentRoom1.getDescription());
                 Item[] stuff = currentRoom1.getStuff();
-                for(int i = 0; i < stuff.length() ; i ++) {
+                for(int i = 0; i < stuff.length; i ++) {
                     if (stuff[i]!= null) {
-                        System.out.println(stuff.getLocation());
+                        System.out.println(stuff[i].getLocation());
                     }
                 }
                 currentRoom = currentRoom1;
@@ -246,7 +264,6 @@ public class Main
         FRAEC[0] = new Character("cabinet", "you open the cabinet which reveals a dagger and a sack of coins", cabinet, 100000);                  
         Room FRAE = new Room(FRAEI, FRAEC, "front room", "You walk into a room and you see a cabinet and a table.");
 
-        
         System.out.println("Welcome to Hearthbone. \nYou spawn in a forest. Ahead of you there is a clearing, and in the distance you can see a ruined castle. You see a tattered book lying along the road.");        
         currentRoom = spawn;
         spawn.setNorth(clearingSpawn);
