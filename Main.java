@@ -200,12 +200,12 @@ public class Main
         //LEFT WING STUFF IS HERE
 
         //left wing first room
-        Item[] lwfr = new Item[1];
-        Character[] leftwingfirstroomC = new Character[2];
-        lwfr[0] = new Item("Explorers Hat", "You find an explorers hat. Wearing this gives you more swag *TO BE CHANGED LATER*", 0);
-        leftwingfirstroomC[0] = new Character("trap door", "you open the trap door and you see stairs descending down into total darkness", true, 4);  //wierd error here
-        leftwingfirstroomC[1] = new Character("painting", "opening the painting reveals a hat", true, 0);
-        Room leftwingfirstroom = new Room(lwfr, leftwingfirstroomC, "left wing first room", "You enter a dark room. You can see the faint outlines of a hallway leading beyond");
+        Item[] lwfr = new Item[2];
+        Character[] leftwingfirstroomC = new Character[1];
+        lwfr[0] = new Item("Explorers Hat", "This seems to be a hat that gives you more HEALTH?!", 0,"There is a dusty hat lying on the floor");
+        lwfr[1] = new Item("Painting of Kolento", "Examining the painting reveals nothing unusual.", 0, "There is a painting in the room");
+        leftwingfirstroomC[0] = new Character("Loose floorboard", "The loose floorboard reveals a trap door that appears to be locked", true, 4);  //wierd error here
+        Room leftwingfirstroom = new Room(lwfr, leftwingfirstroomC, "left wing first room", "You enter a dark room. You can see the faint outlines of a hallway leading beyond. \nThere is a loose floorboard");
 
         //leftwing hallwayOne
         Item[] LWH1I = new Item[0];
