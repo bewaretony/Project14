@@ -441,12 +441,12 @@ public class Main
         //hallway down
         Item[] HDI = new Item[0];
         Character[] HDC = new Character[0];
-        Room hd = new Room("pathway", "you are standing on a steep set of stairs");
+        Room hd = new Room(HDI, HDC, "pathway", "you are standing on a steep set of stairs");
         
         //downstairs central station
         Item[] DCSI =  new Item[0];
         Character[] DCSC = new Character[0];
-        Room DSC = new Room(DCSI, DCSC, "
+        Room DSC = new Room(DCSI, DCSC, "Grand hall", "You are in a grand hall");
         
         
         
