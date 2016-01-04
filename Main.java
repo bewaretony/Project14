@@ -487,6 +487,7 @@ public class Main
         Character[] MHRC = new Character[0];
         Room MHR =  new Room(MHRI, MHRC, "Monkey-room", "You are in a room with various ruined objects");
         
+        
 
         
         Item[] PlayerIn = new Item[10];
