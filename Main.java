@@ -498,6 +498,19 @@ public class Main
         FBR2I[0] = new Item("frost-bolt", "This seems to be a powerful weapon", 350, "There is a frost-bolt on the ceiling");
         FBR2I[1] = new Item("bolt-of-frost", "This seems to be a decorative item", 0, "There is a bolt-of-frost attached to the wall");
         Room FBR2 = new Room(FBR2I, new Character[0], "Blue-Room", "You are in a blue room.");
+        
+        //pre-rag room
+        Room RPR = new Room(new Item[0], new Character[0], "Black-Room", "You walk into a black room. A sign on the wall says \"Beware of Ragnaros\"");
+        
+        //deathpit 3
+        Room DT3 = new Room(new Item[0], new Character[0], "Death-Pit 3", "You fall off into a lava pit and die"); //DEATH HERE
+        
+        //RAGNAROS FIGHT
+       Item[] RFRI = new Item[90];
+       Item[] RAGIT = new Item[2];
+       RAGIT[0] = new Item("Green-key", "This seems to be a green-key with an inscription that says 'CURSE OF THE NAXX' on it'", 40, "There is a green key in the center of the room");
+       RAGIT[1] = new Item("Pedastal", "This seems to be a pedestal with an incription that say 'GOLDEN MONKEY' on it", 93, "There is a pedastal floating above the ground");
+       Character[] RAGIC = new Character("
 
         Item[] PlayerIn = new Item[10];
         player = new Player("Hero", "A buff dude", PlayerIn, 100);
