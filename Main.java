@@ -269,7 +269,7 @@ public class Main
 
         //cave room 
         Item[] caveItems = new Item[2];
-        caveItems[0]= new Item("key", "This seems to be the key to the castle", 1, "There is a key on the floor");
+        caveItems[0]= new Item("castle-key", "This seems to be the key to the castle", 1, "There is a key on the floor");
         caveItems[1]= new Item("stones", "Some random stones.", 0, "There are a pile of stones on the floor" );
         Character[] caveCharacters = new Character[0];
         Room cave = new Room(caveItems, caveCharacters, "Cave in the Gorge", "You enter a dark cave.");
@@ -285,14 +285,14 @@ public class Main
         cfrI[0] = new Item("bottle of beer", "The brand of the beer is Ancient Brewmaster", 0, "There is a bottle of beer on the floor");
         Character[] cfrC = new Character[1];  //temp
         cfrC[0] = new Character("painting door", "This seems to be a door that is disguised as a painting", false, 418098, 4);
-        Room castleRoomFront = new Room(cfrI, cfrC, "Castle Hall", "You walk into a large hall. There is a painting of Reynad. Ahead of you is a large room with 3 doors.");
+        Room castleRoomFirst = new Room(cfrI, cfrC, "Castle Hall", "You walk into a large hall. There is a painting of Reynad. Ahead of you is a large room with 3 doors.");
 
         //castle seconds room
         Item[] csrI = new Item[1];
         csrI[0]= new Item("Totem", "This is Stoneclaw Totem", 0, "There is a totem on the ground");
         Character[] csrC = new Character[3];
-        csrC[0] = new Character("left door", "The door is green and purple and says CURRSE OF THE NAXX. It does not seem to be locked",false, 5268, 4);
-        csrC[1] = new Character("right door", "The door is orange and black and says BLACROCK MOUNTAIN. The door has a keyhole that is in the shape of a pyramid", true, 30, 2);
+        csrC[0] = new Character("left door", "The door is green and purple and says BLACKROCK MOUNTAIN . It does not seem to be locked",false, 5268, 4);
+        csrC[1] = new Character("right door", "The door is orange and black and says CURSE OF NAXXRAMUS. The door has a keyhole that is in the shape of a pyramid", true, 30, 2);
         csrC[2] = new Character("door", "The door is blue and brown and says LEAGUE OF EXPLORERS. The door has a keyhole that is in the shape of a hat", true, 60, 1);
         Room castleRoomSecond = new Room(csrI, csrC, "Castle Second Room", "You walk into a large room with three doors on each side. There are 3 doors, one on your left, right and infront of you.");
 
@@ -303,7 +303,7 @@ public class Main
         Character[] leftwingfirstroomC = new Character[1];
         lwfr[0] = new Item("Explorers Hat", "This seems to be a hat that gives you more HEALTH?!", 0,"There is a dusty hat lying on the floor");
         lwfr[1] = new Item("Painting of Kolento", "Examining the painting reveals nothing unusual.", 0, "There is a painting in the room");
-        leftwingfirstroomC[0] = new Character("Loose floorboard", "The loose floorboard is disguised as a trap door that appears to be locked", true, 4, 6);  //wierd error here
+        leftwingfirstroomC[0] = new Character("Loose floorboard", "The loose floorboard is disguised as a trap door that appears to be locked", true, 10, 6);  //wierd error here
         Room leftwingfirstroom = new Room(lwfr, leftwingfirstroomC, "left wing first room", "You enter a dark room. You can see the faint outlines of a hallway leading beyond. There is a loose floorboard");
 
         //leftwing hallwayOne
@@ -373,9 +373,26 @@ public class Main
         Room FRAE = new Room(FRAEI, FRAEC, "front room", "You walk into a room and you see a cabinet and a table.");
 
         //balcony to arena room 1
-        //Item[] BAR1I = new Item[0];
-        //Character[]BAR1I = new Character[0];
-        //Room LFLHAT = new Room(LFLHATI, LFLHATC, "Hallway", "You enter the hallway, however it reveals a dead end.");
+        Item[] BAR1I = new Item[0];
+        Character[]BAR1C = new Character[0];
+        Room BAR1 = new Room(BAR1I, BAR1C, "Hallway", "You are in a hallway in the Arena.");
+        
+        //balcony to arena room 2
+        Item[] BAR2I = new Item[0];
+        Character[]BAR2C = new Character[0];
+        Room BAR2 = new Room(BAR2I, BAR2C, "Hallway", "You are backstage in the Arena");
+        
+        //Arena grim patron
+        Item[] AGRI = new Item[100];
+        Character[] AGRC = new Character[1];
+        Item[] patron = new Item[1];
+        patron[0] = new Item("B-key", "This is the key to the trapdoor", 10, "There is a key on the ground");
+        AGRC[0] = new Character("grim patron", "If you dont kill this minion in one hit, another grim patron will be summoned", "There is a grim patron in the center of the arena", patron, 3, 10);
+        Room AGR = new Room(AGRI, AGRC, "Arena", "You enter the arena");
+        
+        //UNDERGROUND
+        
+        
 
         
         System.out.println("You spawn in a forest. Ahead of you there is a clearing, and in the distance you can see a ruined castle. You see a tattered book lying along the road.");        
@@ -384,8 +401,12 @@ public class Main
         clearingSpawn.setSouth(spawn);
         castleEntrance.setSouth(clearingSpawn);
         clearingSpawn.setNorth(castleEntrance);
-        clearingSpawn.setEast(FRAE);
-        cave.setSouth(clearingSpawn);
+        clearingSpawn.setEast(cave);
+        cave.setWest(clearingSpawn);
+        castleEntrance.setNorth(castleRoomFirst);
+        castleRoomFirst.setSouth(castleEntrance);
+        
+        
 
     }
 }

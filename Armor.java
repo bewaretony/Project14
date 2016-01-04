@@ -5,6 +5,7 @@
  */
 public class Armor extends Equippable
 {
+    
     public Armor(String name, String description, int use, String location){
         super(name, description, use, location);
     }
