@@ -339,7 +339,7 @@ public class Main
         //hallway to akk room
         Item[] AKKHI = new Item[0];
         Character[]AKKHC = new Character[0];
-        Room AKKH = new Room(LHATI, LHATC, "tunnel", "You are in a round tunnel.");
+        Room AKKH = new Room(AKKHI, AKKHC, "tunnel", "You are in a round tunnel.");
         
         //leftwing arena knife + key to monkey-key room
         Item[] AKKI = new Item[3];
