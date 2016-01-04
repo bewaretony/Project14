@@ -357,9 +357,9 @@ public class Main
 
         //right fork after LHAT
         Item[] RFLHATI = new Item[0];
-        Character[]RFLHATC = new Character[1];
-        RFLHATC[0] = new Character("golden-door", "This is a door that is made out of solid gold. There is an inscription that reads 'Elise Starseeker'", true, 15, 2);
-        Room RFLHAT = new Room(RFLHATI, RFLHATC, "Balcony" , "You are in the balcony of a large arena. A voice below shouts  \"EVERYBODY GET IN HERE\". There is a golden-door next to you" );
+            Character[]RFLHATC = new Character[1];
+            RFLHATC[0] = new Character("golden-door", "This is a door that is made out of solid gold. There is an inscription that reads 'Elise Starseeker'", true, 15, 2);
+            Room RFLHAT = new Room(RFLHATI, RFLHATC, "Balcony" , "You are in the balcony of a large arena. A voice below shouts  \"EVERYBODY GET IN HERE\". There is a golden-door next to you" );
 
         //left fork after LHAT
         Item[] LFLHATI = new Item[0];
@@ -405,9 +405,24 @@ public class Main
         
         //UNDERGROUND
         
+        //hallway down
+        Item[] HDI = new Item[0];
+        Character[] HDC = new Character[0];
+        Room hd = new Room("pathway", "you are standing on a steep set of stairs");
+        
+        //downstairs central station
+        Item[] DCSI =  new Item[0];
+        Character[] DCSC = new Character[0];
+        Room DSC = new Room(DCSI, DCSC, "
+        
+        
+        
+        
+        
         
         Item[] PlayerIn = new Item[10];
         player = new Player("Hero", "A buff dude", PlayerIn, 100);
+        System.out.println("Welcome to HERO OF THE HEARTH");
         System.out.println("You spawn in a forest. Ahead of you there is a clearing, and in the distance you can see a ruined castle. You see a tattered book lying along the road.");        
         currentRoom = spawn;
         spawn.setNorth(clearingSpawn);
