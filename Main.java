@@ -107,8 +107,17 @@ public class Main
         }
         if (cmd[0].compareTo("take") == 0){
             Item itemRoom = currentRoom.verifyItemRoom(cmd[1]);
+            String itemName = cmd[1].toLowerCase();
+            if(cmd.length == 1){
+                System.out.println("What do you want to take?");
+                Scanner kbReader = new Scanner(System.in);
+                String input = kbReader.nextLine().toLowerCase();
+                Item itemRoom1 = currentRoom.verifyItemRoom(input);
+                if(itemRoom1 != null){
+                }
+            }
             if(itemRoom != null){
-                currentRoom.addItems(itemRoom, player);
+                currentRoom.addItems(itemName, player);
             }
             return;
         }
