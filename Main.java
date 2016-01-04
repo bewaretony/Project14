@@ -44,16 +44,19 @@ public class Main
                 Character character = currentRoom.verifyCharacter(input);
                 if(character != null){
                     System.out.println("What do you want to attack the " + character + " with?");
-                    Scanner kbReader = new Scanner(System.in);
-                    String input = kbReader.nextLine().toLowerCase();
-                    Character character1 = currentRoom.verifyCharacter(input);                    
+                    Scanner kbReader1 = new Scanner(System.in);
+                    String input1 = kbReader1.nextLine().toLowerCase();
+                    Item item = player.verifyItem(input1);
+                    if(item != null){
+                        player.attackCharacter(character, item);
+                    }
                 }
                 return;
             }
             Character character = currentRoom.verifyCharacter(cmd[1]);
             Item itemInventory = player.verifyInventory(cmd[3]);
             if (character != null && itemInventory != null){
-                //if(character.door() = true;)
+                player.attackCharacter(character, itemInventory);
             }
             else{
                 System.out.println("The " + character + " or " + itemInventory + " was not found.");

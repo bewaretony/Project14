@@ -52,6 +52,9 @@ public class Character
        this.direction = direction;
     }
 
+    public Item[] getInventory(){
+        return this.inventory;
+    }
     public String getDescription(){
         return this.description;
     }

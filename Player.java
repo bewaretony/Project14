@@ -20,6 +20,10 @@ public class Player
         
     }
     
+    public Item[] getPlayerInventory(){
+        return this.inventory;
+    }
+    
     public String getName(){
         return this.name;
     }

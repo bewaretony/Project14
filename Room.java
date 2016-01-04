@@ -152,10 +152,11 @@ public class Room
     }
 
     public Item verifyItem(String itemName) {
-        for (int i = 0;i < stuff.length;i++){
-            String name = stuff[i].getName().toLowerCase();
+        Item[] items = player.getPlayerInventory();
+        for (int i = 0;i < items.length;i++){
+            String name = items[i].getName().toLowerCase();
             if (name.compareTo(itemName.toLowerCase()) == 0) {
-                return stuff[i];
+                return items[i];
             }
         }
         return null;
@@ -190,6 +191,20 @@ public class Room
         return false;
     }
 
+    private void removeItems(Character character){
+        Item[] items = character.getInventory();
+        for(int i = 0;i < items.length;i++){
+            if(items[i] != null){
+                for(int j = 0;i < stuff.length;i++){
+                    if(stuff[j] == null){
+                        stuff[j] = items[i];
+                        items[i] = null;
+                    }
+                }
+            }
+        }
+    }
+
     public void attackCharacter(Character character, Item item){
         if(character.attackable() == false){
             System.out.println("You cannot attack " + character.getName() + ".");
@@ -206,11 +221,12 @@ public class Room
                 }
                 String name = people[i].getName().toLowerCase();
                 if (name.compareTo(character.getName().toLowerCase()) == 0) {
-                    //System.out.println("character found");
+                    removeItems(people[i]);
                     people[i] = null;
                 }
             }
             System.out.println("The " + character + " has been slain.");
         }
     }
-    }
+}
+        
