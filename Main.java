@@ -406,8 +406,8 @@ public class Main
         //UNDERGROUND
         
         
-
-        Player player
+        Item[] PlayerIn = new Item[10];
+        Player player = new Player("Hero", "A buff dude", PlayerIn, 100);
         System.out.println("You spawn in a forest. Ahead of you there is a clearing, and in the distance you can see a ruined castle. You see a tattered book lying along the road.");        
         currentRoom = spawn;
         spawn.setNorth(clearingSpawn);
