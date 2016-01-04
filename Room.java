@@ -151,17 +151,6 @@ public class Room
         return null;
     }
 
-    public Item verifyItem(String itemName) {
-        Item[] items = player.getPlayerInventory();
-        for (int i = 0;i < items.length;i++){
-            String name = items[i].getName().toLowerCase();
-            if (name.compareTo(itemName.toLowerCase()) == 0) {
-                return items[i];
-            }
-        }
-        return null;
-    }
-
     public void useItem(Item item, Character character){
         if(character.door() == true){
             if(character.getLocked() == true){
