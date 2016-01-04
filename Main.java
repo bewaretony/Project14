@@ -277,23 +277,23 @@ public class Main
         //castle entrance
         Item[] castleEntranceItems = new Item[0];
         Character[] castleCharacters = new Character[1];
-        castleCharacters[0] = new Character("castle-door", "The door is made of cast iron and is impurtable. There is a key hole in the center.", true, 1);
+        castleCharacters[0] = new Character("castle-door", "The door is made of cast iron and is impurtable. There is a key hole in the center.", true, 1, 1);
         Room castleEntrance = new Room(castleEntranceItems, castleCharacters, "Castle entrance", "You see the entrance to a giant, ruined castle.");
 
         //castle first room
         Item[] cfrI = new Item[1]; // do doors count as a character? --- ahhh doors that need keys are characters  -- ma
         cfrI[0] = new Item("bottle of beer", "The brand of the beer is Ancient Brewmaster", 0, "There is a bottle of beer on the floor");
         Character[] cfrC = new Character[1];  //temp
-        cfrC[0] = new Character("painting door", "This seems to be a door that is disguised as a painting", false, 418098);
+        cfrC[0] = new Character("painting door", "This seems to be a door that is disguised as a painting", false, 418098, 4);
         Room castleRoomFront = new Room(cfrI, cfrC, "Castle Hall", "You walk into a large hall. There is a painting of Reynad. Ahead of you is a large room with 3 doors.");
 
         //castle seconds room
         Item[] csrI = new Item[1];
         csrI[0]= new Item("Totem", "This is Stoneclaw Totem", 0, "There is a totem on the ground");
         Character[] csrC = new Character[3];
-        csrC[0] = new Character("left door", "The door is green and purple and says CURRSE OF THE NAXX. It does not seem to be locked",false, 5268);
-        csrC[1] = new Character("right door", "The door is orange and black and says BLACROCK MOUNTAIN. The door has a keyhole that is in the shape of a pyramid", true, 30);
-        csrC[2] = new Character("door", "The door is blue and brown and says LEAGUE OF EXPLORERS. The door has a keyhole that is in the shape of a hat", true, 60);
+        csrC[0] = new Character("left door", "The door is green and purple and says CURRSE OF THE NAXX. It does not seem to be locked",false, 5268, 4);
+        csrC[1] = new Character("right door", "The door is orange and black and says BLACROCK MOUNTAIN. The door has a keyhole that is in the shape of a pyramid", true, 30, 2);
+        csrC[2] = new Character("door", "The door is blue and brown and says LEAGUE OF EXPLORERS. The door has a keyhole that is in the shape of a hat", true, 60, 1);
         Room castleRoomSecond = new Room(csrI, csrC, "Castle Second Room", "You walk into a large room with three doors on each side. There are 3 doors, one on your left, right and infront of you.");
 
         //LEFT WING STUFF IS HERE
@@ -303,7 +303,7 @@ public class Main
         Character[] leftwingfirstroomC = new Character[1];
         lwfr[0] = new Item("Explorers Hat", "This seems to be a hat that gives you more HEALTH?!", 0,"There is a dusty hat lying on the floor");
         lwfr[1] = new Item("Painting of Kolento", "Examining the painting reveals nothing unusual.", 0, "There is a painting in the room");
-        leftwingfirstroomC[0] = new Character("Loose floorboard", "The loose floorboard is disguised as a trap door that appears to be locked", true, 4);  //wierd error here
+        leftwingfirstroomC[0] = new Character("Loose floorboard", "The loose floorboard is disguised as a trap door that appears to be locked", true, 4, 6);  //wierd error here
         Room leftwingfirstroom = new Room(lwfr, leftwingfirstroomC, "left wing first room", "You enter a dark room. You can see the faint outlines of a hallway leading beyond. There is a loose floorboard");
 
         //leftwing hallwayOne
@@ -362,15 +362,15 @@ public class Main
         //front room after arena entrance hall
         //ADD LOOK METHOD
         Item[] FRAEI = new Item[1];
-        FRAEI[0] = new Item(table, there is nothing special about this table, 0, );
+        FRAEI[0] = new Item("table", "there is nothing special about this table", 0, "");
         Character[] FRAEC = new Character[2];
         Item[] cabinet = new Item[2];
-        cabinet[1] = new Item(bag of coins, this is a bag of 50 coins, 0, There is a bag of coins in the cabinet);
-        cabinet[0] = new Item(dagger, The dagger has a label that says Only designed to be used twice, 300, There is a dagger in the cabinet);
-        FRAEC[0] = new Character(cabinet, you open the cabinet which reveals a dagger and a sack of coins, cabinet);
-        Item[] Boom = new Item[0]; TEST 
-        FRAEC[1] = new Character(Boom, This is Dr. Boom and he has two boom bots, Dr. Boom is standing in the center of the Room, Boom, 100, 7);  TEST
-        Room FRAE = new Room(FRAEI, FRAEC, front room, You walk into a room and you see a cabinet and a table.);
+        cabinet[1] = new Item("bag of coins", "this is a bag of 50 coins", 0, "There is a bag of coins in the cabinet");
+        cabinet[0] = new Item("dagger", "The dagger has a label that says Only designed to be used twice", 300, "There is a dagger in the cabinet");
+        FRAEC[0] = new Character("cabinet", "you open the cabinet which reveals a dagger and a sack of coins", cabinet);
+        Item[] Boom = new Item[0]; //TEST 
+        FRAEC[1] = new Character("Boom", "This is Dr. Boom and he has two boom bots.",  "Dr. Boom is standing in the center of the Room", Boom, 100, 7);  //TEST
+        Room FRAE = new Room(FRAEI, FRAEC, "front room", "You walk into a room and you see a cabinet and a table.");
 
         //balcony to arena room 1
         //Item[] BAR1I = new Item[0];
