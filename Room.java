@@ -1,4 +1,3 @@
-
 /**
  * Write a description of class Room here.
  * @author Anthony Luo and John Shieh
@@ -98,7 +97,7 @@ public class Room
             System.out.println("You cannot go this way.");
             return this;
         }            
-         if(blockedByDoor(4) == true){
+        if(blockedByDoor(4) == true){
             return this;
         }       
         return west;
@@ -139,6 +138,9 @@ public class Room
 
     public Character verifyCharacter(String characterName) {
         for (int i=0; i < people.length; i++) {
+            if(people[i] == null){
+                continue;
+            }
             String name = people[i].getName().toLowerCase();
             if (name.compareTo(characterName.toLowerCase()) == 0) {
                 //System.out.println("character found");
@@ -158,7 +160,7 @@ public class Room
         }
         return null;
     }
-    
+
     public void useItem(Item item, Character character){
         if(character.door() == true){
             if(character.getLocked() == true){
@@ -173,7 +175,7 @@ public class Room
         }
         System.out.println("Used " + item.getName() + " on " + character.getName());
     }
-    
+
     private boolean blockedByDoor(int direc){
         for(int i = 0;i < people.length; i++){
             String name = people[i].getName().toLowerCase();
@@ -187,4 +189,28 @@ public class Room
         }
         return false;
     }
-}
+
+    public void attackCharacter(Character character, Item item){
+        if(character.attackable() == false){
+            System.out.println("You cannot attack " + character.getName() + ".");
+            return;
+        }        
+        if(character.getHealth() > 0){
+            character.dHealth();
+            System.out.println("The " + character + " is still alive.");
+        }
+        else{
+            for (int i=0; i < people.length; i++) {
+                if(people[i] == null){
+                    continue;
+                }
+                String name = people[i].getName().toLowerCase();
+                if (name.compareTo(character.getName().toLowerCase()) == 0) {
+                    //System.out.println("character found");
+                    people[i] = null;
+                }
+            }
+            System.out.println("The " + character + " has been slain.");
+        }
+    }
+    }

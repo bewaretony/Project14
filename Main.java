@@ -38,23 +38,22 @@ public class Main
         cmd[0] = cmd[0].toLowerCase();
         if (cmd[0].compareTo("attack") == 0){
             if (cmd.length == 1){
-                System.out.println("Attack what?");
+                System.out.println("What do you want to attack?");
+                Scanner kbReader = new Scanner(System.in);
+                String input = kbReader.nextLine().toLowerCase();
+                Character character = currentRoom.verifyCharacter(input);
+                if(character != null){
+                    System.out.println("What do you want to attack the " + character + " with?");
+                    Scanner kbReader = new Scanner(System.in);
+                    String input = kbReader.nextLine().toLowerCase();
+                    Character character1 = currentRoom.verifyCharacter(input);                    
+                }
                 return;
             }
             Character character = currentRoom.verifyCharacter(cmd[1]);
             Item itemInventory = player.verifyInventory(cmd[3]);
             if (character != null && itemInventory != null){
                 //if(character.door() = true;)
-                if(character.attackable() == false){
-                    System.out.println("You cannot attack " + cmd[1] + ".");
-                    return;
-                }
-                if(character.getHealth() > 0){
-                    character.dHealth();
-                }
-                else{
-                    System.out.println("The " + character + " has been slain.");
-                }
             }
             else{
                 System.out.println("The " + character + " or " + itemInventory + " was not found.");
