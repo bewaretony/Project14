@@ -27,15 +27,18 @@ public class Main
             lol = (lol/i)*(int)Math.pow(lol,i);
         }
         System.out.print('\u000C');
+
+        
     }
 
     public static void addScore(int s) {
-        score += s;
+       score = score + s;
     }
 
     public static void readCommand(String command) {
         String[] cmd = command.split(" ");
         cmd[0] = cmd[0].toLowerCase();
+        System.out.println("Your current score is:" +score);
         if (cmd[0].compareTo("attack") == 0){
             if (cmd.length == 1){
                 System.out.println("What do you want to attack?");
@@ -105,6 +108,10 @@ public class Main
             return;
         }
         if (cmd[0].compareTo("take") == 0){
+            Item itemRoom = player.verifyItem(cmd[1]);
+            return;
+        }
+        if (cmd[0].compareTo("drop") == 0){
             Item itemRoom = player.verifyItem(cmd[1]);
             return;
         }
@@ -348,7 +355,7 @@ public class Main
 
         //leftiwng hallwayTwo
         Item[] LWH2I = new Item[0];
-        
+
         Character[] LWH2C = new Character[0];
         Room LWH2 = new Room( LWH2I, LWH2C, "leftwing hall 2", "you are in a dimly lit hallway");
 
@@ -368,12 +375,12 @@ public class Main
         LWTRI[1] = new Item("torch right", "This seems to be a 'Forgotten Torch' that is loosely attached to the wall", 301, "There is a 'Forgotten torch' on your right");  //grim patron needs Forgotten Torchto be killed. FROM 
         Character[] LWTRC = new Character[0];
         Room LWTR = new Room(LWTRI, LWTRC, "Room", "You enter a large room.");
-        
+
         //hallway to akk room
         Item[] AKKHI = new Item[0];
         Character[]AKKHC = new Character[0];
         Room AKKH = new Room(AKKHI, AKKHC, "tunnel", "You are in a round tunnel.");
-        
+
         //leftwing arena knife + key to monkey-key room
         Item[] AKKI = new Item[3];
         AKKI[0] = new Item("water-bottle", "This is a water bottle from 'Water Elemental'", 102, "There is a water-bottle on the floor");
@@ -381,8 +388,7 @@ public class Main
         AKKI[2] = new Item("stone-knife", "This is a stone knife made by 'SI:7 Agent'", 300, "There is a knife on the ground");
         Character[] AKKC = new Character[0];
         new Room(AKKI, AKKC, "Alchemy lab", "You are in a the ruins of an alchemy lab");
-        
-     
+
         //left hall after torch
         Item[] LHATI = new Item[0];
         Character[]LHATC = new Character[0];
@@ -390,9 +396,9 @@ public class Main
 
         //right fork after LHAT
         Item[] RFLHATI = new Item[0];
-            Character[]RFLHATC = new Character[1];
-            RFLHATC[0] = new Character("golden-door", "This is a door that is made out of solid gold. There is an inscription that reads 'Elise Starseeker'", true, 15, 2);
-            Room RFLHAT = new Room(RFLHATI, RFLHATC, "Balcony" , "You are in the balcony of a large arena. A voice below shouts  \"EVERYBODY GET IN HERE\". There is a golden-door next to you" );
+        Character[]RFLHATC = new Character[1];
+        RFLHATC[0] = new Character("golden-door", "This is a door that is made out of solid gold. There is an inscription that reads 'Elise Starseeker'", true, 15, 2);
+        Room RFLHAT = new Room(RFLHATI, RFLHATC, "Balcony" , "You are in the balcony of a large arena. A voice below shouts  \"EVERYBODY GET IN HERE\". There is a golden-door next to you" );
 
         //left fork after LHAT
         Item[] LFLHATI = new Item[0];
@@ -422,12 +428,12 @@ public class Main
         Item[] BAR1I = new Item[0];
         Character[]BAR1C = new Character[0];
         Room BAR1 = new Room(BAR1I, BAR1C, "Hallway", "You are in a hallway in the Arena.");
-        
+
         //balcony to arena room 2
         Item[] BAR2I = new Item[0];
         Character[]BAR2C = new Character[0];
         Room BAR2 = new Room(BAR2I, BAR2C, "Hallway", "You are backstage in the Arena");
-        
+
         //Arena grim patron
         Item[] AGRI = new Item[100];
         Character[] AGRC = new Character[1];
@@ -435,19 +441,19 @@ public class Main
         patron[0] = new Item("B-key", "This is the key to the trapdoor", 10, "There is a key on the ground");
         AGRC[0] = new Character("grim patron", "If you dont kill this minion in one hit, another grim patron will be summoned", "There is a grim patron in the center of the arena", patron, 3, 10); //need torch from LWTR ROOM 
         Room AGR = new Room(AGRI, AGRC, "Arena", "You enter the arena");
-        
+
         //UNDERGROUND
-        
+
         //hallway down
         Item[] HDI = new Item[0];
         Character[] HDC = new Character[0];
         Room hd = new Room(HDI, HDC, "pathway", "you are standing on a steep set of stairs");
-        
+
         //downstairs central station
         Item[] DCSI =  new Item[0];
         Character[] DCSC = new Character[0];
         Room DSC = new Room(DCSI, DCSC, "Grand hall", "You are in a grand hall");
-        
+
         //fireball room next to DCS
         Item[] FBRI = new Item[2];
         FBRI[0] = new Item("fire-ball", "This seems to be a weapon of sorts", 305, "There is a fire-ball attached to the ceiling");
@@ -456,27 +462,32 @@ public class Main
         FBRC[0] = new Character("door", "This seems to be a door with monkey engravings.", true, 20, 1);
         FBRC[1] = new Character("golden-door", "This seems to be a solid gold door", true, 30, 4);
         Room FBR = new Room(FBRI, FBRC, "Glowing-Room", "You are in a room with a door to your north and a golden-door to your west");
-        
+
         //monkey part room
         Item[] MMRI = new Item[2];
         MMRI[0] = new Item("Golden-key", "There is another key made of solid gold", 30, "There is a golden-key on the floor");
         MMRI[1] = new Item("Monkey-tail", "This is a golden monkey tail", 91, "There is a Monkey-tail on the floor");
         Character[] MMRC = new Character[0];
         Room MMR = new Room(MMRI, MMRC, "Strange-Room", "You are in a room that is covered in rubble");
-        
+
         //monkey head hall room
         Item[] MHHRI = new Item[0];
         Character[] MHHRC = new Character[1];
         MHHRC[0] = new Character("door", "This seems to be a slightly tattered door", false, 6345, 4);
         Room MHHR = new Room(MHHRI, MHHRC, "Center-Room", "You are in a large room. There is a door to your west");
-        
+
         //death trap 2
         Item[] DT2I = new Item[0];
         Character[] DT2C = new Character[0];
         Room DT2 = new Room(DT2I, DT2C, "Death-pit", "You fall into a large acid pit and die");  //dead 
         
+        //monkey head room
+        Item[] MHRI = new Item[1];
+        MHRI[0] = new Item("monkey-head", "This seems to be a golden monkey-head", 92, "There is a monkey-head on the ground");
+        Character[] MHRC = new Character[0];
+        Room MHR =  new Room(MHRI, MHRC, "Monkey-room", "You are in a room with various ruined objects");
         
-        
+
         
         Item[] PlayerIn = new Item[10];
         player = new Player("Hero", "A buff dude", PlayerIn, 100);
@@ -505,8 +516,7 @@ public class Main
         LWH3.setWest(LWTR);
         LWTR.setEast(LWH3);
         LWTR.setNorth(AKKH);
-        
-        
+
 
     }
 }
