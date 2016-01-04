@@ -106,7 +106,10 @@ public class Main
             return;
         }
         if (cmd[0].compareTo("take") == 0){
-            Item itemRoom = player.verifyItem(cmd[1]);
+            Item itemRoom = currentRoom.verifyItemRoom(cmd[1]);
+            if(itemRoom != null){
+                currentRoom.addItems(itemRoom, player);
+            }
             return;
         }
         if (cmd[0].compareTo("drop") == 0){

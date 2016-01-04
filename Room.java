@@ -204,7 +204,7 @@ public class Room
         }        
         if(character.getHealth() > 0){
             character.dHealth();
-            System.out.println("The " + character + " is still alive.");
+            System.out.println(character + " is still alive. Keep attacking it.");
         }
         else{
             for (int i=0; i < people.length; i++) {
@@ -240,6 +240,7 @@ public class Room
                     if(name.compareTo(itemName.toLowerCase()) == 0){
                         items[i] = stuff[j];
                         stuff[j] = null;
+                        System.out.println("Taken.");
                     }
                     else{
                         System.out.println("The item " + itemName + " was not found.");
