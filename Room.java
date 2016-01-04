@@ -75,7 +75,10 @@ public class Room
         if(north == null){
             System.out.println("You cannot go this way.");
             return this;
-        }        
+        }
+        if(blockedByDoor(1) == true){
+            return this;
+        }
         return north;
     }
 
@@ -83,7 +86,10 @@ public class Room
         if(south == null){
             System.out.println("You cannot go this way.");
             return this;
-        }            
+        }    
+        if(blockedByDoor(3) == true){
+            return this;
+        }        
         return south;
     }
 
@@ -92,6 +98,9 @@ public class Room
             System.out.println("You cannot go this way.");
             return this;
         }            
+         if(blockedByDoor(4) == true){
+            return this;
+        }       
         return west;
     }
 
@@ -100,6 +109,9 @@ public class Room
             System.out.println("You cannot go this way.");
             return this;
         }            
+        if(blockedByDoor(2) == true){
+            return this;
+        }        
         return east;
     }
 
@@ -108,6 +120,9 @@ public class Room
             System.out.println("You cannot go this way.");
             return this;
         }           
+        if(blockedByDoor(5) == true){
+            return this;
+        }        
         return up;
     }
 
@@ -116,6 +131,9 @@ public class Room
             System.out.println("You cannot go this way.");
             return this;
         }           
+        if(blockedByDoor(6) == true){
+            return this;
+        }        
         return down;
     }
 
@@ -161,7 +179,7 @@ public class Room
             String name = people[i].getName().toLowerCase();
             if(name.contains("door")){
                 if ((people[i].direction ==direc) && (people[i].getLocked())){
-                    String[] dir = {"north", "east", "south", "west", "up", "down"};
+                    String[] dir = {"", "north", "east", "south", "west", "up", "down"};
                     System.out.println("The "+dir[direc]+" direction is blocked by the locked " + name);
                     return true;
                 }

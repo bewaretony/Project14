@@ -13,7 +13,7 @@ public class Character
     private String location;
     private boolean door;
     private boolean attackable;
-    private int direction;
+    int direction;
 
     /**
      * Constructor for objects that attack and can be attacked
