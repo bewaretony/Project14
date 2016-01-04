@@ -221,14 +221,29 @@ public class Room
         }
     }
     
-    public void verifyItemRoom(){
+    public Item verifyItemRoom(String itemName) {
+        for (int i=0; i < people.length; i++) {
+            String name = stuff[i].getName().toLowerCase();
+            if (name.compareTo(itemName.toLowerCase()) == 0) {
+                return stuff[i];
+            }
+        }
+        return null;
     }
-    public void addItems(Item item, Player player){
+    
+    public void addItems(String itemName, Player player){
         Item[] items = player.getPlayerInventory();
         for(int i = 0;i < items.length;i++){
             if(items[i] == null){
-                for(int j = 0;i < stuff.length;i++){
-                    String name = stuff[i].getName().toLowerCase();
+                for(int j = 0;j < stuff.length;j++){
+                    String name = stuff[j].getName().toLowerCase();
+                    if(name.compareTo(itemName.toLowerCase()) == 0){
+                        items[i] = stuff[j];
+                        stuff[j] = null;
+                    }
+                    else{
+                        System.out.println("The item " + itemName + " was not found.");
+                    }
                 }
             }
         }
