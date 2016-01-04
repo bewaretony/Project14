@@ -306,18 +306,18 @@ public class Main
         lwfr[0] = new Item("Explorers Hat", "This seems to be a hat that gives you more HEALTH?!", 0,"There is a dusty hat lying on the floor");
         lwfr[1] = new Item("Painting of Kolento", "Examining the painting reveals nothing unusual.", 0, "There is a painting in the room");
         leftwingfirstroomC[0] = new Character("Loose floorboard", "The loose floorboard is disguised as a trap door that appears to be locked", true, 10, 6);
-        Room leftwingfirstroom = new Room(lwfr, leftwingfirstroomC, "left wing first room", "You enter a dark room. You can see the faint outlines of a hallway leading beyond. There is a loose floorboard");
+        Room leftwingfirstroom = new Room(lwfr, leftwingfirstroomC, "large-room", "You enter a dark room. You can see the faint outlines of a hallway leading beyond. There is a loose floorboard");
 
         //leftwing hallwayOne
         Item[] LWH1I = new Item[0];
         Character[] LWH1C = new Character[0];
-        Room LWH1 = new Room( LWH1I, LWH1C, "leftwing hall 1", "you are in a dark hallway");
+        Room LWH1 = new Room( LWH1I, LWH1C, "hallway", "you are in a dark hallway");
 
         //leftiwng hallwayTwo
         Item[] LWH2I = new Item[0];
         
         Character[] LWH2C = new Character[0];
-        Room LWH2 = new Room( LWH2I, LWH2C, "leftwing hall 2", "you are in a dark hallway");
+        Room LWH2 = new Room( LWH2I, LWH2C, "leftwing hall 2", "you are in a dimly lit hallway");
 
         //deathpit
         Item[] LWH2DI = new Item[0];
@@ -358,7 +358,7 @@ public class Main
         //right fork after LHAT
         Item[] RFLHATI = new Item[0];
         Character[]RFLHATC = new Character[1];
-        RFLHATC[0] = new Character("golden-door", "This is a door that is made out of solid gold. There is an inscription that reads 'Owner Elise Starseeker'", true, 15, 2);
+        RFLHATC[0] = new Character("golden-door", "This is a door that is made out of solid gold. There is an inscription that reads 'Elise Starseeker'", true, 15, 2);
         Room RFLHAT = new Room(RFLHATI, RFLHATC, "Balcony" , "You are in the balcony of a large arena. A voice below shouts  \"EVERYBODY GET IN HERE\". There is a golden-door next to you" );
 
         //left fork after LHAT
@@ -407,7 +407,7 @@ public class Main
         
         
         Item[] PlayerIn = new Item[10];
-        Player player = new Player("Hero", "A buff dude", PlayerIn, 100);
+        player = new Player("Hero", "A buff dude", PlayerIn, 100);
         System.out.println("You spawn in a forest. Ahead of you there is a clearing, and in the distance you can see a ruined castle. You see a tattered book lying along the road.");        
         currentRoom = spawn;
         spawn.setNorth(clearingSpawn);
@@ -418,6 +418,19 @@ public class Main
         cave.setWest(clearingSpawn);
         castleEntrance.setNorth(castleRoomFirst);
         castleRoomFirst.setSouth(castleEntrance);
+        castleRoomFirst.setNorth(castleRoomSecond);
+        castleRoomSecond.setWest(leftwingfirstroom);
+        leftwingfirstroom.setEast(castleRoomSecond);
+        LWH1.setEast(leftwingfirstroom);
+        leftwingfirstroom.setWest(LWH1);
+        LWH1.setWest(LWH2);
+        LWH2.setEast(LWH1);
+        LWH2.setNorth(LWH2D);
+        LWH2D.setSouth(LWH2);
+        LWH3.setEast(LWH2);
+        LWH2.setWest(LWH3);
+        LWH3.setWest(LWTR);
+        LWTR.setEast(LWH3);
         
         
 
