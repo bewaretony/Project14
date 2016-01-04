@@ -431,6 +431,7 @@ public class Main
         LWH2.setWest(LWH3);
         LWH3.setWest(LWTR);
         LWTR.setEast(LWH3);
+        LWTR.setNorth(AKKH);
         
         
 
