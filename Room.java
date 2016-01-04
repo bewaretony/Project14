@@ -220,5 +220,18 @@ public class Room
             System.out.println("The " + character + " has been slain.");
         }
     }
+    
+    public void verifyItemRoom(){
+    }
+    public void addItems(Item item, Player player){
+        Item[] items = player.getPlayerInventory();
+        for(int i = 0;i < items.length;i++){
+            if(items[i] == null){
+                for(int j = 0;i < stuff.length;i++){
+                    String name = stuff[i].getName().toLowerCase();
+                }
+            }
+        }
+    }
 }
         
