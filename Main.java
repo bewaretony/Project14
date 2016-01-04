@@ -114,6 +114,7 @@ public class Main
                 String input = kbReader.nextLine().toLowerCase();
                 Item itemRoom1 = currentRoom.verifyItemRoom(input);
                 if(itemRoom1 != null){
+                    currentRoom.addItems(itemName, player);
                 }
             }
             if(itemRoom != null){
@@ -151,7 +152,6 @@ public class Main
                 System.out.println(currentRoom1.getName());
                 System.out.println(currentRoom1.getDescription());
                 Character[] mobs = currentRoom1.getCharacters();
-
                 for(int i = 0; i < mobs.length; i ++) {
                     if (mobs[i]!= null) {
                         if(mobs[i].attackable() == true) {
@@ -160,7 +160,6 @@ public class Main
                         }
                     }
                 }
-
                 Item[] stuff = currentRoom1.getStuff();
                 for(int i = 0; i < stuff.length; i ++) {
                     if (stuff[i]!= null) {
@@ -177,7 +176,6 @@ public class Main
                 System.out.println(currentRoom1.getName());
                 System.out.println(currentRoom1.getDescription());
                 Character[] mobs = currentRoom1.getCharacters();
-
                 for(int i = 0; i < mobs.length; i ++) {
                     if (mobs[i]!= null) {
                         if(mobs[i].attackable() == true) {
@@ -186,7 +184,6 @@ public class Main
                         }
                     }
                 }
-
                 Item[] stuff = currentRoom1.getStuff();
                 for(int i = 0; i < stuff.length; i ++) {
                     if (stuff[i]!= null) {
@@ -203,16 +200,13 @@ public class Main
                 System.out.println(currentRoom1.getName());
                 System.out.println(currentRoom1.getDescription());
                 Character[] mobs = currentRoom1.getCharacters();
-
                 for(int i = 0; i < mobs.length; i ++) {
                     if (mobs[i]!= null) {
                         if(mobs[i].attackable() == true) {
-
                             System.out.println(mobs[i].getLocation());
                         }
                     }
                 }
-
                 Item[] stuff = currentRoom1.getStuff();
                 for(int i = 0; i < stuff.length; i ++) {
                     if (stuff[i]!= null) {
@@ -229,7 +223,6 @@ public class Main
                 System.out.println(currentRoom1.getName());
                 System.out.println(currentRoom1.getDescription());
                 Character[] mobs = currentRoom1.getCharacters();
-
                 for(int i = 0; i < mobs.length; i ++) {
                     if (mobs[i]!= null) {
                         if(mobs[i].attackable() == true) {
@@ -238,7 +231,6 @@ public class Main
                         }
                     }
                 }
-
                 Item[] stuff = currentRoom1.getStuff();
                 for(int i = 0; i < stuff.length; i ++) {
                     if (stuff[i]!= null) {
@@ -255,7 +247,6 @@ public class Main
                 System.out.println(currentRoom1.getName());
                 System.out.println(currentRoom1.getDescription());
                 Character[] mobs = currentRoom1.getCharacters();
-
                 for(int i = 0; i < mobs.length; i ++) {
                     if (mobs[i]!= null) {
                         if(mobs[i].attackable() == true) {
@@ -264,7 +255,6 @@ public class Main
                         }
                     }
                 }
-
                 Item[] stuff = currentRoom1.getStuff();
                 for(int i = 0; i < stuff.length; i ++) {
                     if (stuff[i]!= null) {
@@ -281,7 +271,6 @@ public class Main
                 System.out.println(currentRoom1.getName());
                 System.out.println(currentRoom1.getDescription());
                 Character[] mobs = currentRoom1.getCharacters();
-
                 for(int i = 0; i < mobs.length; i ++) {
                     if (mobs[i]!= null) {
                         if(mobs[i].attackable() == true) {
@@ -290,7 +279,6 @@ public class Main
                         }
                     }
                 }
-
                 Item[] stuff = currentRoom1.getStuff();
                 for(int i = 0; i < stuff.length; i ++) {
                     if (stuff[i]!= null) {
