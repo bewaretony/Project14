@@ -48,7 +48,7 @@ public class Main
                     String input1 = kbReader1.nextLine().toLowerCase();
                     Item item = player.verifyItem(input1);
                     if(item != null){
-                        player.attackCharacter(character, item);
+                        currentRoom.attackCharacter(character, item, player);
                     }
                 }
                 return;
@@ -56,7 +56,7 @@ public class Main
             Character character = currentRoom.verifyCharacter(cmd[1]);
             Item itemInventory = player.verifyInventory(cmd[3]);
             if (character != null && itemInventory != null){
-                player.attackCharacter(character, itemInventory);
+                currentRoom.attackCharacter(character, itemInventory, player);
             }
             else{
                 System.out.println("The " + character + " or " + itemInventory + " was not found.");
@@ -72,7 +72,7 @@ public class Main
             return;
         }
         if (cmd[0].compareTo("take") == 0){
-            Item itemRoom = currentRoom.verifyItem(cmd[1]);
+            Item itemRoom = player.verifyItem(cmd[1]);
             return;
         }
         if (cmd[0].compareTo("use") == 0){

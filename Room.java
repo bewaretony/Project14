@@ -194,7 +194,7 @@ public class Room
         }
     }
 
-    public void attackCharacter(Character character, Item item){
+    public void attackCharacter(Character character, Item item, Player player){
         if(character.attackable() == false){
             System.out.println("You cannot attack " + character.getName() + ".");
             return;
