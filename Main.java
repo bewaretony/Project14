@@ -50,12 +50,45 @@ public class Main
                     if(item != null){
                         currentRoom.attackCharacter(character, item, player);
                     }
+                    else{
+                        System.out.println("The item " + input1 + " could not be found.");
+                    }
+                }
+                else{
+                    System.out.println("The character " + input + " could not be found.");
+                }
+                return;
+            }
+            if (cmd.length == 2){
+                Character character = currentRoom.verifyCharacter(cmd[1]);
+                if(character != null){
+                    System.out.println("What do you want to attack the " + character + " with?");
+                    Scanner kbReader1 = new Scanner(System.in);
+                    String input1 = kbReader1.nextLine().toLowerCase();
+                    Item item = player.verifyItem(input1);
+                    if(item != null){
+                        currentRoom.attackCharacter(character, item, player);
+                    }
+                    else{
+                        System.out.println("The item " + input1 + " could not be found.");                        
+                    }
+                }
+                else{
+                    System.out.println("The character " + cmd[1] + " could not be found.");                    
                 }
                 return;
             }
             Character character = currentRoom.verifyCharacter(cmd[1]);
+            if (character == null) {
+                System.out.println("The character " + cmd[1] + " could not be found.");   
+                return;
+            }
             Item itemInventory = player.verifyInventory(cmd[3]);
-            if (character != null && itemInventory != null){
+            if (itemInventory ==  null){
+                System.out.println("The item " + cmd[3] + " could not be found.");   
+                return;                
+            }
+            if ((character != null) && (itemInventory != null)){
                 currentRoom.attackCharacter(character, itemInventory, player);
             }
             else{
