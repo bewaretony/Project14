@@ -78,7 +78,7 @@ public class Main
             Item itemInventory = player.verifyInventory(cmd[1]);
             Character character3 = currentRoom.verifyCharacter(cmd[3]);
             if(itemInventory != null && character3 != null){
-                currentRoom.useItem(itemInventory, charaacter3);
+                currentRoom.useItem(itemInventory, character3);
             }
             if(itemInventory != null){
                 if(cmd.length == 2){
@@ -98,7 +98,17 @@ public class Main
             if (currentRoom != currentRoom1){
                 System.out.println(currentRoom1.getName());
                 System.out.println(currentRoom1.getDescription());
-                if(
+                Character[] mobs = currentRoom1.getCharacters();
+
+                for(int i = 0; i < mobs.length; i ++) {
+                    if (mobs[i]!= null) {
+                        if(mobs[i].attackable() == true) {
+
+                            System.out.println(mobs[i].getLocation());
+                        }
+                    }
+                }
+
                 Item[] stuff = currentRoom1.getStuff();
                 for(int i = 0; i < stuff.length; i ++) {
                     if (stuff[i]!= null) {
@@ -114,12 +124,23 @@ public class Main
             if (currentRoom != currentRoom1){
                 System.out.println(currentRoom1.getName());
                 System.out.println(currentRoom1.getDescription());
+                Character[] mobs = currentRoom1.getCharacters();
+
+                for(int i = 0; i < mobs.length; i ++) {
+                    if (mobs[i]!= null) {
+                        if(mobs[i].attackable() == true) {
+
+                            System.out.println(mobs[i].getLocation());
+                        }
+                    }
+                }
+
                 Item[] stuff = currentRoom1.getStuff();
                 for(int i = 0; i < stuff.length; i ++) {
                     if (stuff[i]!= null) {
                         System.out.println(stuff[i].getLocation());
                     }
-                }                
+                }
                 currentRoom = currentRoom1;
             }
             return;
@@ -129,6 +150,17 @@ public class Main
             if (currentRoom != currentRoom1){
                 System.out.println(currentRoom1.getName());
                 System.out.println(currentRoom1.getDescription());
+                Character[] mobs = currentRoom1.getCharacters();
+
+                for(int i = 0; i < mobs.length; i ++) {
+                    if (mobs[i]!= null) {
+                        if(mobs[i].attackable() == true) {
+
+                            System.out.println(mobs[i].getLocation());
+                        }
+                    }
+                }
+
                 Item[] stuff = currentRoom1.getStuff();
                 for(int i = 0; i < stuff.length; i ++) {
                     if (stuff[i]!= null) {
@@ -136,7 +168,7 @@ public class Main
                     }
                 }
                 currentRoom = currentRoom1;
-            }       
+            }
             return;
         }        
         if (cmd[0].compareTo("west") == 0){
@@ -144,7 +176,17 @@ public class Main
             if (currentRoom != currentRoom1){
                 System.out.println(currentRoom1.getName());
                 System.out.println(currentRoom1.getDescription());
-                currentRoom = currentRoom1;
+                Character[] mobs = currentRoom1.getCharacters();
+
+                for(int i = 0; i < mobs.length; i ++) {
+                    if (mobs[i]!= null) {
+                        if(mobs[i].attackable() == true) {
+
+                            System.out.println(mobs[i].getLocation());
+                        }
+                    }
+                }
+
                 Item[] stuff = currentRoom1.getStuff();
                 for(int i = 0; i < stuff.length; i ++) {
                     if (stuff[i]!= null) {
@@ -152,7 +194,7 @@ public class Main
                     }
                 }
                 currentRoom = currentRoom1;
-            }         
+            }
             return;
         }      
         if (cmd[0].compareTo("up") == 0){
@@ -160,7 +202,17 @@ public class Main
             if (currentRoom != currentRoom1){
                 System.out.println(currentRoom1.getName());
                 System.out.println(currentRoom1.getDescription());
-                currentRoom = currentRoom1;
+                Character[] mobs = currentRoom1.getCharacters();
+
+                for(int i = 0; i < mobs.length; i ++) {
+                    if (mobs[i]!= null) {
+                        if(mobs[i].attackable() == true) {
+
+                            System.out.println(mobs[i].getLocation());
+                        }
+                    }
+                }
+
                 Item[] stuff = currentRoom1.getStuff();
                 for(int i = 0; i < stuff.length; i ++) {
                     if (stuff[i]!= null) {
@@ -168,7 +220,7 @@ public class Main
                     }
                 }
                 currentRoom = currentRoom1;
-            }        
+            }
             return;
         }
         if (cmd[0].compareTo("down") == 0){
@@ -176,7 +228,17 @@ public class Main
             if (currentRoom != currentRoom1){
                 System.out.println(currentRoom1.getName());
                 System.out.println(currentRoom1.getDescription());
-                currentRoom = currentRoom1;
+                Character[] mobs = currentRoom1.getCharacters();
+
+                for(int i = 0; i < mobs.length; i ++) {
+                    if (mobs[i]!= null) {
+                        if(mobs[i].attackable() == true) {
+
+                            System.out.println(mobs[i].getLocation());
+                        }
+                    }
+                }
+
                 Item[] stuff = currentRoom1.getStuff();
                 for(int i = 0; i < stuff.length; i ++) {
                     if (stuff[i]!= null) {
@@ -184,7 +246,7 @@ public class Main
                     }
                 }
                 currentRoom = currentRoom1;
-            }           
+            }
             return;
         }    
         System.out.println("Blizzard servers have crashed!(I don't know what the command means.)");
@@ -253,12 +315,12 @@ public class Main
         Item[] LWH2I = new Item[0];
         Character[] LWH2C = new Character[0];
         Room LWH2 = new Room( LWH2I, LWH2C, "leftwing hall 2", "you are in a dark hallway");
-        
+
         //deathpit
         Item[] LWH2DI = new Item[0];
         Character[] LWH2DC = new Character[0];
         Room LWH2D = new Room( LWH2DI, LWH2DC, "castle ruins", "you fall off a cliff and die"); //kill command needed
-        
+
         //leftwing hallwayThree
         Item[] LWH3I = new Item[0];
         Character[] LWH3C = new Character[0];
@@ -300,23 +362,22 @@ public class Main
         //front room after arena entrance hall
         //ADD LOOK METHOD
         Item[] FRAEI = new Item[1];
-        FRAEI[0] = new Item("table", "there is nothing special about this table", 0, "");
-        Character[] FRAEC = new Character[1];
+        FRAEI[0] = new Item(table, there is nothing special about this table, 0, );
+        Character[] FRAEC = new Character[2];
         Item[] cabinet = new Item[2];
-        cabinet[1] = new Item("bag of coins", "this is a bag of 50 coins", 0, "There is a bag of coins in the cabinet");
-        cabinet[0] = new Item("dagger", "The dagger has a label that says \"Only designed to be used twice\"", 300, "There is a dagger in the cabinet");
-        FRAEC[0] = new Character("cabinet", "you open the cabinet which reveals a dagger and a sack of coins", cabinet);                  
-        Room FRAE = new Room(FRAEI, FRAEC, "front room", "You walk into a room and you see a cabinet and a table.");
-        
+        cabinet[1] = new Item(bag of coins, this is a bag of 50 coins, 0, There is a bag of coins in the cabinet);
+        cabinet[0] = new Item(dagger, The dagger has a label that says Only designed to be used twice, 300, There is a dagger in the cabinet);
+        FRAEC[0] = new Character(cabinet, you open the cabinet which reveals a dagger and a sack of coins, cabinet);
+        Item[] Boom = new Item[0]; TEST 
+        FRAEC[1] = new Character(Boom, This is Dr. Boom and he has two boom bots, Dr. Boom is standing in the center of the Room, Boom, 100, 7);  TEST
+        Room FRAE = new Room(FRAEI, FRAEC, front room, You walk into a room and you see a cabinet and a table.);
+
         //balcony to arena room 1
-        
         //Item[] BAR1I = new Item[0];
         //Character[]BAR1I = new Character[0];
         //Room LFLHAT = new Room(LFLHATI, LFLHATC, "Hallway", "You enter the hallway, however it reveals a dead end.");
-        
-        
-        
 
+        
         System.out.println("You spawn in a forest. Ahead of you there is a clearing, and in the distance you can see a ruined castle. You see a tattered book lying along the road.");        
         currentRoom = spawn;
         spawn.setNorth(clearingSpawn);
