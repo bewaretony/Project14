@@ -312,7 +312,7 @@ public class Main
         //castle entrance
         Item[] castleEntranceItems = new Item[0];
         Character[] castleCharacters = new Character[1];
-        castleCharacters[0] = new Character("castle-door", "The door is made of cast iron and is impurtable. There is a key hole in the center.", true, 1, 1);
+        castleCharacters[0] = new Character("castle-door", "The door is made of cast iron and is impurtable. There is a key hole in the center.", false, 1, 1);
         Room castleEntrance = new Room(castleEntranceItems, castleCharacters, "Castle entrance", "You see the entrance to a giant, ruined castle.");
 
         //castle first room
@@ -338,7 +338,7 @@ public class Main
         Character[] leftwingfirstroomC = new Character[1];
         lwfr[0] = new Item("Explorers Hat", "This seems to be a hat that gives you more HEALTH?!", 0,"There is a dusty hat lying on the floor");
         lwfr[1] = new Item("Painting of Kolento", "Examining the painting reveals nothing unusual.", 0, "There is a painting in the room");
-        leftwingfirstroomC[0] = new Character("Loose floorboard", "The loose floorboard is disguised as a trap door that appears to be locked", true, 10, 6);
+        leftwingfirstroomC[0] = new Character("Loose floorboard", "The loose floorboard is disguised as a trap door.", true, 10, 6);
         Room leftwingfirstroom = new Room(lwfr, leftwingfirstroomC, "large-room", "You enter a dark room. You can see the faint outlines of a hallway leading beyond. There is a loose floorboard");
 
         //leftwing hallwayOne
@@ -364,8 +364,8 @@ public class Main
 
         //leftwing torch room
         Item[] LWTRI = new Item[2];
-        LWTRI[0] = new Item("torch left", "This seems to be a lava torch that is loosely attached to the wall", 300, "There is a torch on your left");
-        LWTRI[1] = new Item("torch right", "This seems to be a 'Forgotten Torch' that is loosely attached to the wall", 301, "There is a torch on your right");  //grim patron needs Forgotten Torchto be killed. FROM 
+        LWTRI[0] = new Item("torch left", "This seems to be a 'Lava Torch' that is loosely attached to the wall", 300, "There is a 'Lava torch' on your left");
+        LWTRI[1] = new Item("torch right", "This seems to be a 'Forgotten Torch' that is loosely attached to the wall", 301, "There is a 'Forgotten torch' on your right");  //grim patron needs Forgotten Torchto be killed. FROM 
         Character[] LWTRC = new Character[0];
         Room LWTR = new Room(LWTRI, LWTRC, "Room", "You enter a large room.");
         
@@ -413,7 +413,7 @@ public class Main
         FRAEI[0] = new Item("table", "there is nothing special about this table", 0, "");
         Character[] FRAEC = new Character[2];
         Item[] cabinet = new Item[2];
-        cabinet[1] = new Item("coins", "this is a large coin with a spiral in the center", 25, "There is a coin in the cabinet");
+        cabinet[1] = new Item("coins", "this is a large coin with a spiral in the center", 90, "There is a coin in the cabinet");
         cabinet[0] = new Item("dagger", "The dagger has a label that says Only designed to be used twice", 300, "There is a dagger in the cabinet");
         FRAEC[0] = new Character("cabinet", "you open the cabinet which reveals a dagger and a sack of coins", cabinet);
         Room FRAE = new Room(FRAEI, FRAEC, "front room", "You walk into a room and you see a cabinet and a table.");
@@ -448,7 +448,32 @@ public class Main
         Character[] DCSC = new Character[0];
         Room DSC = new Room(DCSI, DCSC, "Grand hall", "You are in a grand hall");
         
+        //fireball room next to DCS
+        Item[] FBRI = new Item[2];
+        FBRI[0] = new Item("fire-ball", "This seems to be a weapon of sorts", 305, "There is a fire-ball attached to the ceiling");
+        FBRI[1] = new Item("ball-of-fire", "This seems to be a decoration of some sort", 0, "There is a ball-of-fire attached to the ceiling");
+        Character[] FBRC = new Character[2];
+        FBRC[0] = new Character("door", "This seems to be a door with monkey engravings.", true, 20, 1);
+        FBRC[1] = new Character("golden-door", "This seems to be a solid gold door", true, 30, 4);
+        Room FBR = new Room(FBRI, FBRC, "Glowing-Room", "You are in a room with a door to your north and a golden-door to your west");
         
+        //monkey part room
+        Item[] MMRI = new Item[2];
+        MMRI[0] = new Item("Golden-key", "There is another key made of solid gold", 30, "There is a golden-key on the floor");
+        MMRI[1] = new Item("Monkey-tail", "This is a golden monkey tail", 91, "There is a Monkey-tail on the floor");
+        Character[] MMRC = new Character[0];
+        Room MMR = new Room(MMRI, MMRC, "Strange-Room", "You are in a room that is covered in rubble");
+        
+        //monkey head hall room
+        Item[] MHHRI = new Item[0];
+        Character[] MHHRC = new Character[1];
+        MHHRC[0] = new Character("door", "This seems to be a slightly tattered door", false, 6345, 4);
+        Room MHHR = new Room(MHHRI, MHHRC, "Center-Room", "You are in a large room. There is a door to your west");
+        
+        //death trap 2
+        Item[] DT2I = new Item[0];
+        Character[] DT2C = new Character[0];
+        Room DT2 = new Room(DT2I, DT2C, "Death-pit", "You fall into a large acid pit and die");  //dead 
         
         
         
