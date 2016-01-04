@@ -28,11 +28,9 @@ public class Main
         }
         System.out.print('\u000C');
 
-        
     }
-
     public static void addScore(int s) {
-       score = score + s;
+        score = score + s;
     }
 
     public static void readCommand(String command) {
@@ -480,16 +478,24 @@ public class Main
         Item[] DT2I = new Item[0];
         Character[] DT2C = new Character[0];
         Room DT2 = new Room(DT2I, DT2C, "Death-pit", "You fall into a large acid pit and die");  //dead 
-        
+
         //monkey head room
         Item[] MHRI = new Item[1];
         MHRI[0] = new Item("monkey-head", "This seems to be a golden monkey-head", 92, "There is a monkey-head on the ground");
         Character[] MHRC = new Character[0];
         Room MHR =  new Room(MHRI, MHRC, "Monkey-room", "You are in a room with various ruined objects");
-        
-        
 
-        
+        //B-key room
+        Item[] BKRI = new Item[1];
+        BKRI[0] = new Item("Red-Key", "This is a plain Red-Key", 31, "There is a Red-Key on the ground");
+        Room BKR = new Room(BKRI, new Character[0], "Orange-Room", "You are in a completely orange room. There is a red key on the ground");
+
+        //frostbolt room
+        Item[] FBR2I = new Item[2];
+        FBR2I[0] = new Item("frost-bolt", "This seems to be a powerful weapon", 350, "There is a frost-bolt on the ceiling");
+        FBR2I[1] = new Item("bolt-of-frost", "This seems to be a decorative item", 0, "There is a bolt-of-frost attached to the wall");
+        Room FBR2 = new Room(FBR2I, new Character[0], "Blue-Room", "You are in a blue room.");
+
         Item[] PlayerIn = new Item[10];
         player = new Player("Hero", "A buff dude", PlayerIn, 100);
         System.out.println("Welcome to HERO OF THE HEARTH");
@@ -517,7 +523,6 @@ public class Main
         LWH3.setWest(LWTR);
         LWTR.setEast(LWH3);
         LWTR.setNorth(AKKH);
-
 
     }
 }
