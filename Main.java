@@ -284,7 +284,7 @@ public class Main
 
         //castle first room
         Item[] cfrI = new Item[1]; // do doors count as a character? --- ahhh doors that need keys are characters  -- ma
-        cfrI[0] = new Item("bottle of beer", "The brand of the beer is Ancient Brewmaster", 0, "There is a bottle of beer on the floor");
+        cfrI[0] = new Item("bottle of beer", "The brand of the beer is Ancient Brewmaster", 101 , "There is a bottle of beer on the floor");
         Character[] cfrC = new Character[1];  //temp
         cfrC[0] = new Character("painting door", "This seems to be a door that is disguised as a painting", false, 418098, 4);
         Room castleRoomFirst = new Room(cfrI, cfrC, "Castle Hall", "You walk into a large hall. There is a painting of Reynad. Ahead of you is a large room with 3 doors.");
@@ -305,7 +305,7 @@ public class Main
         Character[] leftwingfirstroomC = new Character[1];
         lwfr[0] = new Item("Explorers Hat", "This seems to be a hat that gives you more HEALTH?!", 0,"There is a dusty hat lying on the floor");
         lwfr[1] = new Item("Painting of Kolento", "Examining the painting reveals nothing unusual.", 0, "There is a painting in the room");
-        leftwingfirstroomC[0] = new Character("Loose floorboard", "The loose floorboard is disguised as a trap door that appears to be locked", true, 10, 6);  //wierd error here
+        leftwingfirstroomC[0] = new Character("Loose floorboard", "The loose floorboard is disguised as a trap door that appears to be locked", true, 10, 6);
         Room leftwingfirstroom = new Room(lwfr, leftwingfirstroomC, "left wing first room", "You enter a dark room. You can see the faint outlines of a hallway leading beyond. There is a loose floorboard");
 
         //leftwing hallwayOne
@@ -315,6 +315,7 @@ public class Main
 
         //leftiwng hallwayTwo
         Item[] LWH2I = new Item[0];
+        
         Character[] LWH2C = new Character[0];
         Room LWH2 = new Room( LWH2I, LWH2C, "leftwing hall 2", "you are in a dark hallway");
 
@@ -331,22 +332,34 @@ public class Main
         //leftwing torch room
         Item[] LWTRI = new Item[2];
         LWTRI[0] = new Item("torch left", "This seems to be a lava torch that is loosely attached to the wall", 300, "There is a torch on your left");
-        LWTRI[1] = new Item("torch right", "This seems to be a 'Forgotten Torch' that is loosely attached to the wall", 301, "There is a torch on your right");  //grim patron needs weapon 301 to be killed
+        LWTRI[1] = new Item("torch right", "This seems to be a 'Forgotten Torch' that is loosely attached to the wall", 301, "There is a torch on your right");  //grim patron needs Forgotten Torchto be killed. FROM 
         Character[] LWTRC = new Character[0];
         Room LWTR = new Room(LWTRI, LWTRC, "Room", "You enter a large room.");
-
-        //leftwing arena water station
-        //TODO LATER 
-
+        
+        //hallway to akk room
+        Item[] AKKHI = new Item[0];
+        Character[]AKKHC = new Character[0];
+        Room AKKH = new Room(LHATI, LHATC, "tunnel", "You are in a round tunnel.");
+        
+        //leftwing arena knife + key to monkey-key room
+        Item[] AKKI = new Item[3];
+        AKKI[0] = new Item("water-bottle", "This is a water bottle from 'Water Elemental'", 102, "There is a water-bottle on the floor");
+        AKKI[1] = new Item("golden-key", "This is a key that seems to be made of gold", 15, "There is a shiny-key on the floor"); //this is the key to the door in RFLHAT
+        AKKI[2] = new Item("stone-knife", "This is a stone knife made by 'SI:7 Agent'", 300, "There is a knife on the ground");
+        Character[] AKKC = new Character[0];
+        new Room(AKKI, AKKC, "Alchemy lab", "You are in a the ruins of an alchemy lab");
+        
+     
         //left hall after torch
         Item[] LHATI = new Item[0];
         Character[]LHATC = new Character[0];
-        Room LHAT = new Room(LHATI, LHATC, "Large Hallway", "You enter a large hallway.");
+        Room LHAT = new Room(LHATI, LHATC, "Large-Hallway", "You enter a large hallway.");
 
         //right fork after LHAT
         Item[] RFLHATI = new Item[0];
-        Character[]RFLHATC = new Character[0];
-        Room RFLHAT = new Room(RFLHATI, RFLHATC, "Balcony" , "You are in the balcony of a large arena. A voice below shouts  \"EVERYBODY GET IN HERE\"");
+        Character[]RFLHATC = new Character[1];
+        RFLHATC[0] = new Character("golden-door", "This is a door that is made out of solid gold. There is an inscription that reads 'Owner Elise Starseeker'", true, 15, 2);
+        Room RFLHAT = new Room(RFLHATI, RFLHATC, "Balcony" , "You are in the balcony of a large arena. A voice below shouts  \"EVERYBODY GET IN HERE\". There is a golden-door next to you" );
 
         //left fork after LHAT
         Item[] LFLHATI = new Item[0];
@@ -357,8 +370,8 @@ public class Main
         Item[] AEHFI = new Item[0];
         Character[]AEHFC = new Character[1];
         Item[] largebox = new Item[1];
-        largebox[0] = new Item("map to the golden monkey", "you take out a scroll. It says that it is a Map to the Golden Monkey", 0, "There are scrolls in the box");
-        AEHFC[0] = new Character("box", "You look into the box which reveals a large amount of scrolls.", largebox);
+        largebox[0] = new Item("key", "This seems to be a key with a monkey engraving", 20, "There is a key in the box");
+        AEHFC[0] = new Character("box", "You look into the box which reveals a key.", largebox);
         Room AEHF = new Room(AEHFI , AEHFC, "hall/room after the entrance.", "You are in a hall. There is a large box on the floor");
 
         //front room after arena entrance hall
@@ -367,11 +380,9 @@ public class Main
         FRAEI[0] = new Item("table", "there is nothing special about this table", 0, "");
         Character[] FRAEC = new Character[2];
         Item[] cabinet = new Item[2];
-        cabinet[1] = new Item("bag of coins", "this is a bag of 50 coins", 0, "There is a bag of coins in the cabinet");
+        cabinet[1] = new Item("coins", "this is a large coin with a spiral in the center", 25, "There is a coin in the cabinet");
         cabinet[0] = new Item("dagger", "The dagger has a label that says Only designed to be used twice", 300, "There is a dagger in the cabinet");
         FRAEC[0] = new Character("cabinet", "you open the cabinet which reveals a dagger and a sack of coins", cabinet);
-        Item[] Boom = new Item[0]; //TEST 
-        FRAEC[1] = new Character("Boom", "This is Dr. Boom and he has two boom bots.",  "Dr. Boom is standing in the center of the Room", Boom, 100, 7);  //TEST
         Room FRAE = new Room(FRAEI, FRAEC, "front room", "You walk into a room and you see a cabinet and a table.");
 
         //balcony to arena room 1
@@ -389,14 +400,14 @@ public class Main
         Character[] AGRC = new Character[1];
         Item[] patron = new Item[1];
         patron[0] = new Item("B-key", "This is the key to the trapdoor", 10, "There is a key on the ground");
-        AGRC[0] = new Character("grim patron", "If you dont kill this minion in one hit, another grim patron will be summoned", "There is a grim patron in the center of the arena", patron, 3, 10);
+        AGRC[0] = new Character("grim patron", "If you dont kill this minion in one hit, another grim patron will be summoned", "There is a grim patron in the center of the arena", patron, 3, 10); //need torch from LWTR ROOM 
         Room AGR = new Room(AGRI, AGRC, "Arena", "You enter the arena");
         
         //UNDERGROUND
         
         
 
-        
+        Player player
         System.out.println("You spawn in a forest. Ahead of you there is a clearing, and in the distance you can see a ruined castle. You see a tattered book lying along the road.");        
         currentRoom = spawn;
         spawn.setNorth(clearingSpawn);
