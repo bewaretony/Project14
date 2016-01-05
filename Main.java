@@ -15,7 +15,7 @@ public class Main
         Scanner kbReader = new Scanner(System.in);
         System.out.print(">");
         String input = kbReader.nextLine().toLowerCase();
-        while(input.compareTo("exit") != 0){
+        while(input.compareTo("quit") != 0){
             readCommand(input);
             System.out.print(">");            
             input = kbReader.nextLine().toLowerCase();
@@ -98,10 +98,6 @@ public class Main
             }
             return;
         }
-        if (cmd[0].compareTo("say") == 0){
-            System.out.println("add something fere for say.......");
-            return;
-        }
         //NEED TO GET EXAMINE TO WORK ON CHARACTERS I.E. BOXES
         if (cmd[0].compareTo("examine") == 0){
             if(cmd.length == 1) {
@@ -166,20 +162,28 @@ public class Main
         if (cmd[0].compareTo("take") == 0){
             if(cmd.length > 2){
                 System.out.println("Blizzard servers have crashed!(I don't know what the command means.)");
+                return;
             }
             if(cmd.length == 1){
-                System.out.println("What do you want to take?");
+                System.out.println("What item do you want to take?");
                 Scanner kbReader = new Scanner(System.in);
                 String input = kbReader.nextLine().toLowerCase();
                 Item itemRoom1 = currentRoom.verifyItemRoom(input);
                 if(itemRoom1 != null){
                     currentRoom.addItems(input, player);
                 }
+                else{
+                    System.out.println("The item " + input + " could not be found.");
+                }
+                return;
             }
             Item itemRoom = currentRoom.verifyItemRoom(cmd[0]);
             String itemName = cmd[0].toLowerCase();            
             if(itemRoom != null){
                 currentRoom.addItems(itemName, player);
+            }
+            else{
+                System.out.println("The item " + itemRoom + " could not be found.");
             }
             return;
         }
@@ -211,6 +215,9 @@ public class Main
             }            
         }
         if (cmd[0].compareTo("north") == 0){
+            if(cmd.length > 1){
+                
+            }
             Room currentRoom1 = currentRoom.goNorth();
             if (currentRoom != currentRoom1){
                 System.out.println(currentRoom1.getName());
