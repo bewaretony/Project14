@@ -518,8 +518,9 @@ public class Main
 
         //downstairs central station
         Item[] DCSI =  new Item[0];
-        Character[] DCSC = new Character[0];
-        Room DCS = new Room(DCSI, DCSC, "Grand-hall", "You are in a grand hall");
+        Character[] DCSC = new Character[1];
+        DCSC[0] = new Character("red-door", "this is a solid red door", true, 31, 2); 
+        Room DCS = new Room(DCSI, DCSC, "Grand-hall", "You are in a grand hall. There is a red door to the east");
 
         //fireball room next to DCS
         Item[] FBRI = new Item[2];
@@ -601,7 +602,7 @@ public class Main
         Character[] MEI = new Character[2];
         MEI[0] = new Character("Veiled-door", "This is a veiled-door. There is nothing special about this door", true, 51, 3);
         MEI[1] = new Character("Oak-door", "This is a sturdy Oak-door", true, 47, 2);
-        Room ME = new Room(new Item[0], MEI, "Chamber-of-Secrets", "you are in a chamber. There are two doors. One is a Veiled-door and another is an Oak-door");
+        Room ME = new Room(new Item[0], MEI, "Chamber-of-Secrets", "you are in a chamber. There are two doors. One is a Veiled-door to the south and another is an Oak-door to the east");
         
         //hallway to the MAPR
         Room MHW = new Room(new Item[0], new Character[0], "Hallway", "You are in a golden hallway");
@@ -613,7 +614,7 @@ public class Main
         
         //D key room
         Item[] DKRI = new Item[1];
-        DKRI[0] = new Item("Goblet-Key", "This a key with a goblet inscribed on it", 54, "There is a goblet-key on the floor");
+        DKRI[0] = new Item("Purple-Key", "This a Purple-key with a goblet inscribed on it", 54, "There is a Purple-key on the floor");
         Room DKR = new Room(DKRI, new Character[0], "Oak-Room", "You are in a all-wood room");
         
         //Loatheb Hall 1
@@ -629,6 +630,25 @@ public class Main
         Loatheb[1] = new Item("BGH-Sword", "This is the BIG GAME HUNTER SWORD", 347, "There is BGH-Sword on the ground");
         LRC[0] = new Character("Loatheb", "Loatheb is a fearsome minion. If you do not kill him with the right weapon you will die", "Loatheb is in the middle of the room", Loatheb, 3, 30, 305);
         Room LR = new Room(new Item[0], LRC, "Giant-Hall", "You are in the middle of a giant hall.");
+        
+        //DEAD END
+        Room DEM = new Room(new Item[0], new Character[0], "Dead End", "You walk into a room that is a dead end");
+        
+        //deathpit next to RH5
+        Room DT4 = new Room(new Item[0], new Character[0], "Sinkhole", "You walk into a sinkhole and die");
+        
+        //Right hallway 4
+        Room RH4 = new Room(new Item[0], new Character[0], "Hallway", "You are in a stained glass hallway");
+        
+        //Right hallway 5
+        Room RH5 = new Room(new Item[0], new Character[0], "Hallway", "You are in a hallway");
+        
+        //goblet room hall
+        Character[] GRHC = new Character[1];
+        GRHC[0] = new Character("Purple-door", "This a purple door", true, 54, 4);
+        Room GRH = new Room(new Item[0], GRHC, "Purple-Room", "You are in a purple room. There is a purple door to your west");
+        
+        
         
         Item[] PlayerIn = new Item[10];
         player = new Player("Hero", "A buff dude", PlayerIn, 100);
