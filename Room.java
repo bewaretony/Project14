@@ -222,7 +222,7 @@ public class Room
     }
     
     public Item verifyItemRoom(String itemName) {
-        for (int i=0; i < people.length; i++) {
+        for (int i=0; i < stuff.length; i++) {
             String name = stuff[i].getName().toLowerCase();
             if (name.compareTo(itemName.toLowerCase()) == 0) {
                 return stuff[i];

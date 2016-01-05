@@ -134,6 +134,9 @@ public class Main
                     }
                     return;
                 }
+                else if(item == null) {
+                    System.out.println("You cannot examine this item. (You may not have the item, or this item does not exist)");
+                }
 
                 else if(itemRoom != null) {
                     for(int i = 0; i < currentRoom.getStuff().length; i++) {
@@ -148,7 +151,7 @@ public class Main
                     System.out.println("You cannot examine this item. (You may not have the item, or this item does not exist)");
                 }
             }
-            else {
+            else if(cmd.length > 2) {
                 System.out.println("Blizzard servers have crashed!(I don't know what the command means.)");
             }
 

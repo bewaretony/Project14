@@ -14,10 +14,11 @@ public class Player
     public Player(String name, String description, Item[] startingInventory, int health){
         this.name = name;
         this.description = description;
-        this.health = health;
+        this.health = health;   
         this.inventory = startingInventory;
 
     }
+
     public Item[] getPlayerInventory(){
         return this.inventory;
     }
@@ -25,9 +26,10 @@ public class Player
     public Item verifyItem(String itemName) {
         for (int i = 0;i < inventory.length;i++){
             String name = inventory[i].getName().toLowerCase();
-            if (name.compareTo(itemName.toLowerCase()) == 0) {
+            if (name.equals(itemName.toLowerCase())) {
                 return inventory[i];
             }
+
         }
         return null;
     }
@@ -56,11 +58,11 @@ public class Player
         }
         return null;
     }
-    
+
     public int getHealth() {
         return this.health;
     }
-    
+
     public void loseHealth(int i) {
         this.health = this.health-i;
     }
