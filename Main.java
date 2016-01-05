@@ -377,13 +377,13 @@ public class Main
         //clearing next to spawn
         Item[] clearingItems = new Item[0];
         Character[] cspawnItems = new Character[0];
-        Room clearingSpawn = new Room(clearingItems, cspawnItems, "Clearing", "You are in a clearing in the middle of a gorge. You see a cave to your right. You hear a faint rumble and a voice seems to be saying: \"EVERYONE GET IN HERE\"");
+        Room clearingSpawn = new Room(clearingItems, cspawnItems, "Clearing", "You are in a clearing in the middle of a gorge. You see a cave to your east. You hear a faint rumble and a voice seems to be saying: \"EVERYONE GET IN HERE\"");
 
         //cave room 
         Item[] caveItems = new Item[1];
         caveItems[0]= new Item("stones", "Some random stones.", 0, "There are a pile of stones on the floor" );
         Character[] caveCharacters = new Character[0];
-        Room cave = new Room(caveItems, caveCharacters, "Cave in the Gorge", "You enter a dark cave.");
+        Room cave = new Room(caveItems, caveCharacters, "Cave in the Gorge", "You are in  a dark cave.");
 
         //castle entrance
         Item[] castleEntranceItems = new Item[0];
@@ -489,7 +489,7 @@ public class Main
         Item[] cabinet = new Item[2];
         cabinet[1] = new Item("coins", "this is a large coin with a spiral in the center", 90, "There is a coin in the cabinet");
         cabinet[0] = new Item("dagger", "The dagger has a label that says Only designed to be used twice", 300, "There is a dagger in the cabinet");
-        FRAEC[0] = new Character("cabinet", "you open the cabinet which reveals a dagger and a sack of coins", cabinet);
+        FRAEC[0] = new Character("cabinet", "you open the cabinet", cabinet);
         Room FRAE = new Room(FRAEI, FRAEC, "front room", "You walk into a room and you see a cabinet and a table.");
 
         //balcony to arena room 1
@@ -590,14 +590,32 @@ public class Main
         Room RWFR = new Room(new Item[0], new Character[0], "NAXX-Hall", "You are in a green and purple central hall");
         
         //right hall 1
-        Room RH1 = new Room(new Item[0], new Character[0], "Hallway", "you are in a long hallway");
+        Room RH1 = new Room(new Item[0], new Character[0], "Hallway", "you are in a long hallway.");
         
         //right hall 2
-        Room RH2 = new Room(new Item[0], new Character[0], "Hallway", "You are in a long hallway"); 
+        Room RH2 = new Room(new Item[0], new Character[0], "Hallway", "You are in a long hallway. You can see the castle courtyard."); 
         
         //right hall transition (RHB)
+        Room RHB = new Room(new Item[0], new Character[0], "Sunlit-Room", "You are in a sunlit room.");
         
-
+        //Both doors right wing
+        Character[] MEI = new Character[2];
+        MEI[0] = new Character("Veiled-door", "This is a veiled-door. There is nothing special about this door", true, 51, 3);
+        MEI[1] = new Character("Oak-door", "This is a sturdy Oak-door", true, 47, 2);
+        Room ME = new Room(new Item[0], MEI, "Chamber-of-Secrets", "you are in a chamber. There are two doors. One is a Veiled-door and another is an Oak-door");
+        
+        //hallway to the MAPR
+        Room MHW = new Room(new Item[0], new Character[0], "Hallway", "You are in a golden hallway");
+        
+        //Monkey arm room
+        Character[] MARC = new Character[1];
+        Item[] painting = new Item[1];
+        painting[0] = new Item("Monkey-arm", "These are a pair of golden monkey-arm", 94, "There is a monkey arm inside the secret comparment of the painting");
+        MARC[0] = new Character("painting", "This is a painting with a secret compartment.", cabinet);
+        Room MAR = new Room(new Item [0], MARC, "Art Gallery", "You are in a room. There is a painting on the wall");
+        
+        
+        
         Item[] PlayerIn = new Item[10];
         player = new Player("Hero", "A buff dude", PlayerIn, 100);
         System.out.println("Welcome to HERO OF THE HEARTH");
