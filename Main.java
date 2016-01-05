@@ -439,7 +439,7 @@ public class Main
         AKKI[1] = new Item("golden-key", "This is a key that seems to be made of gold", 15, "There is a shiny-key on the floor"); //this is the key to the door in RFLHAT
         AKKI[2] = new Item("stone-knife", "This is a stone knife made by 'SI:7 Agent'", 300, "There is a knife on the ground");
         Character[] AKKC = new Character[0];
-        new Room(AKKI, AKKC, "Alchemy lab", "You are in a the ruins of an alchemy lab");
+        Room AKK = new Room(AKKI, AKKC, "Alchemy lab", "You are in a the ruins of an alchemy lab");
 
         //left hall after torch
         Item[] LHATI = new Item[0];
@@ -592,6 +592,24 @@ public class Main
         LWH3.setWest(LWTR);
         LWTR.setEast(LWH3);
         LWTR.setNorth(AKKH);
-
+        AKKH.setSouth(LWTR);
+        AKKH.setNorth(AKK);
+        AKK.setSouth(AKKH);
+        LWTR.setSouth(LHAT);
+        LHAT.setNorth(LWTR);
+        LHAT.setWest(LFLHAT);
+        LFLHAT.setEast(LHAT);
+        LHAT.setEast(RFLHAT);
+        RFLHAT.setWest(LHAT);
+        RFLHAT.setEast(AEHF);
+        AEHF.setWest(RFLHAT);
+        AEHF.setSouth(FRAE);
+        FRAE.setNorth(AEHF);
+        RFLHAT.setSouth(BAR1);
+        BAR1.setNorth(RFLHAT);
+        BAR1.setEast(BAR2);
+        BAR2.setWest(BAR1);
+        BAR2.setNorth(AGR);
+        AGR.setSouth(BAR2);
     }
 }
