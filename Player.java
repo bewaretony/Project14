@@ -56,4 +56,12 @@ public class Player
         }
         return null;
     }
+    
+    public int getHealth() {
+        return this.health;
+    }
+    
+    public void loseHealth(int i) {
+        this.health = this.health-i;
+    }
 }

@@ -14,11 +14,12 @@ public class Character
     private boolean door;
     private boolean attackable;
     int direction;
+    int weaponuse;
 
     /**
      * Constructor for objects that attack and can be attacked
      */
-    public Character(String name, String description, String location, Item[] inventory, int health, int attack){
+    public Character(String name, String description, String location, Item[] inventory, int health, int attack, int weaponuse){
         this.name = name;
         this.description = description;
         this.inventory = inventory;
@@ -26,6 +27,7 @@ public class Character
         this.location = location;
         this.door = false;
         this.attackable = true;
+        this.weaponuse = weaponuse;
     }
     /**
      * Constructor for objects that cannot be attacked (furniture)
@@ -94,6 +96,10 @@ public class Character
     public boolean attackable() {
         return this.attackable;
        
+    }
+    
+    public int getWeapon() {
+        return this.weaponuse;
     }
     
     public void unlock() {

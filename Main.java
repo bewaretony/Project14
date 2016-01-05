@@ -29,6 +29,7 @@ public class Main
         System.out.print('\u000C');
 
     }
+
     public static void addScore(int s) {
         score = score + s;
     }
@@ -36,7 +37,7 @@ public class Main
     public static void readCommand(String command) {
         String[] cmd = command.split(" ");
         cmd[0] = cmd[0].toLowerCase();
-        System.out.println("Your current score is:" +score);
+
         if (cmd[0].compareTo("attack") == 0){
             if (cmd.length == 1){
                 System.out.println("What do you want to attack?");
@@ -102,7 +103,40 @@ public class Main
             return;
         }
         if (cmd[0].compareTo("examine") == 0){
-            System.out.println("add something here for examine.......");
+            if(cmd.length == 1) {
+                System.out.println(currentRoom.getDescription());
+                Character[] mobs = currentRoom.getCharacters();
+                for(int i = 0; i < mobs.length; i ++) {
+                    if (mobs[i]!= null) {
+                        if(mobs[i].attackable() == true) {
+
+                            System.out.println(mobs[i].getLocation());
+                        }
+                    }
+                }
+                Item[] stuff = currentRoom.getStuff();
+                for(int i = 0; i < stuff.length; i ++) {
+                    if (stuff[i]!= null) {
+                        System.out.println(stuff[i].getLocation());
+                    }
+                }
+            }
+            else if(cmd.length == 2) {
+                Item item = currentRoom.verifyItemRoom(cmd[1]);
+                if(item != null) {
+                    for(int i = 0; i < currentRoom.getStuff().length; i++) {
+                        Item[] stuff = currentRoom.getStuff();
+                        String name = stuff[i].getName().toLowerCase();
+                        if(name.equals(cmd[1])) {
+                            System.out.println(stuff[i].getDescription());
+                        }
+                    }
+                    return;
+                }
+                else {
+                    System.out.println("Blizzard servers have crashed");
+                }
+            }
             return;
         }
         if (cmd[0].compareTo("take") == 0){
@@ -130,9 +164,9 @@ public class Main
             Character character1 = currentRoom.verifyCharacter(cmd[1]);
             Item itemInventory = player.verifyInventory(cmd[1]);
             Character character3 = currentRoom.verifyCharacter(cmd[3]);
-            if(cmd.length = 1){
+            if(cmd.length == 1){
                 System.out.println("What item do you want to use.");
-           }
+            }
             if(itemInventory != null){
                 if(cmd.length == 2){
                     System.out.println("What do you want to use the " + cmd[1] + " on?");
@@ -294,6 +328,7 @@ public class Main
         }    
         System.out.println("Blizzard servers have crashed!(I don't know what the command means.)");
         return;
+
     }
 
     public static void setup() {
@@ -303,25 +338,23 @@ public class Main
         Item[] spawnItems = new Item[1];
         Character[] spawnCharacter = new Character[0];
         spawnItems[0] = new Item("book", "WELCOME TO HERO OF THE HEARTH. \nHero of the Hearth is a game by Blizzzard (The extra z is intended) that will be released Soon^TM \nIn Hero of the Hearth, players explore the land of King Gaben as they fight minions and monsters, while finding golden treasures. \nHero of the Hearth was created by John Shieh and Anthony Luo",0,"There is a tattered book on the floor");
-        Room spawn = new Room(spawnItems, spawnCharacter, "Spawn Point", "You spawn in a forest. Ahead of you there is a clearing, and in the distance you can see a ruined castle.");
+        Room spawn = new Room(spawnItems, spawnCharacter, "Spawn Point", "You are in a forest. Ahead of you there is a clearing, and in the distance you can see a ruined castle.");
 
         //clearing next to spawn
         Item[] clearingItems = new Item[0];
         Character[] cspawnItems = new Character[0];
-        Room clearingSpawn = new Room(clearingItems, cspawnItems, "Clearing", "You walk into a clearing in the middle of a gorge. You see a cave to your right. You hear a faint rumble and a voice seems to be saying: \"EVERYONE GET IN HERE\"");
+        Room clearingSpawn = new Room(clearingItems, cspawnItems, "Clearing", "You are in a clearing in the middle of a gorge. You see a cave to your right. You hear a faint rumble and a voice seems to be saying: \"EVERYONE GET IN HERE\"");
 
         //cave room 
-        Item[] caveItems = new Item[2];
-        caveItems[0]= new Item("castle-key", "This seems to be the key to the castle", 1, "There is a key on the floor");
-        caveItems[1]= new Item("stones", "Some random stones.", 0, "There are a pile of stones on the floor" );
+        Item[] caveItems = new Item[1];
+        caveItems[0]= new Item("stones", "Some random stones.", 0, "There are a pile of stones on the floor" );
         Character[] caveCharacters = new Character[0];
         Room cave = new Room(caveItems, caveCharacters, "Cave in the Gorge", "You enter a dark cave.");
 
         //castle entrance
         Item[] castleEntranceItems = new Item[0];
-        Character[] castleCharacters = new Character[1];
-        castleCharacters[0] = new Character("castle-door", "The door is made of cast iron and is impurtable. There is a key hole in the center.", false, 1, 1);
-        Room castleEntrance = new Room(castleEntranceItems, castleCharacters, "Castle entrance", "You see the entrance to a giant, ruined castle.");
+        Character[] castleCharacters = new Character[0];
+        Room castleEntrance = new Room(castleEntranceItems, castleCharacters, "Castle entrance", "You are next to the castle. You see the entrance to a giant, ruined castle.");
 
         //castle first room
         Item[] cfrI = new Item[1]; // do doors count as a character? --- ahhh doors that need keys are characters  -- ma
@@ -412,7 +445,7 @@ public class Main
         Item[] largebox = new Item[1];
         largebox[0] = new Item("key", "This seems to be a key with a monkey engraving", 20, "There is a key in the box");
         AEHFC[0] = new Character("box", "You look into the box which reveals a key.", largebox);
-        Room AEHF = new Room(AEHFI , AEHFC, "hall/room after the entrance.", "You are in a hall. There is a large box on the floor");
+        Room AEHF = new Room(AEHFI , AEHFC, "Hallway", "You are in a hall. There is a large box on the floor");
 
         //front room after arena entrance hall
         //ADD LOOK METHOD
@@ -440,7 +473,7 @@ public class Main
         Character[] AGRC = new Character[1];
         Item[] patron = new Item[1];
         patron[0] = new Item("B-key", "This is the key to the trapdoor", 10, "There is a key on the ground");
-        AGRC[0] = new Character("grim patron", "If you dont kill this minion in one hit, another grim patron will be summoned", "There is a grim patron in the center of the arena", patron, 3, 10); //need torch from LWTR ROOM 
+        AGRC[0] = new Character("grim patron", "If you dont kill this minion in one hit, another grim patron will be summoned", "There is a grim patron in the center of the arena", patron, 3, 10, 301); //need torch from LWTR ROOM 
         Room AGR = new Room(AGRI, AGRC, "Arena", "You enter the arena");
 
         //UNDERGROUND
@@ -498,24 +531,26 @@ public class Main
         FBR2I[0] = new Item("frost-bolt", "This seems to be a powerful weapon", 350, "There is a frost-bolt on the ceiling");
         FBR2I[1] = new Item("bolt-of-frost", "This seems to be a decorative item", 0, "There is a bolt-of-frost attached to the wall");
         Room FBR2 = new Room(FBR2I, new Character[0], "Blue-Room", "You are in a blue room.");
-        
+
         //pre-rag room
         Room RPR = new Room(new Item[0], new Character[0], "Black-Room", "You walk into a black room. A sign on the wall says \"Beware of Ragnaros\"");
-        
+
         //deathpit 3
         Room DT3 = new Room(new Item[0], new Character[0], "Death-Pit 3", "You fall off into a lava pit and die"); //DEATH HERE
-        
+
         //RAGNAROS FIGHT
-       Item[] RFRI = new Item[90];
-       Item[] RAGIT = new Item[2];
-       RAGIT[0] = new Item("Green-key", "This seems to be a green-key with an inscription that says 'CURSE OF THE NAXX' on it'", 40, "There is a green key in the center of the room");
-       RAGIT[1] = new Item("Pedastal", "This seems to be a pedestal with an incription that say 'GOLDEN MONKEY' on it", 93, "There is a pedastal floating above the ground");
-       Character[] RAGIC = new Character("
+        Item[] RFRI = new Item[90];
+        Item[] RAGIT = new Item[2];
+        Character[] RFRC = new Character[1];
+        RAGIT[0] = new Item("Green-key", "This seems to be a green-key with an inscription that says 'CURSE OF THE NAXX' on it'", 40, "There is a green key in the center of the room");
+        RAGIT[1] = new Item("Pedastal", "This seems to be a pedestal with an incription that say 'GOLDEN MONKEY' on it", 93, "There is a pedastal floating above the ground");
+        RFRC[0] = new Character("Ragnaros", "Ragnaros is a powerful minion! You will die if you do not use the correct weapon", "Ragnaros is in the center of the room", RAGIT, 80, 1, 350);
+        Room RFR = new Room(RFRI, RFRC, "Jousting Arena", "You are in a jousting arena");
 
         Item[] PlayerIn = new Item[10];
         player = new Player("Hero", "A buff dude", PlayerIn, 100);
         System.out.println("Welcome to HERO OF THE HEARTH");
-        System.out.println("You spawn in a forest. Ahead of you there is a clearing, and in the distance you can see a ruined castle. You see a tattered book lying along the road.");        
+        System.out.println("You are in a forest. Ahead of you there is a clearing, and in the distance you can see a ruined castle. You see a tattered book lying along the road.");        
         currentRoom = spawn;
         spawn.setNorth(clearingSpawn);
         clearingSpawn.setSouth(spawn);
