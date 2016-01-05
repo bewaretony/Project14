@@ -130,12 +130,12 @@ public class Main
             Character character1 = currentRoom.verifyCharacter(cmd[1]);
             Item itemInventory = player.verifyInventory(cmd[1]);
             Character character3 = currentRoom.verifyCharacter(cmd[3]);
-            if(itemInventory != null && character3 != null){
-                currentRoom.useItem(itemInventory, character3);
-            }
+            if(cmd.length = 1){
+                System.out.println("What item do you want to use.");
+           }
             if(itemInventory != null){
                 if(cmd.length == 2){
-                    System.out.println("On what?");
+                    System.out.println("What do you want to use the " + cmd[1] + " on?");
                     System.out.print(">");
                     Scanner kbReader = new Scanner(System.in);
                     String input = kbReader.nextLine().toLowerCase();
@@ -145,6 +145,9 @@ public class Main
                     }
                 }
             }
+            if(itemInventory != null && character3 != null){
+                currentRoom.useItem(itemInventory, character3);
+            }            
         }
         if (cmd[0].compareTo("north") == 0){
             Room currentRoom1 = currentRoom.goNorth();
