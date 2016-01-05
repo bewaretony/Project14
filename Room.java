@@ -1,7 +1,6 @@
 
 /** * Write a description of class Player here. * * @author (your name) * @version (a version number
 
-
  * Write a description of class Room here.
  * @author Anthony Luo and John Shieh
  * @version (a version number or a date)
@@ -220,34 +219,37 @@ public class Room
             System.out.println("The " + character + " has been slain.");
         }
     }
-    
+
     public Item verifyItemRoom(String itemName) {
         for (int i=0; i < stuff.length; i++) {
-            String name = stuff[i].getName().toLowerCase();
-            if (name.compareTo(itemName.toLowerCase()) == 0) {
-                return stuff[i];
+            if(stuff[i] != null){
+                String name = stuff[i].getName().toLowerCase();
+                if (name.compareTo(itemName.toLowerCase()) == 0) {
+                    return stuff[i];
+                }
             }
         }
         return null;
     }
-    
+
     public void addItems(String itemName, Player player){
         Item[] items = player.getPlayerInventory();
         for(int i = 0;i < items.length;i++){
             if(items[i] == null){
                 for(int j = 0;j < stuff.length;j++){
+                    if(stuff[j] != null){
                         String name = stuff[j].getName().toLowerCase();
-                    if(name.compareTo(itemName.toLowerCase()) == 0){
-                        items[i] = stuff[j];
-                        stuff[j] = null;
-                        System.out.println("Taken.");
-                    }
-                    else{
-                        System.out.println("The item " + itemName + " was not found.");
+                        if(name.compareTo(itemName.toLowerCase()) == 0){
+                            items[i] = stuff[j];
+                            stuff[j] = null;
+                            System.out.println("Taken.");
+                        }
+                        else{
+                            System.out.println("The item " + itemName + " was not found.");
+                        }
                     }
                 }
             }
         }
     }
 }
-        

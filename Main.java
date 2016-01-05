@@ -154,9 +154,9 @@ public class Main
                 }
             }
             else if(cmd.length == 2) {
-                
-        }
-        
+
+            }
+
             else if(cmd.length > 2) {
                 System.out.println("Blizzard servers have crashed!(I don't know what the command means.)");
             }
@@ -164,17 +164,20 @@ public class Main
             return;
         }
         if (cmd[0].compareTo("take") == 0){
-            Item itemRoom = currentRoom.verifyItemRoom(cmd[1]);
-            String itemName = cmd[1].toLowerCase();
+            if(cmd.length > 2){
+                System.out.println("Blizzard servers have crashed!(I don't know what the command means.)");
+            }
             if(cmd.length == 1){
                 System.out.println("What do you want to take?");
                 Scanner kbReader = new Scanner(System.in);
                 String input = kbReader.nextLine().toLowerCase();
                 Item itemRoom1 = currentRoom.verifyItemRoom(input);
                 if(itemRoom1 != null){
-                    currentRoom.addItems(itemName, player);
+                    currentRoom.addItems(input, player);
                 }
             }
+            Item itemRoom = currentRoom.verifyItemRoom(cmd[0]);
+            String itemName = cmd[0].toLowerCase();            
             if(itemRoom != null){
                 currentRoom.addItems(itemName, player);
             }
@@ -573,12 +576,11 @@ public class Main
         RAGIT[1] = new Item("Pedastal", "This seems to be a pedestal with an incription that say 'GOLDEN MONKEY' on it", 93, "There is a pedastal floating above the ground");
         RFRC[0] = new Character("Ragnaros", "Ragnaros is a powerful minion! You will die if you do not use the correct weapon", "Ragnaros is in the center of the room", RAGIT, 80, 1, 350);
         Room RFR = new Room(RFRI, RFRC, "Jousting Arena", "You are in a jousting arena");
-        
+
         //RIGHTWING
-        
+
         //right wing first room
         Room RWFR = new Room(new Item[0], new Character[0], "Curse of NAXX Hall", "You are in a green and purple central hall");
-        
 
         Item[] PlayerIn = new Item[10];
         player = new Player("Hero", "A buff dude", PlayerIn, 100);
@@ -597,7 +599,7 @@ public class Main
         castleRoomFirst.setNorth(castleRoomSecond);
         castleRoomSecond.setWest(leftwingfirstroom);
         castleRoomSecond.setEast(RWFR);
-        
+
         //LEFTWING
         leftwingfirstroom.setEast(castleRoomSecond);
         LWH1.setEast(leftwingfirstroom);
@@ -630,7 +632,7 @@ public class Main
         BAR2.setWest(BAR1);
         BAR2.setNorth(AGR);
         AGR.setSouth(BAR2);
-        
+
         //underground - leftwing
         leftwingfirstroom.setDown(HD);
         HD.setUp(leftwingfirstroom);
@@ -656,7 +658,7 @@ public class Main
         RPR.setNorth(DT3);
         RPR.setSouth(RFR);
         RFR.setNorth(RPR);
-        
+
         //RIGHTWING
         RWFR.setWest(castleRoomSecond);
     }
