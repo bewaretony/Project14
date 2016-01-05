@@ -236,7 +236,7 @@ public class Room
         for(int i = 0;i < items.length;i++){
             if(items[i] == null){
                 for(int j = 0;j < stuff.length;j++){
-                    String name = stuff[j].getName().toLowerCase();
+                        String name = stuff[j].getName().toLowerCase();
                     if(name.compareTo(itemName.toLowerCase()) == 0){
                         items[i] = stuff[j];
                         stuff[j] = null;
