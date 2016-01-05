@@ -53,7 +53,7 @@ public class Main
                         currentRoom.attackCharacter(character, item, player);
                     }
                     else{
-                        System.out.println("The item " + input1 + " could not be found.");
+                        System.out.println("The item " + input1 + " could not be found in your inventory.");
                     }
                 }
                 else{
@@ -72,7 +72,7 @@ public class Main
                         currentRoom.attackCharacter(character, item, player);
                     }
                     else{
-                        System.out.println("The item " + input1 + " could not be found.");                        
+                        System.out.println("The item " + input1 + " could not be found in your inventory.");                        
                     }
                 }
                 else{
@@ -87,7 +87,7 @@ public class Main
             }
             Item itemInventory = player.verifyInventory(cmd[3]);
             if (itemInventory ==  null){
-                System.out.println("The item " + cmd[3] + " could not be found.");   
+                System.out.println("The item " + cmd[3] + " could not be found in your inventory.");   
                 return;                
             }
             if ((character != null) && (itemInventory != null)){
@@ -149,9 +149,7 @@ public class Main
                     System.out.println("You cannot examine this item. (You may not have the item, or this item does not exist)");
                 }
             }
-            else if(cmd.length == 2) {
-
-            }
+           
 
             else if(cmd.length > 2) {
                 System.out.println("Blizzard servers have crashed!(I don't know what the command means.)");
@@ -162,6 +160,12 @@ public class Main
         if (cmd[0].compareTo("take") == 0){
             if(cmd.length > 2){
                 System.out.println("Blizzard servers have crashed!(I don't know what the command means.)");
+                return;
+            } 
+            //instanceof stuff
+            Character character = currentRoom.verifyCharacter(cmd[1]);
+            if(character != null){
+                System.out.println("You cannot take a character.");
                 return;
             }
             if(cmd.length == 1){
@@ -216,7 +220,7 @@ public class Main
         }
         if (cmd[0].compareTo("north") == 0){
             if(cmd.length > 1){
-                
+                System.out.println("Blizzard servers have crashed!(I don't know what the command means.)");
             }
             Room currentRoom1 = currentRoom.goNorth();
             if (currentRoom != currentRoom1){

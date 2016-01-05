@@ -25,11 +25,13 @@ public class Player
 
     public Item verifyItem(String itemName) {
         for (int i = 0;i < inventory.length;i++){
-            String name = inventory[i].getName().toLowerCase();
-            if (name.equals(itemName.toLowerCase())) {
-                return inventory[i];
-            }
+            if(inventory[i] !=null){
+                String name = inventory[i].getName().toLowerCase();
+                if (name.equals(itemName.toLowerCase())) {
+                    return inventory[i];
+                }
 
+            }
         }
         return null;
     }
