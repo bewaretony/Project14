@@ -102,6 +102,7 @@ public class Main
             System.out.println("add something fere for say.......");
             return;
         }
+        //NEED TO GET EXAMINE TO WORK ON CHARACTERS I.E. BOXES
         if (cmd[0].compareTo("examine") == 0){
             if(cmd.length == 1) {
                 System.out.println(currentRoom.getDescription());
@@ -123,6 +124,7 @@ public class Main
             }
             else if(cmd.length == 2) {
                 Item item = currentRoom.verifyItemRoom(cmd[1]);
+                Character charcheck = currentRoom.verifyCharacter(cmd[1]);
                 Item itemRoom = player.verifyItem(cmd[1]);
                 if(item != null) {
                     for(int i = 0; i < currentRoom.getStuff().length; i++) {
@@ -151,6 +153,10 @@ public class Main
                     System.out.println("You cannot examine this item. (You may not have the item, or this item does not exist)");
                 }
             }
+            else if(cmd.length == 2) {
+                
+        }
+        
             else if(cmd.length > 2) {
                 System.out.println("Blizzard servers have crashed!(I don't know what the command means.)");
             }
@@ -386,7 +392,7 @@ public class Main
         csrI[0]= new Item("Totem", "This is Stoneclaw Totem", 0, "There is a totem on the ground");
         Character[] csrC = new Character[3];
         csrC[0] = new Character("left door", "The door is green and purple and says BLACKROCK MOUNTAIN . It does not seem to be locked",false, 5268, 4);
-        csrC[1] = new Character("right door", "The door is orange and black and says CURSE OF NAXXRAMUS. The door has a keyhole that is in the shape of a pyramid", true, 30, 2);
+        csrC[1] = new Character("right door", "The door is orange and black and says CURSE OF NAXXRAMUS. The door has a keyhole that is in the shape of a pyramid", true, 40, 2);
         csrC[2] = new Character("door", "The door is blue and brown and says LEAGUE OF EXPLORERS. The door has a keyhole that is in the shape of a hat", true, 60, 1);
         Room castleRoomSecond = new Room(csrI, csrC, "Castle Second Room", "You walk into a large room with three doors on each side. There are 3 doors, one on your left, right and infront of you.");
 
@@ -534,9 +540,12 @@ public class Main
         Room DT2 = new Room(DT2I, DT2C, "Death-pit", "You fall into a large acid pit and die");  //dead 
 
         //monkey head room
-        Item[] MHRI = new Item[1];
-        MHRI[0] = new Item("monkey-head", "This seems to be a golden monkey-head", 92, "There is a monkey-head on the ground");
-        Character[] MHRC = new Character[0];
+        Item[] MHRI = new Item[0];
+        Item[] bin = new Item[2];
+        bin[0] = new Item("golden-key", "This seems to be a golden-key with a mountain engraving on it", 47, "There is a golden-key in the bin");
+        bin[1] = new Item("monkey-head", "This seems to be a golden monkey-head", 92, "There is a monkey-head in the bin");
+        Character[] MHRC = new Character[1];
+        MHRC[0] = new Character("bin", "There is a large bin the corner of the room", bin);
         Room MHR =  new Room(MHRI, MHRC, "Monkey-room", "You are in a room with various ruined objects");
 
         //B-key room
@@ -564,12 +573,19 @@ public class Main
         RAGIT[1] = new Item("Pedastal", "This seems to be a pedestal with an incription that say 'GOLDEN MONKEY' on it", 93, "There is a pedastal floating above the ground");
         RFRC[0] = new Character("Ragnaros", "Ragnaros is a powerful minion! You will die if you do not use the correct weapon", "Ragnaros is in the center of the room", RAGIT, 80, 1, 350);
         Room RFR = new Room(RFRI, RFRC, "Jousting Arena", "You are in a jousting arena");
+        
+        //RIGHTWING
+        
+        //right wing first room
+        Room RWFR = new Room(new Item[0], new Character[0], "Curse of NAXX Hall", "You are in a green and purple central hall");
+        
 
         Item[] PlayerIn = new Item[10];
         player = new Player("Hero", "A buff dude", PlayerIn, 100);
         System.out.println("Welcome to HERO OF THE HEARTH");
         System.out.println("You are in a forest. Ahead of you there is a clearing, and in the distance you can see a ruined castle. You see a tattered book lying along the road.");        
         currentRoom = spawn;
+        //CENTER CASTLE
         spawn.setNorth(clearingSpawn);
         clearingSpawn.setSouth(spawn);
         castleEntrance.setSouth(clearingSpawn);
@@ -580,6 +596,9 @@ public class Main
         castleRoomFirst.setSouth(castleEntrance);
         castleRoomFirst.setNorth(castleRoomSecond);
         castleRoomSecond.setWest(leftwingfirstroom);
+        castleRoomSecond.setEast(RWFR);
+        
+        //LEFTWING
         leftwingfirstroom.setEast(castleRoomSecond);
         LWH1.setEast(leftwingfirstroom);
         leftwingfirstroom.setWest(LWH1);
@@ -612,7 +631,7 @@ public class Main
         BAR2.setNorth(AGR);
         AGR.setSouth(BAR2);
         
-        //underground
+        //underground - leftwing
         leftwingfirstroom.setDown(HD);
         HD.setUp(leftwingfirstroom);
         HD.setNorth(DCS);
@@ -637,5 +656,8 @@ public class Main
         RPR.setNorth(DT3);
         RPR.setSouth(RFR);
         RFR.setNorth(RPR);
+        
+        //RIGHTWING
+        RWFR.setWest(castleRoomSecond);
     }
 }
