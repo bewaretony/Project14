@@ -134,7 +134,7 @@ public class Main
                     }
                     return;
                 }
-                
+
                 else if(itemRoom != null) {
                     for(int i = 0; i < currentRoom.getStuff().length; i++) {
                         Item[] stuff = player.getPlayerInventory();
@@ -148,6 +148,10 @@ public class Main
                     System.out.println("You cannot examine this item. (You may not have the item, or this item does not exist)");
                 }
             }
+            else {
+                System.out.println("Blizzard servers have crashed!(I don't know what the command means.)");
+            }
+
             return;
         }
         if (cmd[0].compareTo("take") == 0){
