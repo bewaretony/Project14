@@ -123,6 +123,7 @@ public class Main
             }
             else if(cmd.length == 2) {
                 Item item = currentRoom.verifyItemRoom(cmd[1]);
+                Item itemRoom = player.verifyItem(cmd[1]);
                 if(item != null) {
                     for(int i = 0; i < currentRoom.getStuff().length; i++) {
                         Item[] stuff = currentRoom.getStuff();
@@ -133,8 +134,18 @@ public class Main
                     }
                     return;
                 }
+                
+                else if(itemRoom != null) {
+                    for(int i = 0; i < currentRoom.getStuff().length; i++) {
+                        Item[] stuff = player.getPlayerInventory();
+                        String name = stuff[i].getName().toLowerCase();
+                        if(name.equals(cmd[1])) {
+                            System.out.println(stuff[i].getDescription());
+                        }
+                    }
+                }
                 else {
-                    System.out.println("Blizzard servers have crashed");
+                    System.out.println("You cannot examine this item. (You may not have the item, or this item does not exist)");
                 }
             }
             return;
