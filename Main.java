@@ -364,7 +364,7 @@ public class Main
         //spawn
         Item[] spawnItems = new Item[1];
         Character[] spawnCharacter = new Character[0];
-        spawnItems[0] = new Item("book", "WELCOME TO HERO OF THE HEARTH. \nHero of the Hearth is a game by Blizzzard (The extra z is intended) that will be released Soon^TM \nIn Hero of the Hearth, players explore the land of King Gaben as they fight minions and monsters, while finding golden treasures. \nHero of the Hearth was created by John Shieh and Anthony Luo",0,"There is a tattered book on the floor");
+        spawnItems[0] = new Item("tattered-book", "WELCOME TO HERO OF THE HEARTH. \nHero of the Hearth is a game by Blizzzard (The extra z is intended) that will be released Soon^TM \nIn Hero of the Hearth, players explore the land of King Gaben as they fight minions and monsters, while finding golden treasures. \nHero of the Hearth was created by John Shieh and Anthony Luo",0,"There is a tattered book on the floor");
         Room spawn = new Room(spawnItems, spawnCharacter, "Spawn Point", "You are in a forest. Ahead of you there is a clearing, and in the distance you can see a ruined castle.");
 
         //clearing next to spawn
@@ -385,28 +385,28 @@ public class Main
 
         //castle first room
         Item[] cfrI = new Item[1]; // do doors count as a character? --- ahhh doors that need keys are characters  -- ma
-        cfrI[0] = new Item("bottle of beer", "The brand of the beer is Ancient Brewmaster", 101 , "There is a bottle of beer on the floor");
+        cfrI[0] = new Item("bottle-of-beer", "The brand of the beer is Ancient Brewmaster", 101 , "There is a bottle-of-beer on the floor");
         Character[] cfrC = new Character[1];  //temp
-        cfrC[0] = new Character("painting door", "This seems to be a door that is disguised as a painting", false, 418098, 4);
-        Room castleRoomFirst = new Room(cfrI, cfrC, "Castle Hall", "You walk into a large hall. There is a painting of Reynad. Ahead of you is a large room with 3 doors.");
+        cfrC[0] = new Character("painting-door", "This seems to be a painting-door", false, 418098, 4);
+        Room castleRoomFirst = new Room(cfrI, cfrC, "Castle Hall", "You are in a large hall. There is a painting of Reynad. Ahead of you is a large room with 3 doors.");
 
         //castle seconds room
         Item[] csrI = new Item[1];
         csrI[0]= new Item("Totem", "This is Stoneclaw Totem", 0, "There is a totem on the ground");
         Character[] csrC = new Character[3];
-        csrC[0] = new Character("left door", "The door is green and purple and says BLACKROCK MOUNTAIN . It does not seem to be locked",false, 5268, 4);
-        csrC[1] = new Character("right door", "The door is orange and black and says CURSE OF NAXXRAMUS. The door has a keyhole that is in the shape of a pyramid", true, 40, 2);
-        csrC[2] = new Character("door", "The door is blue and brown and says LEAGUE OF EXPLORERS. The door has a keyhole that is in the shape of a hat", true, 60, 1);
-        Room castleRoomSecond = new Room(csrI, csrC, "Castle Second Room", "You walk into a large room with three doors on each side. There are 3 doors, one on your left, right and infront of you.");
+        csrC[0] = new Character("left-door", "The left-door is green and purple and says BLACKROCK MOUNTAIN . It does not seem to be locked",false, 5268, 4);
+        csrC[1] = new Character("right-door", "The right-door is orange and black and says CURSE OF NAXXRAMUS. The door has a keyhole that is in the shape of a pyramid", true, 40, 2);
+        csrC[2] = new Character("blue-door", "The blue-door says LEAGUE OF EXPLORERS. The door has a keyhole that is in the shape of a hat", true, 60, 1);
+        Room castleRoomSecond = new Room(csrI, csrC, "Castle Second Room", "You walk into a large room. There are 3 doors, one on your left, right and infront of you.");
 
         //LEFT WING STUFF IS HERE
 
         //left wing first room
         Item[] lwfr = new Item[2];
         Character[] leftwingfirstroomC = new Character[1];
-        lwfr[0] = new Item("Explorers Hat", "This seems to be a hat that gives you more HEALTH?!", 0,"There is a dusty hat lying on the floor");
-        lwfr[1] = new Item("Painting of Kolento", "Examining the painting reveals nothing unusual.", 0, "There is a painting in the room");
-        leftwingfirstroomC[0] = new Character("Loose floorboard", "The loose floorboard is disguised as a trap door.", true, 10, 6);
+        lwfr[0] = new Item("Explorers-Hat", "This seems to be a hat that gives you more HEALTH?!", 0,"There is an Explorers-hat lying on the floor");
+        lwfr[1] = new Item("Painting-of-Kolento", "Examining the painting reveals nothing unusual.", 0, "There is a painting-of-kolento in the room");
+        leftwingfirstroomC[0] = new Character("Loose-floorboard", "The loose-floorboard is disguised as a trap door.", true, 10, 6);
         Room leftwingfirstroom = new Room(lwfr, leftwingfirstroomC, "large-room", "You enter a dark room. You can see the faint outlines of a hallway leading beyond. There is a loose floorboard");
 
         //leftwing hallwayOne
@@ -418,22 +418,22 @@ public class Main
         Item[] LWH2I = new Item[0];
 
         Character[] LWH2C = new Character[0];
-        Room LWH2 = new Room( LWH2I, LWH2C, "leftwing hall 2", "you are in a dimly lit hallway");
+        Room LWH2 = new Room( LWH2I, LWH2C, "hallway", "you are in a dimly lit hallway");
 
         //deathpit
         Item[] LWH2DI = new Item[0];
         Character[] LWH2DC = new Character[0];
-        Room LWH2D = new Room( LWH2DI, LWH2DC, "castle ruins", "you fall off a cliff and die"); //kill command needed
+        Room LWH2D = new Room( LWH2DI, LWH2DC, "castle-ruins", "you fall off a cliff and die"); //kill command needed
 
         //leftwing hallwayThree
         Item[] LWH3I = new Item[0];
         Character[] LWH3C = new Character[0];
-        Room LWH3 = new Room( LWH3I, LWH3C, "leftwing hall 3", "you are in a dimly lit hallway");
+        Room LWH3 = new Room( LWH3I, LWH3C, "hallway", "you are in a dimly lit hallway");
 
         //leftwing torch room
         Item[] LWTRI = new Item[2];
-        LWTRI[0] = new Item("torch left", "This seems to be a 'Lava Torch' that is loosely attached to the wall", 300, "There is a 'Lava torch' on your left");
-        LWTRI[1] = new Item("torch right", "This seems to be a 'Forgotten Torch' that is loosely attached to the wall", 301, "There is a 'Forgotten torch' on your right");  //grim patron needs Forgotten Torchto be killed. FROM 
+        LWTRI[0] = new Item("Lava-Torch", "This seems to be a 'Lava-Torch' that is loosely attached to the wall", 300, "There is a 'Lava torch' on your left");
+        LWTRI[1] = new Item("Forgotten-Torch", "This seems to be a 'Forgotten-Torch' that is loosely attached to the wall", 301, "There is a 'Forgotten torch' on your right");  //grim patron needs Forgotten Torchto be killed. FROM 
         Character[] LWTRC = new Character[0];
         Room LWTR = new Room(LWTRI, LWTRC, "Room", "You enter a large room.");
 
