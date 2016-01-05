@@ -499,12 +499,12 @@ public class Main
         //hallway down
         Item[] HDI = new Item[0];
         Character[] HDC = new Character[0];
-        Room hd = new Room(HDI, HDC, "pathway", "you are standing on a steep set of stairs");
+        Room HD = new Room(HDI, HDC, "pathway", "you are standing on a steep set of stairs");
 
         //downstairs central station
         Item[] DCSI =  new Item[0];
         Character[] DCSC = new Character[0];
-        Room DSC = new Room(DCSI, DCSC, "Grand hall", "You are in a grand hall");
+        Room DCS = new Room(DCSI, DCSC, "Grand hall", "You are in a grand hall");
 
         //fireball room next to DCS
         Item[] FBRI = new Item[2];
@@ -611,5 +611,31 @@ public class Main
         BAR2.setWest(BAR1);
         BAR2.setNorth(AGR);
         AGR.setSouth(BAR2);
+        
+        //underground
+        leftwingfirstroom.setDown(HD);
+        HD.setUp(leftwingfirstroom);
+        HD.setNorth(DCS);
+        DCS.setSouth(HD);
+        DCS.setWest(FBR);
+        FBR.setEast(DCS);
+        FBR.setNorth(MMR);
+        MMR.setSouth(FBR);
+        FBR.setWest(MHHR);
+        MHHR.setEast(FBR);
+        MHHR.setSouth(MHR);
+        MHR.setNorth(MHHR);
+        MHHR.setWest(DT2);
+        MHR.setWest(DT2);
+        DCS.setNorth(BKR);
+        BKR.setSouth(DCS);
+        BKR.setNorth(FBR2);
+        FBR2.setSouth(BKR);
+        BKR.setEast(DT3);
+        DCS.setEast(RPR);
+        RPR.setWest(DCS);
+        RPR.setNorth(DT3);
+        RPR.setSouth(RFR);
+        RFR.setNorth(RPR);
     }
 }
