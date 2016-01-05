@@ -470,8 +470,8 @@ public class Main
         Item[] AEHFI = new Item[0];
         Character[]AEHFC = new Character[1];
         Item[] largebox = new Item[1];
-        largebox[0] = new Item("key", "This seems to be a key with a monkey engraving", 20, "There is a key in the box");
-        AEHFC[0] = new Character("box", "You look into the box which reveals a key.", largebox);
+        largebox[0] = new Item("monkey-key", "This seems to be a key with a monkey engraving", 20, "There is a monkey-key in the box");
+        AEHFC[0] = new Character("box", "You look into the box.", largebox);
         Room AEHF = new Room(AEHFI , AEHFC, "Hallway", "You are in a hall. There is a large box on the floor");
 
         //front room after arena entrance hall
@@ -500,7 +500,7 @@ public class Main
         Character[] AGRC = new Character[1];
         Item[] patron = new Item[1];
         patron[0] = new Item("B-key", "This is the key to the trapdoor", 10, "There is a key on the ground");
-        AGRC[0] = new Character("grim patron", "If you dont kill this minion in one hit, another grim patron will be summoned", "There is a grim patron in the center of the arena", patron, 3, 10, 301); //need torch from LWTR ROOM 
+        AGRC[0] = new Character("grim-patron", "If you dont kill this minion with the right weapon, you will die", "There is a grim patron in the center of the arena", patron, 3, 10, 301); //need torch from LWTR ROOM 
         Room AGR = new Room(AGRI, AGRC, "Arena", "You enter the arena");
 
         //UNDERGROUND
@@ -513,16 +513,16 @@ public class Main
         //downstairs central station
         Item[] DCSI =  new Item[0];
         Character[] DCSC = new Character[0];
-        Room DCS = new Room(DCSI, DCSC, "Grand hall", "You are in a grand hall");
+        Room DCS = new Room(DCSI, DCSC, "Grand-hall", "You are in a grand hall");
 
         //fireball room next to DCS
         Item[] FBRI = new Item[2];
         FBRI[0] = new Item("fire-ball", "This seems to be a weapon of sorts", 305, "There is a fire-ball attached to the ceiling");
         FBRI[1] = new Item("ball-of-fire", "This seems to be a decoration of some sort", 0, "There is a ball-of-fire attached to the ceiling");
         Character[] FBRC = new Character[2];
-        FBRC[0] = new Character("door", "This seems to be a door with monkey engravings.", true, 20, 1);
+        FBRC[0] = new Character("brown-door", "This seems to be a door with monkey engravings.", true, 20, 1);
         FBRC[1] = new Character("golden-door", "This seems to be a solid gold door", true, 30, 4);
-        Room FBR = new Room(FBRI, FBRC, "Glowing-Room", "You are in a room with a door to your north and a golden-door to your west");
+        Room FBR = new Room(FBRI, FBRC, "Glowing-Room", "You are in a room with a brown-door to your north and a golden-door to your west");
 
         //monkey part room
         Item[] MMRI = new Item[2];
@@ -534,8 +534,8 @@ public class Main
         //monkey head hall room
         Item[] MHHRI = new Item[0];
         Character[] MHHRC = new Character[1];
-        MHHRC[0] = new Character("door", "This seems to be a slightly tattered door", false, 6345, 4);
-        Room MHHR = new Room(MHHRI, MHHRC, "Center-Room", "You are in a large room. There is a door to your west");
+        MHHRC[0] = new Character("tattered-door", "This seems to be a tattered-door", false, 6345, 4);
+        Room MHHR = new Room(MHHRI, MHHRC, "Center-Room", "You are in a large room. There is a tattered-door to your west");
 
         //death trap 2
         Item[] DT2I = new Item[0];
@@ -554,7 +554,7 @@ public class Main
         //B-key room
         Item[] BKRI = new Item[1];
         BKRI[0] = new Item("Red-Key", "This is a plain Red-Key", 31, "There is a Red-Key on the ground");
-        Room BKR = new Room(BKRI, new Character[0], "Orange-Room", "You are in a completely orange room. There is a red key on the ground");
+        Room BKR = new Room(BKRI, new Character[0], "Orange-Room", "You are in a completely orange room.");
 
         //frostbolt room
         Item[] FBR2I = new Item[2];
@@ -578,9 +578,18 @@ public class Main
         Room RFR = new Room(RFRI, RFRC, "Jousting Arena", "You are in a jousting arena");
 
         //RIGHTWING
-
+        
         //right wing first room
-        Room RWFR = new Room(new Item[0], new Character[0], "Curse of NAXX Hall", "You are in a green and purple central hall");
+        Room RWFR = new Room(new Item[0], new Character[0], "NAXX-Hall", "You are in a green and purple central hall");
+        
+        //right hall 1
+        Room RH1 = new Room(new Item[0], new Character[0], "Hallway", "you are in a long hallway");
+        
+        //right hall 2
+        Room RH2 = new Room(new Item[0], new Character[0], "Hallway", "You are in a long hallway"); 
+        
+        //right hall transition (RHB)
+        
 
         Item[] PlayerIn = new Item[10];
         player = new Player("Hero", "A buff dude", PlayerIn, 100);
