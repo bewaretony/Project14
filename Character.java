@@ -29,18 +29,7 @@ public class Character
         this.attackable = true;
         this.weaponuse = weaponuse;
     }
-    /**
-     * Constructor for objects that cannot be attacked (furniture)
-     */
-    
-    public Character(String name, String description, Item[] inventory) {
-        this.name = name;
-        this.description = description;
-        this.inventory = inventory;
-        this.door = false;
-        this.attackable = false;
-    }
-    
+       
     /**
      * Constructor for Doors
      */

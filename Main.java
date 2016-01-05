@@ -550,13 +550,10 @@ public class Main
         Room DT2 = new Room(DT2I, DT2C, "Death-pit", "You fall into a large acid pit and die");  //dead 
 
         //monkey head room
-        Item[] MHRI = new Item[0];
         Item[] bin = new Item[2];
         bin[0] = new Item("golden-key", "This seems to be a golden-key with a mountain engraving on it", 47, "There is a golden-key in the bin");
         bin[1] = new Item("monkey-head", "This seems to be a golden monkey-head", 92, "There is a monkey-head in the bin");
-        Character[] MHRC = new Character[1];
-        MHRC[0] = new Character("bin", "There is a large bin the corner of the room", bin);
-        Room MHR =  new Room(MHRI, MHRC, "Monkey-room", "You are in a room with various ruined objects");
+        Room MHR =  new Room(bin, new Character[0], "Monkey-room", "You are in a room with various ruined objects. There is a bin in the room");
 
         //B-key room
         Item[] BKRI = new Item[1];
@@ -629,7 +626,7 @@ public class Main
         Loatheb[0] = new Item("Bronze-Key", "This is a key made out of bronze", 56, "There is a Bronze-Key on the ground");
         Loatheb[1] = new Item("BGH-Sword", "This is the BIG GAME HUNTER SWORD", 347, "There is BGH-Sword on the ground");
         LRC[0] = new Character("Loatheb", "Loatheb is a fearsome minion. If you do not kill him with the right weapon you will die", "Loatheb is in the middle of the room", Loatheb, 3, 30, 305);
-        Room LR = new Room(new Item[0], LRC, "Giant-Hall", "You are in the middle of a giant hall.");
+        Room LR = new Room(new Item[50], LRC, "Giant-Hall", "You are in the middle of a giant hall.");
         
         //DEAD END
         Room DEM = new Room(new Item[0], new Character[0], "Dead End", "You walk into a room that is a dead end");
@@ -648,6 +645,29 @@ public class Main
         GRHC[0] = new Character("Purple-door", "This a purple door", true, 54, 4);
         Room GRH = new Room(new Item[0], GRHC, "Purple-Room", "You are in a purple room. There is a purple door to your west");
         
+        //goblet room
+        Item[] GRI = new Item[1];
+        GRI[0] = new Item("Goblet", "This seems to be a goblet made out of solid gold", 95, "There is a goblet on the ground");
+        Room GR = new Room(GRI, new Character[0], "Castle Safe", "You are in the castle safe");
+        
+        //Right hallway 6
+        Room RH6 = new Room(new Item[0], new Character[0], "Hallway", "You are in a hallway");
+        
+        //Right wing stairs
+        Character[] RWSC = new Character[1];
+        RWSC[0] = new Character("Bronze-door", "This is a solid bronze. It seems to be leading upstairs", true, 56, 5);
+        Room RWS = new Room(new Item[0], RWSC, "Bronze Room", "You are in a bronze room. There is a bronze door");
+        
+        //Veil door key 51
+        Item[] VDKI = new Item[1];
+        VDKI[0] = new Item("shrouded-key", "This seems to be a key made out of some light-absorbing material", 51, "There is a shrouded-key on the ground");
+        Room VDK = new Room(VDKI, new Character[0], "Mysterious Room", "You are in a strange, dark room");
+        
+        //Flame cannon room
+        Item[] FCRI = new Item[2];
+        FCRI[0] = new Item("Cannon-of-flames", "This seems to be a decorative object", 0, "There is a Cannon-of-flames on the wall");
+        FCRI[1] = new Item("Flame-cannon",  "This seems to be a powerful weapon", 327, "There is a Flame-cannon on the ceiling");
+        Room FCR = new Room(FCRI, new Character[0], "Ancient Lab", "You are in the ruins of a ancient lab"); 
         
         
         Item[] PlayerIn = new Item[10];
@@ -729,5 +749,50 @@ public class Main
 
         //RIGHTWING
         RWFR.setWest(castleRoomSecond);
+        RH1.setSouth(RWFR);
+        RWFR.setNorth(RH1);
+        RH1.setNorth(RH2);
+        RH2.setSouth(RH1);
+        RH2.setNorth(RHB);
+        RHB.setSouth(RH2);
+        RHB.setEast(ME);
+        ME.setWest(RHB);
+        ME.setSouth(DKR);
+        ME.setEast(MHW);
+        MHW.setWest(ME);
+        MHW.setEast(MAR);
+        MAR.setWest(MHW);
+        DKR.setNorth(ME);
+        DKR.setEast(LH1);
+        DKR.setSouth(DEM);
+        DEM.setNorth(DKR);
+        LH1.setWest(DKR);
+        LH1.setNorth(LH2);
+        LH2.setSouth(LH1);
+        LH2.setWest(LR);
+        LR.setEast(LH2);
+        
+        //
+        RWFR.setSouth(RH4);
+        RH4.setNorth(RWFR);
+        RH4.setEast(RH5);
+        RH5.setWest(RH4);
+        RH5.setNorth(DT4);
+        RH5.setSouth(GRH);
+        GRH.setNorth(RH5);
+        GRH.setWest(GR);
+        GR.setEast(GRH);
+        RH5.setEast(RH6);
+        RH6.setWest(RH5);
+        RH6.setNorth(VDK);
+        VDK.setSouth(RH6);
+        VDK.setWest(DT4);
+        RH6.setEast(RWS);
+        RWS.setWest(RH6);
+        VDK.setEast(FCR);
+        FCR.setWest(VDK);
+        
+  
+        
     }
 }
