@@ -712,6 +712,8 @@ public class Main
         KelI[0] = new Item("Gold-key", "This is a golden key", 70, "There is a golden key on the floor");
         KelI[1] = new Item("Legendary-Gem", "This is a yellow LEGENDARY GEM", 96, "There is a legendary-gem on the floor");
         KTC[0] = new Character("Kel'Thuzad", "Kel'Thuzad is a fearsome minion that will kill you instantly if you do not use the correct weapon", "Kel'Thuzad is in the center of the chamber", KelI, 30, 4, 327);
+        Room KT = new Room(new Item[25], KTC, "Kel'Thuzad's-Chamber", "You are in a large chamber");
+        
         
         //leper gnome room
         Item[] LGI = new Item[1];
@@ -729,6 +731,7 @@ public class Main
         //platinum door room
         Character[] PDRC = new Character[1];
         PDRC[0] = new Character("Platinum-door", "This is a solid platinum door", true, 63, 4);
+        Room PDR = new Room(new Item[25], PDRC, "Platinum-Room", "You are in a platinum room. There is a platinum-door to your west");
         
         //acid pit 2 death room
         Room AP2D = new Room(new Item[25], new Character[0], "Twisting Nether", "You fall into an Twisting Nether, you die");
@@ -880,6 +883,51 @@ public class Main
         RWS.setWest(RH6);
         VDK.setEast(FCR);
         FCR.setWest(VDK);
+        
+        //above ground right wing
+        RWS.setUp(RWU1);
+        RWU1.setUp(RWU2);
+        RWU2.setDown(RWU1);
+        RWU1.setDown(RWS);
+        RWU2.setNorth(PDR);
+        PDR.setNorth(AP2D);
+        PDR.setSouth(RWU2);
+        PDR.setWest(PDH1);
+        PDH1.setEast(PDR);
+        PDH1.setNorth(MCR);
+        MCR.setSouth(PDH1);
+        PDH1.setWest(PDH2);
+        PDH2.setEast(PDH1);
+        PDH2.setSouth(PR);
+        PR.setNorth(PDH2);
+        PDH2.setWest(PDH3);
+        PDH3.setEast(PDH2);
+        PDH3.setNorth(SKR);
+        SKR.setSouth(PDH3);
+        PDH3.setWest(AP2D);
+        RWU2.setSouth(BBC);
+        BBC.setNorth(RWU2);
+        BBC.setEast(RWU4);
+        RWU4.setWest(BBC);
+        RWU4.setSouth(DBR);
+        DBR.setNorth(RWU4);
+        BBC.setSouth(CER);
+        BBC.setWest(BBC1);
+        BBC1.setEast(BBC);
+        BBC1.setWest(BBC2);
+        BBC2.setEast(BBC1);
+        BBC2.setSouth(CER);
+        BBC1.setSouth(CER);
+        BBC2.setNorth(KE);
+        KE.setSouth(BBC2);
+        KE.setEast(KT);
+        KT.setWest(KE);
+        KE.setWest(LGR);
+        LGR.setEast(KE);
+        LGR.setNorth(LGDE1);
+        LGDE1.setSouth(LGR);
+        LGR.setSouth(LGDE);
+        LGDE.setNorth(LGR);
     }
 }
 
