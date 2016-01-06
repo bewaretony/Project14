@@ -15,7 +15,12 @@ public class Main
         Scanner kbReader = new Scanner(System.in);
         System.out.print(">");
         String input = kbReader.nextLine().toLowerCase();
-        while(input.compareTo("quit") != 0){
+        while((input.compareTo("quit") != 0) && (input.compareTo("exit") != 0)){
+            String[] cmd = input.split(" ");
+            cmd[0] = cmd[0].toLowerCase();
+            if((cmd[0].compareTo("go") == 0) && (cmd.length == 2)){
+                input = cmd[1];
+            }
             readCommand(input);
             System.out.print(">");            
             input = kbReader.nextLine().toLowerCase();
@@ -37,7 +42,7 @@ public class Main
     public static void readCommand(String command) {
         String[] cmd = command.split(" ");
         cmd[0] = cmd[0].toLowerCase();
-
+        
         if (cmd[0].compareTo("attack") == 0){
             if (cmd.length == 1){
                 System.out.println("What do you want to attack?");
@@ -156,7 +161,7 @@ public class Main
 
             return;
         }
-        if (cmd[0].compareTo("take") == 0){
+          if (cmd[0].compareTo("take") == 0){
             if(cmd.length > 2){
                 System.out.println("Blizzard servers have crashed!(I don't know what the command means.)");
                 return;
@@ -176,7 +181,7 @@ public class Main
                     currentRoom.addItems(input, player);
                 }
                 else{
-                    System.out.println("The item " + input + " could not be found.");
+                    System.out.println("The item could not be found.");
                 }
                 return;
             }
@@ -186,7 +191,7 @@ public class Main
                 currentRoom.addItems(itemName, player);
             }
             else{
-                System.out.println("The item " + itemRoom + " could not be found.");
+                System.out.println("The item could not be found.");
             }
             return;
         }
@@ -194,7 +199,7 @@ public class Main
             Item itemRoom = player.verifyItem(cmd[1]);
             return;
         }
-        if (cmd[0].compareTo("use") == 0){
+            if (cmd[0].compareTo("use") == 0){
             Character character1 = currentRoom.verifyCharacter(cmd[1]);
             Item itemInventory = player.verifyInventory(cmd[1]);
             Character character3 = currentRoom.verifyCharacter(cmd[3]);

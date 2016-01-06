@@ -1,7 +1,4 @@
-
-/** * Write a description of class Player here. * * @author (your name) * @version (a version number
-
- * Write a description of class Room here.
+/** Write a description of class Room here.
  * @author Anthony Luo and John Shieh
  * @version (a version number or a date)
  */
@@ -201,9 +198,9 @@ public class Room
             System.out.println("You cannot attack " + character.getName() + ".");
             return;
         }        
-        if(character.getHealth() > 0){
+        if(character.getHealth() > 1){
             character.dHealth();
-            System.out.println(character + " is still alive. Keep attacking it.");
+            System.out.println(character.getName() + " is still alive. Keep attacking it.");
         }
         else{
             for (int i=0; i < people.length; i++) {
@@ -214,9 +211,14 @@ public class Room
                 if (name.compareTo(character.getName().toLowerCase()) == 0) {
                     removeItems(people[i]);
                     people[i] = null;
+                    for(int x = 0; x < stuff.length; x++ ) {
+                        System.out.println(stuff[i].getLocation());
+                        return;
+                    }
                 }
+                System.out.println("The " + character.getName() + " has been slain.");
+
             }
-            System.out.println("The " + character + " has been slain.");
         }
     }
 
@@ -243,9 +245,6 @@ public class Room
                             items[i] = stuff[j];
                             stuff[j] = null;
                             System.out.println("Taken.");
-                        }
-                        else{
-                            System.out.println("The item " + itemName + " was not found.");
                         }
                     }
                 }

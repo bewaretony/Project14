@@ -53,9 +53,11 @@ public class Player
 
     public Item verifyInventory(String itemName){
         for(int i = 0;i < this.inventory.length; i++){
-            String name = inventory[i].getName().toLowerCase();
-            if(name.compareTo(itemName.toLowerCase()) == 0){
-                return inventory[i];
+            if(inventory[i] != null) {
+                String name = inventory[i].getName().toLowerCase();
+                if(name.compareTo(itemName.toLowerCase()) == 0){
+                    return inventory[i];
+                }
             }
         }
         return null;
