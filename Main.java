@@ -265,7 +265,7 @@ public class Main
                 currentRoom.useItem(itemPlayer, character3);
             }            
         }
-        if (cmd[0].compareTo("north") == 0){
+        if (cmd[0].compareTo("north") == 0 || cmd[0].compareTo("n") == 0){
             if(cmd.length > 1){
                 System.out.println("Blizzard servers have crashed!(I don't know what the command means.)");
             }
@@ -292,7 +292,7 @@ public class Main
             }
             return;
         }    
-        if (cmd[0].compareTo("south") == 0){
+        if (cmd[0].compareTo("south") == 0 || cmd[0].compareTo("s") == 0){
             Room currentRoom1 = currentRoom.goSouth();
             if (currentRoom != currentRoom1){
                 System.out.println(currentRoom1.getName());
@@ -316,7 +316,7 @@ public class Main
             }
             return;
         }     
-        if (cmd[0].compareTo("east") == 0){
+        if (cmd[0].compareTo("east") == 0 || cmd[0].compareTo("e") == 0){
             Room currentRoom1 = currentRoom.goEast();
             if (currentRoom != currentRoom1){
                 System.out.println(currentRoom1.getName());
@@ -339,7 +339,7 @@ public class Main
             }
             return;
         }        
-        if (cmd[0].compareTo("west") == 0){
+        if (cmd[0].compareTo("west") == 0 || cmd[0].compareTo("w") == 0){
             Room currentRoom1 = currentRoom.goWest();
             if (currentRoom != currentRoom1){
                 System.out.println(currentRoom1.getName());
@@ -363,7 +363,7 @@ public class Main
             }
             return;
         }      
-        if (cmd[0].compareTo("up") == 0){
+        if (cmd[0].compareTo("up") == 0 || cmd[0].compareTo("u") == 0){
             Room currentRoom1 = currentRoom.goUp();
             if (currentRoom != currentRoom1){
                 System.out.println(currentRoom1.getName());
@@ -387,7 +387,7 @@ public class Main
             }
             return;
         }
-        if (cmd[0].compareTo("down") == 0){
+        if (cmd[0].compareTo("down") == 0 || cmd[0].compareTo("d") == 0){
             Room currentRoom1 = currentRoom.goDown();
             if (currentRoom != currentRoom1){
                 System.out.println(currentRoom1.getName());
