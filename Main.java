@@ -149,7 +149,6 @@ public class Main
                     System.out.println("You cannot examine this item. (You may not have the item, or this item does not exist)");
                 }
             }
-           
 
             else if(cmd.length > 2) {
                 System.out.println("Blizzard servers have crashed!(I don't know what the command means.)");
@@ -165,8 +164,8 @@ public class Main
             //instanceof stuff
             /*Character character = currentRoom.verifyCharacter(cmd[1]);
             if(character != null){
-                System.out.println("You cannot take a character.");
-                return;
+            System.out.println("You cannot take a character.");
+            return;
             }*/
             if(cmd.length == 1){
                 System.out.println("What item do you want to take?");
@@ -445,8 +444,8 @@ public class Main
 
         //leftwing torch room
         Item[] LWTRI = new Item[2];
-        LWTRI[0] = new Item("Lava-Torch", "This seems to be a 'Lava-Torch' that is loosely attached to the wall", 300, "There is a 'Lava torch' on your left");
-        LWTRI[1] = new Item("Forgotten-Torch", "This seems to be a 'Forgotten-Torch' that is loosely attached to the wall", 301, "There is a 'Forgotten torch' on your right");  //grim patron needs Forgotten Torchto be killed. FROM 
+        LWTRI[0] = new Item("Lava-Torch", "This seems to be a 'Lava-Torch' that is loosely attached to the wall", 300, "There is a 'Lava-torch' on your left");
+        LWTRI[1] = new Item("Forgotten-Torch", "This seems to be a 'Forgotten-Torch' that is loosely attached to the wall", 301, "There is a 'Forgotten-torch' on your right");  //grim patron needs Forgotten Torchto be killed. FROM 
         Character[] LWTRC = new Character[0];
         Room LWTR = new Room(LWTRI, LWTRC, "Room", "You enter a large room.");
 
@@ -459,7 +458,7 @@ public class Main
         Item[] AKKI = new Item[3];
         AKKI[0] = new Item("water-bottle", "This is a water bottle from 'Water Elemental'", 102, "There is a water-bottle on the floor");
         AKKI[1] = new Item("golden-key", "This is a key that seems to be made of gold", 15, "There is a shiny-key on the floor"); //this is the key to the door in RFLHAT
-        AKKI[2] = new Item("stone-knife", "This is a stone knife made by 'SI:7 Agent'", 300, "There is a knife on the ground");
+        AKKI[2] = new Item("stone-knife", "This is a stone knife made by 'SI:7 Agent'", 300, "There is a stone-knife on the ground");
         Character[] AKKC = new Character[0];
         Room AKK = new Room(AKKI, AKKC, "Alchemy-lab", "You are in a the ruins of an alchemy lab");
 
@@ -508,7 +507,7 @@ public class Main
         Character[] AGRC = new Character[1];
         Item[] patron = new Item[1];
         patron[0] = new Item("B-key", "This is the key to the trapdoor", 10, "There is a key on the ground");
-        AGRC[0] = new Character("grim-patron", "If you dont kill this minion with the right weapon, you will die", "There is a grim-patron in the center of the arena", patron, 3, 10, 301); //need torch from LWTR ROOM 
+        AGRC[0] = new Character("grim-patron", "If you dont kill this minion with the right weapon, you will die", "There is a grim-patron in the center of the arena", patron, 3, 3, 301); //need torch from LWTR ROOM 
         Room AGR = new Room(AGRI, AGRC, "Arena", "You enter the arena");
 
         //UNDERGROUND
@@ -584,44 +583,44 @@ public class Main
         Room RFR = new Room(RFRI, RFRC, "Jousting Arena", "You are in a jousting arena");
 
         //RIGHTWING
-        
+
         //right wing first room
         Room RWFR = new Room(new Item[0], new Character[0], "NAXX-Hall", "You are in a green and purple central hall");
-        
+
         //right hall 1
         Room RH1 = new Room(new Item[0], new Character[0], "Hallway", "you are in a long hallway.");
-        
+
         //right hall 2
         Room RH2 = new Room(new Item[0], new Character[0], "Hallway", "You are in a long hallway. You can see the castle courtyard."); 
-        
+
         //right hall transition (RHB)
         Room RHB = new Room(new Item[0], new Character[0], "Sunlit-Room", "You are in a sunlit room.");
-        
+
         //Both doors right wing
         Character[] MEI = new Character[2];
         MEI[0] = new Character("Veiled-door", "This is a veiled-door. There is nothing special about this door", true, 51, 3);
         MEI[1] = new Character("Oak-door", "This is a sturdy Oak-door", true, 47, 2);
         Room ME = new Room(new Item[0], MEI, "Chamber-of-Secrets", "you are in a chamber. There are two doors. One is a Veiled-door to the south and another is an Oak-door to the east");
-        
+
         //hallway to the MAPR
         Room MHW = new Room(new Item[0], new Character[0], "Hallway", "You are in a golden hallway");
-        
+
         //Monkey arm room
         Item[] painting = new Item[1];
         painting[0] = new Item("Monkey-arm", "These are a pair of golden monkey-arm", 94, "There is a monkey arm inside the secret comparment of the painting");
         Room MAR = new Room(painting, new Character[0], "Art Gallery", "You are in a room. There is a painting on the wall");
-        
+
         //D key room
         Item[] DKRI = new Item[1];
         DKRI[0] = new Item("Purple-Key", "This a Purple-key with a goblet inscribed on it", 54, "There is a Purple-key on the floor");
         Room DKR = new Room(DKRI, new Character[0], "Oak-Room", "You are in a all-wood room");
-        
+
         //Loatheb Hall 1
         Room LH1 = new Room(new Item[0], new Character[0], "Hallway", "you are in a green hallway");
-        
+
         //Loatheb Hall 2
         Room LH2 = new Room(new Item[0], new Character[0], "Hallway", "you are in a green and purple hallway");
-        
+
         //Loatheb Room
         Character[] LRC  = new Character[1];
         Item[] Loatheb = new Item[2];
@@ -629,49 +628,84 @@ public class Main
         Loatheb[1] = new Item("BGH-Sword", "This is the BIG GAME HUNTER SWORD", 347, "There is BGH-Sword on the ground");
         LRC[0] = new Character("Loatheb", "Loatheb is a fearsome minion. If you do not kill him with the right weapon you will die", "Loatheb is in the middle of the room", Loatheb, 3, 30, 305);
         Room LR = new Room(new Item[50], LRC, "Giant-Hall", "You are in the middle of a giant hall.");
-        
+
         //DEAD END
         Room DEM = new Room(new Item[0], new Character[0], "Dead End", "You walk into a room that is a dead end");
-        
+
         //deathpit next to RH5
         Room DT4 = new Room(new Item[0], new Character[0], "Sinkhole", "You walk into a sinkhole and die");
-        
+
         //Right hallway 4
         Room RH4 = new Room(new Item[0], new Character[0], "Hallway", "You are in a stained glass hallway");
-        
+
         //Right hallway 5
         Room RH5 = new Room(new Item[0], new Character[0], "Hallway", "You are in a hallway");
-        
+
         //goblet room hall
         Character[] GRHC = new Character[1];
         GRHC[0] = new Character("Purple-door", "This a purple door", true, 54, 4);
         Room GRH = new Room(new Item[0], GRHC, "Purple-Room", "You are in a purple room. There is a purple door to your west");
-        
+
         //goblet room
         Item[] GRI = new Item[1];
         GRI[0] = new Item("Goblet", "This seems to be a goblet made out of solid gold", 95, "There is a goblet on the ground");
         Room GR = new Room(GRI, new Character[0], "Castle Safe", "You are in the castle safe");
-        
+
         //Right hallway 6
         Room RH6 = new Room(new Item[0], new Character[0], "Hallway", "You are in a hallway");
-        
+
         //Right wing stairs
         Character[] RWSC = new Character[1];
         RWSC[0] = new Character("Bronze-door", "This is a solid bronze. It seems to be leading upstairs", true, 56, 5);
         Room RWS = new Room(new Item[0], RWSC, "Bronze Room", "You are in a bronze room. There is a bronze door");
-        
+
         //Veil door key 51
         Item[] VDKI = new Item[1];
         VDKI[0] = new Item("shrouded-key", "This seems to be a key made out of some light-absorbing material", 51, "There is a shrouded-key on the ground");
         Room VDK = new Room(VDKI, new Character[0], "Mysterious Room", "You are in a strange, dark room");
-        
+
         //Flame cannon room
         Item[] FCRI = new Item[2];
         FCRI[0] = new Item("Cannon-of-flames", "This seems to be a decorative object", 0, "There is a Cannon-of-flames on the wall");
         FCRI[1] = new Item("Flame-cannon",  "This seems to be a powerful weapon", 327, "There is a Flame-cannon on the ceiling");
         Room FCR = new Room(FCRI, new Character[0], "Ancient Lab", "You are in the ruins of a ancient lab"); 
+
+        //STAIRWELL1
+        Room RWU1 = new Room(new Item[0], new Character[0], "Stairwell", "You are in a stairwell");
+
+        //landing
+        Room RWU2 = new Room(new Item[0], new Character[0], "Landing", "You are at the top of a set of stairs");
+        
+        //right hallway to the south (balcony)
+        Room BBC = new Room(new Item[0], new Character[0], "Balcony", "You on a balcony");
+        
+        //hallway before darkbomb room (DBR)
+        Room RWU4 = new Room(new Item[0], new Character[0], "Hallway", "You are in a hallway. You can see the castle grounds out the window.");
+        
+        //weapons storage DBR
+        Item[] DBRI = new Item[1];
+        DBRI[0]  =new Item("Darkbomb", "This seems to be a powerful bomb that still works!", 337, "There is a darkbomb on the ground");
+        Room DBR = new Room(DBRI, new Character[0], "Weapons storage", "You are in a ruins of a weapons storage room"); 
+        
+        //CER Castle edge death room
+        Room CER = new Room(new Item[0], new Character[0], "Castle grounds", "You have fallen off the edge of the castle and died");
+        
+        //Balcony room number 2 with coghammer
+        Item[] BBC1I = new Item[1];
+        BBC1I[0] = new Item("Coghammer", "This is a Coghammer. There is nothing special about this weapon", 369, "There is a coghammer on the railing");
+        Room BBC1 = new Room(BBC1I, new Character[0], "Balcony", "You are the partly constructed area of the balcony");
+        
+        //balcony room number 3 
+        Room BBC2 = new Room(new Item[0], new Character[0], "Scenic Overlook", "You are in a bright room. You can see the spawn point out the window ");
+        
+        //kelthuzad entrance
+        Character[] KEC= new Character[1];
+        KEC[0] = new Character("silver-door", "This is a silver door which seems to be made out of silver", true, 43, 2);
+        Room KE = new Room(new Item[0], KEC, "Scenic Overlook", "You are in a large circular room. There is a silver door to the east");
         
         
+        //Intial setup
+
         Item[] PlayerIn = new Item[10];
         player = new Player("Hero", "A buff dude", PlayerIn, 100);
         System.out.println("Welcome to HERO OF THE HEARTH");
@@ -773,7 +807,7 @@ public class Main
         LH2.setSouth(LH1);
         LH2.setWest(LR);
         LR.setEast(LH2);
-        
+
         //
         RWFR.setSouth(RH4);
         RH4.setNorth(RWFR);
@@ -793,8 +827,7 @@ public class Main
         RWS.setWest(RH6);
         VDK.setEast(FCR);
         FCR.setWest(VDK);
-        
-  
+
         
     }
 }
