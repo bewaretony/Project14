@@ -181,8 +181,8 @@ public class Main
                 }
                 return;
             }
-            Item itemRoom = currentRoom.verifyItemRoom(cmd[0]);
-            String itemName = cmd[0].toLowerCase();            
+            Item itemRoom = currentRoom.verifyItemRoom(cmd[1]);
+            String itemName = cmd[1].toLowerCase();            
             if(itemRoom != null){
                 currentRoom.addItems(itemName, player);
             }
@@ -200,7 +200,7 @@ public class Main
             Item itemInventory = player.verifyInventory(cmd[1]);
             Character character3 = currentRoom.verifyCharacter(cmd[3]);
             if(cmd.length == 1){
-                System.out.println("What item do you want to use.");
+                System.out.println("What item do you want to use?");
             }
             if(itemInventory != null){
                 if(cmd.length == 2){
