@@ -443,7 +443,7 @@ public class Main
         Room LWH3 = new Room( LWH3I, LWH3C, "hallway", "you are in a dimly lit hallway");
 
         //leftwing torch room
-        Item[] LWTRI = new Item[2];
+        Item[] LWTRI = new Item[25];
         LWTRI[0] = new Item("Lava-Torch", "This seems to be a 'Lava-Torch' that is loosely attached to the wall", 300, "There is a 'Lava-torch' on your left");
         LWTRI[1] = new Item("Forgotten-Torch", "This seems to be a 'Forgotten-Torch' that is loosely attached to the wall", 301, "There is a 'Forgotten-torch' on your right");  //grim patron needs Forgotten Torchto be killed. FROM 
         Character[] LWTRC = new Character[0];
@@ -480,7 +480,7 @@ public class Main
 
         //arena entrance hall (Room) front
         Character[]AEHFC = new Character[1];
-        Item[] largebox = new Item[15];
+        Item[] largebox = new Item[25];
         largebox[0] = new Item("monkey-key", "This seems to be a key with a monkey engraving", 20, "There is a monkey-key in the box");
         Room AEHF = new Room(largebox , AEHFC, "Hallway", "You are in a hall. There is a large box on the floor");
 
@@ -551,13 +551,13 @@ public class Main
         Room DT2 = new Room(DT2I, DT2C, "Death-pit", "You fall into a large acid pit and die");  //dead 
 
         //monkey head room
-        Item[] bin = new Item[2];
+        Item[] bin = new Item[25];
         bin[0] = new Item("golden-key", "This seems to be a golden-key with a mountain engraving on it", 47, "There is a golden-key in the bin");
         bin[1] = new Item("monkey-head", "This seems to be a golden monkey-head", 92, "There is a monkey-head in the bin");
         Room MHR =  new Room(bin, new Character[0], "Monkey-room", "You are in a room with various ruined objects. There is a bin in the room");
 
-        //B-key room
-        Item[] BKRI = new Item[1];
+        //B-key room --key 31
+        Item[] BKRI = new Item[25];
         BKRI[0] = new Item("Red-Key", "This is a plain Red-Key", 31, "There is a Red-Key on the ground");
         Room BKR = new Room(BKRI, new Character[0], "Orange-Room", "You are in a completely orange room.");
 
