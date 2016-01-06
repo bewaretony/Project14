@@ -166,7 +166,6 @@ public class Main
                 System.out.println("Blizzard servers have crashed!(I don't know what the command means.)");
                 return;
             } 
-            //instanceof stuff
             Character character = currentRoom.verifyCharacter(cmd[1]);
             if(character != null){
                 System.out.println("You cannot take a character.");
@@ -196,17 +195,57 @@ public class Main
             return;
         }
         if (cmd[0].compareTo("drop") == 0){
-            Item itemRoom = player.verifyItem(cmd[1]);
+            //check if room has enough space to receive an item
+            if(cmd.length > 2){
+                System.out.println("Blizzard servers have crashed!(I don't know what the command means.)");
+                return;
+            }
+            if(cmd.length == 1){
+                System.out.println("What item do you want to drop?");
+                Scanner kbReader = new Scanner(System.in);
+                String input = kbReader.nextLine().toLowerCase();
+                Item itemPlayer = player.verifyItem(input);
+                if(itemPlayer != null){
+                    currentRoom.dropItems(input, player);
+                }
+                else{
+                    System.out.println("The item could not be found in your inventory.");
+                }
+                return;
+            }
+            Item itemPlayer1 = player.verifyItem(cmd[1]);
+            String itemName = cmd[1].toLowerCase();
+            if(itemPlayer1 != null){
+                currentRoom.dropItems(itemName, player);
+            }
+            else{
+                System.out.println("The item could not be found in your inventory.");
+            }
             return;
         }
         if (cmd[0].compareTo("use") == 0){
             Character character1 = currentRoom.verifyCharacter(cmd[1]);
-            Item itemInventory = player.verifyInventory(cmd[1]);
-            Character character3 = currentRoom.verifyCharacter(cmd[3]);
+            Item itemPlayer = player.verifyItem(cmd[1]);
             if(cmd.length == 1){
                 System.out.println("What item do you want to use?");
+                Scanner kbReader = new Scanner(System.in);
+                String input1 = kbReader.nextLine().toLowerCase();
+                Item itemPlayer1 = player.verifyItem(input1);
+                if(itemPlayer1 != null){
+                    System.out.println("What do you want to use the " + itemPlayer1.getName() + " on?");
+                    System.out.print(">");
+                    Scanner kbReader1 = new Scanner(System.in);
+                    String input2 = kbReader1.nextLine().toLowerCase();
+                    Character character = currentRoom.verifyCharacter(input2);
+                    if(character != null){
+                        currentRoom.useItem(itemPlayer1, character);
+                    }                    
+                }
+                else{
+                    System.out.println("This item is not in your inventory.");
+                }
             }
-            if(itemInventory != null){
+            if(itemPlayer != null){
                 if(cmd.length == 2){
                     System.out.println("What do you want to use the " + cmd[1] + " on?");
                     System.out.print(">");
@@ -214,12 +253,16 @@ public class Main
                     String input = kbReader.nextLine().toLowerCase();
                     Character character = currentRoom.verifyCharacter(input);
                     if(character != null){
-                        currentRoom.useItem(itemInventory, character);
+                        currentRoom.useItem(itemPlayer, character);
                     }
                 }
             }
-            if(itemInventory != null && character3 != null){
-                currentRoom.useItem(itemInventory, character3);
+            else{
+                System.out.println("The item is not in your inventory.");
+            }
+            Character character3 = currentRoom.verifyCharacter(cmd[3]);            
+            if(itemPlayer != null && character3 != null){
+                currentRoom.useItem(itemPlayer, character3);
             }            
         }
         if (cmd[0].compareTo("north") == 0){
