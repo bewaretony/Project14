@@ -42,7 +42,7 @@ public class Main
     public static void readCommand(String command) {
         String[] cmd = command.split(" ");
         cmd[0] = cmd[0].toLowerCase();
-        
+
         if (cmd[0].compareTo("attack") == 0){
             if (cmd.length == 1){
                 System.out.println("What do you want to attack?");
@@ -50,7 +50,7 @@ public class Main
                 String input = kbReader.nextLine().toLowerCase();
                 Character character = currentRoom.verifyCharacter(input);
                 if(character != null){
-                    System.out.println("What do you want to attack the " + character + " with?");
+                    System.out.println("What do you want to attack the " + character.getName() + " with?");
                     Scanner kbReader1 = new Scanner(System.in);
                     String input1 = kbReader1.nextLine().toLowerCase();
                     Item item = player.verifyItem(input1);
@@ -161,17 +161,17 @@ public class Main
 
             return;
         }
-          if (cmd[0].compareTo("take") == 0){
+        if (cmd[0].compareTo("take") == 0){
             if(cmd.length > 2){
                 System.out.println("Blizzard servers have crashed!(I don't know what the command means.)");
                 return;
             } 
             //instanceof stuff
-            /*Character character = currentRoom.verifyCharacter(cmd[1]);
+            Character character = currentRoom.verifyCharacter(cmd[1]);
             if(character != null){
-            System.out.println("You cannot take a character.");
-            return;
-            }*/
+                System.out.println("You cannot take a character.");
+                return;
+            }
             if(cmd.length == 1){
                 System.out.println("What item do you want to take?");
                 Scanner kbReader = new Scanner(System.in);
@@ -199,7 +199,7 @@ public class Main
             Item itemRoom = player.verifyItem(cmd[1]);
             return;
         }
-            if (cmd[0].compareTo("use") == 0){
+        if (cmd[0].compareTo("use") == 0){
             Character character1 = currentRoom.verifyCharacter(cmd[1]);
             Item itemInventory = player.verifyInventory(cmd[1]);
             Character character3 = currentRoom.verifyCharacter(cmd[3]);
@@ -680,37 +680,35 @@ public class Main
 
         //landing
         Room RWU2 = new Room(new Item[0], new Character[0], "Landing", "You are at the top of a set of stairs");
-        
+
         //right hallway to the south (balcony)
         Room BBC = new Room(new Item[0], new Character[0], "Balcony", "You on a balcony");
-        
+
         //hallway before darkbomb room (DBR)
         Room RWU4 = new Room(new Item[0], new Character[0], "Hallway", "You are in a hallway. You can see the castle grounds out the window.");
-        
+
         //weapons storage DBR
         Item[] DBRI = new Item[1];
         DBRI[0]  =new Item("Darkbomb", "This seems to be a powerful bomb that still works!", 337, "There is a darkbomb on the ground");
         Room DBR = new Room(DBRI, new Character[0], "Weapons storage", "You are in a ruins of a weapons storage room"); 
-        
+
         //CER Castle edge death room
         Room CER = new Room(new Item[0], new Character[0], "Castle grounds", "You have fallen off the edge of the castle and died");
-        
+
         //Balcony room number 2 with coghammer
         Item[] BBC1I = new Item[1];
         BBC1I[0] = new Item("Coghammer", "This is a Coghammer. There is nothing special about this weapon", 369, "There is a coghammer on the railing");
         Room BBC1 = new Room(BBC1I, new Character[0], "Balcony", "You are the partly constructed area of the balcony");
-        
+
         //balcony room number 3 
         Room BBC2 = new Room(new Item[0], new Character[0], "Scenic Overlook", "You are in a bright room. You can see the spawn point out the window ");
-        
+
         //kelthuzad entrance
         Character[] KEC= new Character[1];
         KEC[0] = new Character("silver-door", "This is a silver door which seems to be made out of silver", true, 43, 2);
         Room KE = new Room(new Item[0], KEC, "Scenic Overlook", "You are in a large circular room. There is a silver door to the east");
-        
-        
-        //Intial setup
 
+        //Intial setup
         Item[] PlayerIn = new Item[10];
         player = new Player("Hero", "A buff dude", PlayerIn, 100);
         System.out.println("Welcome to HERO OF THE HEARTH");
@@ -833,7 +831,6 @@ public class Main
         VDK.setEast(FCR);
         FCR.setWest(VDK);
 
-        
     }
 }
 

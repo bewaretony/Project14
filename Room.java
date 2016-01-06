@@ -197,28 +197,34 @@ public class Room
         if(character.attackable() == false){
             System.out.println("You cannot attack " + character.getName() + ".");
             return;
-        }        
-        if(character.getHealth() > 1){
-            character.dHealth();
-            System.out.println(character.getName() + " is still alive. Keep attacking it.");
         }
-        else{
-            for (int i=0; i < people.length; i++) {
-                if(people[i] == null){
-                    continue;
-                }
-                String name = people[i].getName().toLowerCase();
-                if (name.compareTo(character.getName().toLowerCase()) == 0) {
-                    removeItems(people[i]);
-                    people[i] = null;
-                    for(int x = 0; x < stuff.length; x++ ) {
-                        System.out.println(stuff[i].getLocation());
+        if(item.getUse() == character.getWeapon()){
+            if(character.getHealth() > 1){
+                character.dHealth();
+                System.out.println(character.getName() + " is still alive. Keep attacking it.");
+            }
+            else{
+                for (int i=0; i < people.length; i++) {
+                    if(people[i] == null){
+                        continue;
+                    }
+                    String name = people[i].getName().toLowerCase();
+                    if (name.compareTo(character.getName().toLowerCase()) == 0) {
+                        removeItems(people[i]);
+                        people[i] = null;
+                        System.out.println("The " + character.getName() + " has been slain.");
+                        for(int x = 0; x < stuff.length; x++ ) {
+                            if(stuff[x] != null){
+                                System.out.println(stuff[x].getLocation());
+                            }
+                        }
                         return;
                     }
                 }
-                System.out.println("The " + character.getName() + " has been slain.");
-
             }
+        }
+        else{
+            System.out.println("You cannot attack this character with this weapon.");
         }
     }
 
@@ -245,6 +251,24 @@ public class Room
                             items[i] = stuff[j];
                             stuff[j] = null;
                             System.out.println("Taken.");
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public void dropItems(String itemName, Player player){
+        Item[] items = player.getPlayerInventory();
+        for(int i = 0;i < stuff.length;i++){
+            if(stuff[i] == null){
+                for(int j = 0;j < items.length;j++){
+                    if(items[j] != null){
+                        String name = items[i].getName().toLowerCase();
+                        if(name.compareTo(itemName.toLowerCase()) == 0){
+                            stuff[i] = items[j];
+                            items[j] = null;
+                            System.out.println("Dropped.");
                         }
                     }
                 }
