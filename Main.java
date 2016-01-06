@@ -461,7 +461,7 @@ public class Main
         AKKI[1] = new Item("golden-key", "This is a key that seems to be made of gold", 15, "There is a shiny-key on the floor"); //this is the key to the door in RFLHAT
         AKKI[2] = new Item("stone-knife", "This is a stone knife made by 'SI:7 Agent'", 300, "There is a knife on the ground");
         Character[] AKKC = new Character[0];
-        Room AKK = new Room(AKKI, AKKC, "Alchemy lab", "You are in a the ruins of an alchemy lab");
+        Room AKK = new Room(AKKI, AKKC, "Alchemy-lab", "You are in a the ruins of an alchemy lab");
 
         //left hall after torch
         Item[] LHATI = new Item[0];
