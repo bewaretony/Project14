@@ -372,6 +372,8 @@ public class Main
     public static void setup() {
         //NOTE TO SELF: ADD GRIM PATRON SOMEWHERE IN THE GAME
 
+        //NOTE TO SELF: ADD GRIM PATRON SOMEWHERE IN THE GAME
+
         //spawn
         Item[] spawnItems = new Item[1];
         Character[] spawnCharacter = new Character[0];
@@ -478,23 +480,18 @@ public class Main
         Room LFLHAT = new Room(LFLHATI, LFLHATC, "Hallway", "You enter the hallway, however it reveals a dead end.");
 
         //arena entrance hall (Room) front
-        Item[] AEHFI = new Item[0];
         Character[]AEHFC = new Character[1];
         Item[] largebox = new Item[1];
         largebox[0] = new Item("monkey-key", "This seems to be a key with a monkey engraving", 20, "There is a monkey-key in the box");
-        AEHFC[0] = new Character("box", "You look into the box.", largebox);
-        Room AEHF = new Room(AEHFI , AEHFC, "Hallway", "You are in a hall. There is a large box on the floor");
+        Room AEHF = new Room(largebox , AEHFC, "Hallway", "You are in a hall. There is a large box on the floor");
 
         //front room after arena entrance hall
         //ADD LOOK METHOD
-        Item[] FRAEI = new Item[1];
-        FRAEI[0] = new Item("table", "there is nothing special about this table", 0, "");
-        Character[] FRAEC = new Character[2];
-        Item[] cabinet = new Item[2];
-        cabinet[1] = new Item("coins", "this is a large coin with a spiral in the center", 90, "There is a coin in the cabinet");
-        cabinet[0] = new Item("dagger", "The dagger has a label that says Only designed to be used twice", 300, "There is a dagger in the cabinet");
-        FRAEC[0] = new Character("cabinet", "you open the cabinet", cabinet);
-        Room FRAE = new Room(FRAEI, FRAEC, "front room", "You walk into a room and you see a cabinet and a table.");
+        Item[] FRAEI = new Item[3];
+        FRAEI[0] = new Item("table", "there is nothing special about this table", 0, "");          
+        FRAEI[1] = new Item("coins", "this is a large coin with a spiral in the center", 90, "There is a coin in the cabinet");
+        FRAEI[0] = new Item("dagger", "The dagger has a label that says Only designed to be used twice", 300, "There is a dagger in the cabinet");
+        Room FRAE = new Room(FRAEI, new Character[0], "front room", "You walk into a room and you see a cabinet and a table.");
 
         //balcony to arena room 1
         Item[] BAR1I = new Item[0];
@@ -511,7 +508,7 @@ public class Main
         Character[] AGRC = new Character[1];
         Item[] patron = new Item[1];
         patron[0] = new Item("B-key", "This is the key to the trapdoor", 10, "There is a key on the ground");
-        AGRC[0] = new Character("grim-patron", "If you dont kill this minion with the right weapon, you will die", "There is a grim patron in the center of the arena", patron, 3, 10, 301); //need torch from LWTR ROOM 
+        AGRC[0] = new Character("grim-patron", "If you dont kill this minion with the right weapon, you will die", "There is a grim-patron in the center of the arena", patron, 3, 10, 301); //need torch from LWTR ROOM 
         Room AGR = new Room(AGRI, AGRC, "Arena", "You enter the arena");
 
         //UNDERGROUND
@@ -523,8 +520,9 @@ public class Main
 
         //downstairs central station
         Item[] DCSI =  new Item[0];
-        Character[] DCSC = new Character[0];
-        Room DCS = new Room(DCSI, DCSC, "Grand-hall", "You are in a grand hall");
+        Character[] DCSC = new Character[1];
+        DCSC[0] = new Character("red-door", "this is a solid red door", true, 31, 2); 
+        Room DCS = new Room(DCSI, DCSC, "Grand-hall", "You are in a grand hall. There is a red door to the east");
 
         //fireball room next to DCS
         Item[] FBRI = new Item[2];
@@ -554,13 +552,10 @@ public class Main
         Room DT2 = new Room(DT2I, DT2C, "Death-pit", "You fall into a large acid pit and die");  //dead 
 
         //monkey head room
-        Item[] MHRI = new Item[0];
         Item[] bin = new Item[2];
         bin[0] = new Item("golden-key", "This seems to be a golden-key with a mountain engraving on it", 47, "There is a golden-key in the bin");
         bin[1] = new Item("monkey-head", "This seems to be a golden monkey-head", 92, "There is a monkey-head in the bin");
-        Character[] MHRC = new Character[1];
-        MHRC[0] = new Character("bin", "There is a large bin the corner of the room", bin);
-        Room MHR =  new Room(MHRI, MHRC, "Monkey-room", "You are in a room with various ruined objects");
+        Room MHR =  new Room(bin, new Character[0], "Monkey-room", "You are in a room with various ruined objects. There is a bin in the room");
 
         //B-key room
         Item[] BKRI = new Item[1];
@@ -606,18 +601,75 @@ public class Main
         Character[] MEI = new Character[2];
         MEI[0] = new Character("Veiled-door", "This is a veiled-door. There is nothing special about this door", true, 51, 3);
         MEI[1] = new Character("Oak-door", "This is a sturdy Oak-door", true, 47, 2);
-        Room ME = new Room(new Item[0], MEI, "Chamber-of-Secrets", "you are in a chamber. There are two doors. One is a Veiled-door and another is an Oak-door");
+        Room ME = new Room(new Item[0], MEI, "Chamber-of-Secrets", "you are in a chamber. There are two doors. One is a Veiled-door to the south and another is an Oak-door to the east");
         
         //hallway to the MAPR
         Room MHW = new Room(new Item[0], new Character[0], "Hallway", "You are in a golden hallway");
         
         //Monkey arm room
-        Character[] MARC = new Character[1];
         Item[] painting = new Item[1];
         painting[0] = new Item("Monkey-arm", "These are a pair of golden monkey-arm", 94, "There is a monkey arm inside the secret comparment of the painting");
-        MARC[0] = new Character("painting", "This is a painting with a secret compartment.", cabinet);
-        Room MAR = new Room(new Item [0], MARC, "Art Gallery", "You are in a room. There is a painting on the wall");
+        Room MAR = new Room(painting, new Character[0], "Art Gallery", "You are in a room. There is a painting on the wall");
         
+        //D key room
+        Item[] DKRI = new Item[1];
+        DKRI[0] = new Item("Purple-Key", "This a Purple-key with a goblet inscribed on it", 54, "There is a Purple-key on the floor");
+        Room DKR = new Room(DKRI, new Character[0], "Oak-Room", "You are in a all-wood room");
+        
+        //Loatheb Hall 1
+        Room LH1 = new Room(new Item[0], new Character[0], "Hallway", "you are in a green hallway");
+        
+        //Loatheb Hall 2
+        Room LH2 = new Room(new Item[0], new Character[0], "Hallway", "you are in a green and purple hallway");
+        
+        //Loatheb Room
+        Character[] LRC  = new Character[1];
+        Item[] Loatheb = new Item[2];
+        Loatheb[0] = new Item("Bronze-Key", "This is a key made out of bronze", 56, "There is a Bronze-Key on the ground");
+        Loatheb[1] = new Item("BGH-Sword", "This is the BIG GAME HUNTER SWORD", 347, "There is BGH-Sword on the ground");
+        LRC[0] = new Character("Loatheb", "Loatheb is a fearsome minion. If you do not kill him with the right weapon you will die", "Loatheb is in the middle of the room", Loatheb, 3, 30, 305);
+        Room LR = new Room(new Item[50], LRC, "Giant-Hall", "You are in the middle of a giant hall.");
+        
+        //DEAD END
+        Room DEM = new Room(new Item[0], new Character[0], "Dead End", "You walk into a room that is a dead end");
+        
+        //deathpit next to RH5
+        Room DT4 = new Room(new Item[0], new Character[0], "Sinkhole", "You walk into a sinkhole and die");
+        
+        //Right hallway 4
+        Room RH4 = new Room(new Item[0], new Character[0], "Hallway", "You are in a stained glass hallway");
+        
+        //Right hallway 5
+        Room RH5 = new Room(new Item[0], new Character[0], "Hallway", "You are in a hallway");
+        
+        //goblet room hall
+        Character[] GRHC = new Character[1];
+        GRHC[0] = new Character("Purple-door", "This a purple door", true, 54, 4);
+        Room GRH = new Room(new Item[0], GRHC, "Purple-Room", "You are in a purple room. There is a purple door to your west");
+        
+        //goblet room
+        Item[] GRI = new Item[1];
+        GRI[0] = new Item("Goblet", "This seems to be a goblet made out of solid gold", 95, "There is a goblet on the ground");
+        Room GR = new Room(GRI, new Character[0], "Castle Safe", "You are in the castle safe");
+        
+        //Right hallway 6
+        Room RH6 = new Room(new Item[0], new Character[0], "Hallway", "You are in a hallway");
+        
+        //Right wing stairs
+        Character[] RWSC = new Character[1];
+        RWSC[0] = new Character("Bronze-door", "This is a solid bronze. It seems to be leading upstairs", true, 56, 5);
+        Room RWS = new Room(new Item[0], RWSC, "Bronze Room", "You are in a bronze room. There is a bronze door");
+        
+        //Veil door key 51
+        Item[] VDKI = new Item[1];
+        VDKI[0] = new Item("shrouded-key", "This seems to be a key made out of some light-absorbing material", 51, "There is a shrouded-key on the ground");
+        Room VDK = new Room(VDKI, new Character[0], "Mysterious Room", "You are in a strange, dark room");
+        
+        //Flame cannon room
+        Item[] FCRI = new Item[2];
+        FCRI[0] = new Item("Cannon-of-flames", "This seems to be a decorative object", 0, "There is a Cannon-of-flames on the wall");
+        FCRI[1] = new Item("Flame-cannon",  "This seems to be a powerful weapon", 327, "There is a Flame-cannon on the ceiling");
+        Room FCR = new Room(FCRI, new Character[0], "Ancient Lab", "You are in the ruins of a ancient lab"); 
         
         
         Item[] PlayerIn = new Item[10];
@@ -699,5 +751,51 @@ public class Main
 
         //RIGHTWING
         RWFR.setWest(castleRoomSecond);
+        RH1.setSouth(RWFR);
+        RWFR.setNorth(RH1);
+        RH1.setNorth(RH2);
+        RH2.setSouth(RH1);
+        RH2.setNorth(RHB);
+        RHB.setSouth(RH2);
+        RHB.setEast(ME);
+        ME.setWest(RHB);
+        ME.setSouth(DKR);
+        ME.setEast(MHW);
+        MHW.setWest(ME);
+        MHW.setEast(MAR);
+        MAR.setWest(MHW);
+        DKR.setNorth(ME);
+        DKR.setEast(LH1);
+        DKR.setSouth(DEM);
+        DEM.setNorth(DKR);
+        LH1.setWest(DKR);
+        LH1.setNorth(LH2);
+        LH2.setSouth(LH1);
+        LH2.setWest(LR);
+        LR.setEast(LH2);
+        
+        //
+        RWFR.setSouth(RH4);
+        RH4.setNorth(RWFR);
+        RH4.setEast(RH5);
+        RH5.setWest(RH4);
+        RH5.setNorth(DT4);
+        RH5.setSouth(GRH);
+        GRH.setNorth(RH5);
+        GRH.setWest(GR);
+        GR.setEast(GRH);
+        RH5.setEast(RH6);
+        RH6.setWest(RH5);
+        RH6.setNorth(VDK);
+        VDK.setSouth(RH6);
+        VDK.setWest(DT4);
+        RH6.setEast(RWS);
+        RWS.setWest(RH6);
+        VDK.setEast(FCR);
+        FCR.setWest(VDK);
+        
+  
+        
     }
 }
+
